@@ -31,5 +31,10 @@ namespace QLBanHang
         {
 
         }
+
+        private void lblIDProduct_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
