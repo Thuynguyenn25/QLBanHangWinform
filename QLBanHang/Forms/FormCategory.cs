@@ -27,6 +27,14 @@ namespace QLBanHang
 
         }
 
-       
+        private void txtName_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblIDProduct_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

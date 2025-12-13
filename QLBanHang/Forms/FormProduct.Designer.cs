@@ -76,7 +76,7 @@
             tblProduct.RowStyles.Add(new RowStyle(SizeType.Absolute, 60F));
             tblProduct.RowStyles.Add(new RowStyle(SizeType.Absolute, 60F));
             tblProduct.RowStyles.Add(new RowStyle(SizeType.Percent, 60F));
-            tblProduct.Size = new Size(1112, 538);
+            tblProduct.Size = new Size(1069, 538);
             tblProduct.TabIndex = 0;
             tblProduct.TagString = null;
             // 
@@ -92,7 +92,7 @@
             pnlPrd2.MinimumSize = new Size(1, 1);
             pnlPrd2.Name = "pnlPrd2";
             pnlPrd2.RectColor = SystemColors.ActiveCaption;
-            pnlPrd2.Size = new Size(1112, 251);
+            pnlPrd2.Size = new Size(1069, 251);
             pnlPrd2.TabIndex = 3;
             pnlPrd2.Text = null;
             pnlPrd2.TextAlignment = ContentAlignment.MiddleCenter;
@@ -102,7 +102,7 @@
             uiButton1.Anchor = AnchorStyles.None;
             uiButton1.FillColor = Color.SteelBlue;
             uiButton1.Font = new Font("Segoe UI", 9F);
-            uiButton1.Location = new Point(911, 36);
+            uiButton1.Location = new Point(889, 36);
             uiButton1.MinimumSize = new Size(1, 1);
             uiButton1.Name = "uiButton1";
             uiButton1.Size = new Size(134, 42);
@@ -121,7 +121,7 @@
             pnlPrd1.MinimumSize = new Size(1, 1);
             pnlPrd1.Name = "pnlPrd1";
             pnlPrd1.RectColor = SystemColors.ActiveCaption;
-            pnlPrd1.Size = new Size(1112, 167);
+            pnlPrd1.Size = new Size(1069, 167);
             pnlPrd1.TabIndex = 2;
             pnlPrd1.Text = null;
             pnlPrd1.TextAlignment = ContentAlignment.MiddleCenter;
@@ -143,7 +143,7 @@
             uiTableLayoutPanel1.Name = "uiTableLayoutPanel1";
             uiTableLayoutPanel1.RowCount = 1;
             uiTableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            uiTableLayoutPanel1.Size = new Size(1112, 60);
+            uiTableLayoutPanel1.Size = new Size(1069, 60);
             uiTableLayoutPanel1.TabIndex = 0;
             uiTableLayoutPanel1.TagString = null;
             // 
@@ -153,13 +153,13 @@
             pnlPrd6.Dock = DockStyle.Fill;
             pnlPrd6.FillColor = SystemColors.GradientInactiveCaption;
             pnlPrd6.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 163);
-            pnlPrd6.Location = new Point(834, 0);
+            pnlPrd6.Location = new Point(801, 0);
             pnlPrd6.Margin = new Padding(0);
             pnlPrd6.MinimumSize = new Size(1, 1);
             pnlPrd6.Name = "pnlPrd6";
             pnlPrd6.Radius = 0;
             pnlPrd6.RectColor = SystemColors.GradientInactiveCaption;
-            pnlPrd6.Size = new Size(278, 60);
+            pnlPrd6.Size = new Size(268, 60);
             pnlPrd6.TabIndex = 5;
             pnlPrd6.Text = null;
             pnlPrd6.TextAlignment = ContentAlignment.MiddleCenter;
@@ -169,7 +169,7 @@
             btnClearPrd.Anchor = AnchorStyles.None;
             btnClearPrd.FillColor = Color.SteelBlue;
             btnClearPrd.Font = new Font("Segoe UI", 9F);
-            btnClearPrd.Location = new Point(77, 8);
+            btnClearPrd.Location = new Point(72, 8);
             btnClearPrd.MinimumSize = new Size(1, 1);
             btnClearPrd.Name = "btnClearPrd";
             btnClearPrd.Size = new Size(125, 44);
@@ -183,13 +183,13 @@
             pnlPrd5.Dock = DockStyle.Fill;
             pnlPrd5.FillColor = SystemColors.GradientInactiveCaption;
             pnlPrd5.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 163);
-            pnlPrd5.Location = new Point(556, 0);
+            pnlPrd5.Location = new Point(534, 0);
             pnlPrd5.Margin = new Padding(0);
             pnlPrd5.MinimumSize = new Size(1, 1);
             pnlPrd5.Name = "pnlPrd5";
             pnlPrd5.Radius = 0;
             pnlPrd5.RectColor = SystemColors.GradientInactiveCaption;
-            pnlPrd5.Size = new Size(278, 60);
+            pnlPrd5.Size = new Size(267, 60);
             pnlPrd5.TabIndex = 4;
             pnlPrd5.Text = null;
             pnlPrd5.TextAlignment = ContentAlignment.MiddleCenter;
@@ -199,7 +199,7 @@
             btnUpdatePrd.Anchor = AnchorStyles.None;
             btnUpdatePrd.FillColor = Color.SteelBlue;
             btnUpdatePrd.Font = new Font("Segoe UI", 9F);
-            btnUpdatePrd.Location = new Point(77, 8);
+            btnUpdatePrd.Location = new Point(71, 8);
             btnUpdatePrd.MinimumSize = new Size(1, 1);
             btnUpdatePrd.Name = "btnUpdatePrd";
             btnUpdatePrd.Size = new Size(125, 44);
@@ -213,13 +213,13 @@
             pnlPrd4.Dock = DockStyle.Fill;
             pnlPrd4.FillColor = SystemColors.GradientInactiveCaption;
             pnlPrd4.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 163);
-            pnlPrd4.Location = new Point(278, 0);
+            pnlPrd4.Location = new Point(267, 0);
             pnlPrd4.Margin = new Padding(0);
             pnlPrd4.MinimumSize = new Size(1, 1);
             pnlPrd4.Name = "pnlPrd4";
             pnlPrd4.Radius = 0;
             pnlPrd4.RectColor = SystemColors.GradientInactiveCaption;
-            pnlPrd4.Size = new Size(278, 60);
+            pnlPrd4.Size = new Size(267, 60);
             pnlPrd4.TabIndex = 3;
             pnlPrd4.Text = null;
             pnlPrd4.TextAlignment = ContentAlignment.MiddleCenter;
@@ -229,7 +229,7 @@
             btnDeletePrd.Anchor = AnchorStyles.None;
             btnDeletePrd.FillColor = Color.SteelBlue;
             btnDeletePrd.Font = new Font("Segoe UI", 9F);
-            btnDeletePrd.Location = new Point(77, 8);
+            btnDeletePrd.Location = new Point(71, 8);
             btnDeletePrd.MinimumSize = new Size(1, 1);
             btnDeletePrd.Name = "btnDeletePrd";
             btnDeletePrd.Size = new Size(125, 44);
@@ -249,7 +249,7 @@
             pnlPrd3.Name = "pnlPrd3";
             pnlPrd3.Radius = 0;
             pnlPrd3.RectColor = SystemColors.GradientInactiveCaption;
-            pnlPrd3.Size = new Size(278, 60);
+            pnlPrd3.Size = new Size(267, 60);
             pnlPrd3.TabIndex = 2;
             pnlPrd3.Text = null;
             pnlPrd3.TextAlignment = ContentAlignment.MiddleCenter;
@@ -259,7 +259,7 @@
             btnAddPrd.Anchor = AnchorStyles.None;
             btnAddPrd.FillColor = Color.SteelBlue;
             btnAddPrd.Font = new Font("Segoe UI", 9F);
-            btnAddPrd.Location = new Point(77, 8);
+            btnAddPrd.Location = new Point(71, 8);
             btnAddPrd.MinimumSize = new Size(1, 1);
             btnAddPrd.Name = "btnAddPrd";
             btnAddPrd.Size = new Size(125, 44);
@@ -280,7 +280,7 @@
             uiTableLayoutPanel2.Name = "uiTableLayoutPanel2";
             uiTableLayoutPanel2.RowCount = 1;
             uiTableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-            uiTableLayoutPanel2.Size = new Size(1112, 60);
+            uiTableLayoutPanel2.Size = new Size(1069, 60);
             uiTableLayoutPanel2.TabIndex = 1;
             uiTableLayoutPanel2.TagString = null;
             // 
@@ -290,13 +290,13 @@
             pnlPrd9.Dock = DockStyle.Fill;
             pnlPrd9.FillColor = SystemColors.ActiveCaption;
             pnlPrd9.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 163);
-            pnlPrd9.Location = new Point(556, 0);
+            pnlPrd9.Location = new Point(534, 0);
             pnlPrd9.Margin = new Padding(0);
             pnlPrd9.MinimumSize = new Size(1, 1);
             pnlPrd9.Name = "pnlPrd9";
             pnlPrd9.Radius = 0;
             pnlPrd9.RectColor = SystemColors.GradientActiveCaption;
-            pnlPrd9.Size = new Size(556, 60);
+            pnlPrd9.Size = new Size(535, 60);
             pnlPrd9.TabIndex = 4;
             pnlPrd9.Text = null;
             pnlPrd9.TextAlignment = ContentAlignment.MiddleCenter;
@@ -305,7 +305,7 @@
             // 
             txtSearchPrd.Anchor = AnchorStyles.None;
             txtSearchPrd.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 163);
-            txtSearchPrd.Location = new Point(56, 9);
+            txtSearchPrd.Location = new Point(45, 9);
             txtSearchPrd.Margin = new Padding(4, 5, 4, 5);
             txtSearchPrd.MinimumSize = new Size(1, 16);
             txtSearchPrd.Name = "txtSearchPrd";
@@ -328,7 +328,7 @@
             pnlPrd8.Name = "pnlPrd8";
             pnlPrd8.Radius = 0;
             pnlPrd8.RectColor = SystemColors.GradientActiveCaption;
-            pnlPrd8.Size = new Size(556, 60);
+            pnlPrd8.Size = new Size(534, 60);
             pnlPrd8.TabIndex = 3;
             pnlPrd8.Text = null;
             pnlPrd8.TextAlignment = ContentAlignment.MiddleCenter;
@@ -343,17 +343,40 @@
             lblTitlePrd.Margin = new Padding(0);
             lblTitlePrd.Name = "lblTitlePrd";
             lblTitlePrd.Padding = new Padding(20, 0, 0, 0);
-            lblTitlePrd.Size = new Size(556, 60);
+            lblTitlePrd.Size = new Size(534, 60);
             lblTitlePrd.TabIndex = 0;
             lblTitlePrd.Text = "Danh sách các sản phẩm";
             lblTitlePrd.TextAlign = ContentAlignment.MiddleLeft;
-           
+            // 
+            // btnSearchPrd
+            // 
+            btnSearchPrd.Font = new Font("Microsoft Sans Serif", 12F);
+            btnSearchPrd.Location = new Point(0, 0);
+            btnSearchPrd.MinimumSize = new Size(1, 1);
+            btnSearchPrd.Name = "btnSearchPrd";
+            btnSearchPrd.Size = new Size(100, 35);
+            btnSearchPrd.TabIndex = 0;
+            btnSearchPrd.TipsFont = new Font("Microsoft Sans Serif", 9F);
+            // 
+            // t
+            // 
+            t.Font = new Font("Microsoft Sans Serif", 12F);
+            t.Location = new Point(0, 0);
+            t.Margin = new Padding(4, 5, 4, 5);
+            t.MinimumSize = new Size(1, 16);
+            t.Name = "t";
+            t.Padding = new Padding(5);
+            t.ShowText = false;
+            t.Size = new Size(150, 29);
+            t.TabIndex = 0;
+            t.TextAlignment = ContentAlignment.MiddleLeft;
+            t.Watermark = "";
             // 
             // FormProduct
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1112, 538);
+            ClientSize = new Size(1069, 538);
             Controls.Add(tblProduct);
             Name = "FormProduct";
             Text = "FormProduct";

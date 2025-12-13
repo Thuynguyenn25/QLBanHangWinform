@@ -75,7 +75,7 @@
             tblMain.RowStyles.Add(new RowStyle(SizeType.Absolute, 65F));
             tblMain.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
             tblMain.RowStyles.Add(new RowStyle(SizeType.Absolute, 50F));
-            tblMain.Size = new Size(1057, 518);
+            tblMain.Size = new Size(1025, 482);
             tblMain.TabIndex = 0;
             tblMain.TagString = null;
             // 
@@ -89,7 +89,7 @@
             pnlHeader.Margin = new Padding(0);
             pnlHeader.MinimumSize = new Size(1, 1);
             pnlHeader.Name = "pnlHeader";
-            pnlHeader.Size = new Size(1057, 65);
+            pnlHeader.Size = new Size(1025, 65);
             pnlHeader.TabIndex = 3;
             pnlHeader.Text = null;
             pnlHeader.TextAlignment = ContentAlignment.MiddleCenter;
@@ -103,7 +103,7 @@
             msMenu.Location = new Point(0, 0);
             msMenu.Name = "msMenu";
             msMenu.RightToLeft = RightToLeft.No;
-            msMenu.Size = new Size(1057, 65);
+            msMenu.Size = new Size(1025, 65);
             msMenu.TabIndex = 0;
             msMenu.Text = "menuStrip1";
             // 
@@ -120,7 +120,7 @@
             // tsmiExit
             // 
             tsmiExit.Name = "tsmiExit";
-            tsmiExit.Size = new Size(138, 28);
+            tsmiExit.Size = new Size(224, 28);
             tsmiExit.Text = "Thoát";
             // 
             // tsmiCatgr
@@ -169,11 +169,11 @@
             pnlFooter.Dock = DockStyle.Fill;
             pnlFooter.FillColor = SystemColors.ActiveCaption;
             pnlFooter.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 163);
-            pnlFooter.Location = new Point(0, 468);
+            pnlFooter.Location = new Point(0, 432);
             pnlFooter.Margin = new Padding(0);
             pnlFooter.MinimumSize = new Size(1, 1);
             pnlFooter.Name = "pnlFooter";
-            pnlFooter.Size = new Size(1057, 50);
+            pnlFooter.Size = new Size(1025, 50);
             pnlFooter.TabIndex = 2;
             pnlFooter.Text = null;
             pnlFooter.TextAlignment = ContentAlignment.MiddleCenter;
@@ -186,7 +186,7 @@
             ssStatus.Items.AddRange(new ToolStripItem[] { lblStatus, statusTime });
             ssStatus.Location = new Point(0, 0);
             ssStatus.Name = "ssStatus";
-            ssStatus.Size = new Size(1057, 50);
+            ssStatus.Size = new Size(1025, 50);
             ssStatus.TabIndex = 1;
             ssStatus.Text = "statusStrip1";
             // 
@@ -196,7 +196,7 @@
             lblStatus.Font = new Font("Segoe UI", 10F);
             lblStatus.Margin = new Padding(2);
             lblStatus.Name = "lblStatus";
-            lblStatus.Size = new Size(517, 46);
+            lblStatus.Size = new Size(501, 46);
             lblStatus.Spring = true;
             lblStatus.Text = "Trạng thái: ";
             // 
@@ -205,7 +205,7 @@
             statusTime.Font = new Font("Segoe UI", 10F);
             statusTime.Margin = new Padding(2);
             statusTime.Name = "statusTime";
-            statusTime.Size = new Size(517, 46);
+            statusTime.Size = new Size(501, 46);
             statusTime.Spring = true;
             statusTime.Text = "//";
             // 
@@ -220,8 +220,8 @@
             pnlContent.Margin = new Padding(0);
             pnlContent.MinimumSize = new Size(1, 1);
             pnlContent.Name = "pnlContent";
-            pnlContent.RectColor = SystemColors.ActiveCaption;
-            pnlContent.Size = new Size(1057, 403);
+            pnlContent.RectColor = SystemColors.ActiveBorder;
+            pnlContent.Size = new Size(1025, 367);
             pnlContent.TabIndex = 1;
             pnlContent.Text = null;
             pnlContent.TextAlignment = ContentAlignment.MiddleCenter;
@@ -232,7 +232,7 @@
             lblHintFM.BackColor = SystemColors.GradientActiveCaption;
             lblHintFM.Font = new Font("Segoe UI", 9F);
             lblHintFM.ForeColor = Color.FromArgb(48, 48, 48);
-            lblHintFM.Location = new Point(337, 85);
+            lblHintFM.Location = new Point(321, 67);
             lblHintFM.Name = "lblHintFM";
             lblHintFM.Size = new Size(350, 70);
             lblHintFM.TabIndex = 1;
@@ -245,7 +245,7 @@
             lblTitleFM.BackColor = SystemColors.GradientActiveCaption;
             lblTitleFM.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 163);
             lblTitleFM.ForeColor = Color.FromArgb(48, 48, 48);
-            lblTitleFM.Location = new Point(365, 5);
+            lblTitleFM.Location = new Point(349, -13);
             lblTitleFM.Name = "lblTitleFM";
             lblTitleFM.Size = new Size(284, 80);
             lblTitleFM.TabIndex = 0;
@@ -300,7 +300,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1057, 518);
+            ClientSize = new Size(1025, 482);
             Controls.Add(tblMain);
             IsMdiContainer = true;
             MainMenuStrip = msMenu;
