@@ -32,7 +32,7 @@
 
   <ItemGroup>
     <None Update="DB\db_QLBH.db">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>
 

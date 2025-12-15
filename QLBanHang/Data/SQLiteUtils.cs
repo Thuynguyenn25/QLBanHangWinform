@@ -44,6 +44,7 @@ namespace QLBanHang.Data
             catch (Exception ex)
             {
                 Utils.LogDB("SQLiteUtils Constructor", ex, "", "Không thể khởi tạo SQLiteUtils");
+
             }
         }
         public void BackupDataDaily()
