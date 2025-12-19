@@ -570,7 +570,7 @@
             // 
             // txtSearch
             // 
-            txtSearch.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
+            txtSearch.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             txtSearch.Font = new Font("Microsoft Sans Serif", 12F);
             txtSearch.Location = new Point(148, 14);
             txtSearch.Margin = new Padding(4, 5, 4, 5);
