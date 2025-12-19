@@ -28,11 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle7 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle8 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle9 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle10 = new DataGridViewCellStyle();
             uiSplitContainer1 = new Sunny.UI.UISplitContainer();
             uiTableLayoutPanel2 = new Sunny.UI.UITableLayoutPanel();
             uiPanel1 = new Sunny.UI.UIPanel();
@@ -55,7 +55,7 @@
             btnSave = new Sunny.UI.UIButton();
             uiTableLayoutPanel3 = new Sunny.UI.UITableLayoutPanel();
             uiPanel2 = new Sunny.UI.UIPanel();
-            uiDataGridView1 = new Sunny.UI.UIDataGridView();
+            dgvProduct = new Sunny.UI.UIDataGridView();
             cChose = new DataGridViewCheckBoxColumn();
             cSTT = new DataGridViewTextBoxColumn();
             cIDProduct = new DataGridViewTextBoxColumn();
@@ -75,7 +75,7 @@
             uiTableLayoutPanel4.SuspendLayout();
             uiFlowLayoutPanel1.SuspendLayout();
             uiTableLayoutPanel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)uiDataGridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dgvProduct).BeginInit();
             uiFlowLayoutPanel2.SuspendLayout();
             SuspendLayout();
             // 
@@ -93,7 +93,7 @@
             // uiSplitContainer1.Panel2
             // 
             uiSplitContainer1.Panel2.BackColor = Color.White;
-            uiSplitContainer1.Panel2.Controls.Add(uiDataGridView1);
+            uiSplitContainer1.Panel2.Controls.Add(dgvProduct);
             uiSplitContainer1.Panel2.Controls.Add(uiPanel3);
             uiSplitContainer1.Panel2.Controls.Add(uiFlowLayoutPanel2);
             uiSplitContainer1.Size = new Size(1069, 553);
@@ -435,53 +435,53 @@
             uiPanel2.Text = "Thông tin sản phẩm";
             uiPanel2.TextAlignment = ContentAlignment.MiddleCenter;
             // 
-            // uiDataGridView1
+            // dgvProduct
             // 
-            dataGridViewCellStyle1.BackColor = Color.FromArgb(235, 243, 255);
-            uiDataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            uiDataGridView1.BackgroundColor = Color.White;
-            uiDataGridView1.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = Color.FromArgb(80, 160, 255);
-            dataGridViewCellStyle2.Font = new Font("Microsoft Sans Serif", 12F);
-            dataGridViewCellStyle2.ForeColor = Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
-            uiDataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            uiDataGridView1.ColumnHeadersHeight = 32;
-            uiDataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            uiDataGridView1.Columns.AddRange(new DataGridViewColumn[] { cChose, cSTT, cIDProduct, cName, cType, cStock });
-            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = SystemColors.Window;
-            dataGridViewCellStyle3.Font = new Font("Microsoft Sans Serif", 12F);
-            dataGridViewCellStyle3.ForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
-            uiDataGridView1.DefaultCellStyle = dataGridViewCellStyle3;
-            uiDataGridView1.Dock = DockStyle.Fill;
-            uiDataGridView1.EnableHeadersVisualStyles = false;
-            uiDataGridView1.Font = new Font("Microsoft Sans Serif", 12F);
-            uiDataGridView1.GridColor = Color.FromArgb(80, 160, 255);
-            uiDataGridView1.Location = new Point(0, 145);
-            uiDataGridView1.Name = "uiDataGridView1";
-            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = Color.FromArgb(235, 243, 255);
-            dataGridViewCellStyle4.Font = new Font("Microsoft Sans Serif", 12F);
-            dataGridViewCellStyle4.ForeColor = Color.FromArgb(48, 48, 48);
-            dataGridViewCellStyle4.SelectionBackColor = Color.FromArgb(80, 160, 255);
-            dataGridViewCellStyle4.SelectionForeColor = Color.White;
-            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.True;
-            uiDataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
-            uiDataGridView1.RowHeadersWidth = 51;
-            dataGridViewCellStyle5.BackColor = Color.White;
-            dataGridViewCellStyle5.Font = new Font("Microsoft Sans Serif", 12F);
-            uiDataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle5;
-            uiDataGridView1.SelectedIndex = -1;
-            uiDataGridView1.Size = new Size(527, 408);
-            uiDataGridView1.StripeOddColor = Color.FromArgb(235, 243, 255);
-            uiDataGridView1.TabIndex = 2;
+            dataGridViewCellStyle6.BackColor = Color.FromArgb(235, 243, 255);
+            dgvProduct.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle6;
+            dgvProduct.BackgroundColor = Color.White;
+            dgvProduct.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle7.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle7.BackColor = Color.FromArgb(80, 160, 255);
+            dataGridViewCellStyle7.Font = new Font("Microsoft Sans Serif", 12F);
+            dataGridViewCellStyle7.ForeColor = Color.White;
+            dataGridViewCellStyle7.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = DataGridViewTriState.True;
+            dgvProduct.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dgvProduct.ColumnHeadersHeight = 32;
+            dgvProduct.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            dgvProduct.Columns.AddRange(new DataGridViewColumn[] { cChose, cSTT, cIDProduct, cName, cType, cStock });
+            dataGridViewCellStyle8.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = SystemColors.Window;
+            dataGridViewCellStyle8.Font = new Font("Microsoft Sans Serif", 12F);
+            dataGridViewCellStyle8.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle8.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = DataGridViewTriState.False;
+            dgvProduct.DefaultCellStyle = dataGridViewCellStyle8;
+            dgvProduct.Dock = DockStyle.Fill;
+            dgvProduct.EnableHeadersVisualStyles = false;
+            dgvProduct.Font = new Font("Microsoft Sans Serif", 12F);
+            dgvProduct.GridColor = Color.FromArgb(80, 160, 255);
+            dgvProduct.Location = new Point(0, 145);
+            dgvProduct.Name = "dgvProduct";
+            dataGridViewCellStyle9.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = Color.FromArgb(235, 243, 255);
+            dataGridViewCellStyle9.Font = new Font("Microsoft Sans Serif", 12F);
+            dataGridViewCellStyle9.ForeColor = Color.FromArgb(48, 48, 48);
+            dataGridViewCellStyle9.SelectionBackColor = Color.FromArgb(80, 160, 255);
+            dataGridViewCellStyle9.SelectionForeColor = Color.White;
+            dataGridViewCellStyle9.WrapMode = DataGridViewTriState.True;
+            dgvProduct.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
+            dgvProduct.RowHeadersWidth = 51;
+            dataGridViewCellStyle10.BackColor = Color.White;
+            dataGridViewCellStyle10.Font = new Font("Microsoft Sans Serif", 12F);
+            dgvProduct.RowsDefaultCellStyle = dataGridViewCellStyle10;
+            dgvProduct.SelectedIndex = -1;
+            dgvProduct.Size = new Size(527, 408);
+            dgvProduct.StripeOddColor = Color.FromArgb(235, 243, 255);
+            dgvProduct.TabIndex = 2;
             // 
             // cChose
             // 
@@ -601,7 +601,7 @@
             uiTableLayoutPanel4.ResumeLayout(false);
             uiFlowLayoutPanel1.ResumeLayout(false);
             uiTableLayoutPanel3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)uiDataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dgvProduct).EndInit();
             uiFlowLayoutPanel2.ResumeLayout(false);
             ResumeLayout(false);
         }
@@ -636,7 +636,7 @@
         private Sunny.UI.UIButton btnSearch;
         private Sunny.UI.UITextBox txtSearch;
         private Sunny.UI.UIPanel uiPanel3;
-        private Sunny.UI.UIDataGridView uiDataGridView1;
+        private Sunny.UI.UIDataGridView dgvProduct;
         private DataGridViewCheckBoxColumn cChose;
         private DataGridViewTextBoxColumn cSTT;
         private DataGridViewTextBoxColumn cIDProduct;
