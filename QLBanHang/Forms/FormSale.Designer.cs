@@ -53,6 +53,9 @@
             uiTextBox1 = new Sunny.UI.UITextBox();
             uiTableLayoutPanel1 = new Sunny.UI.UITableLayoutPanel();
             lblChose = new Sunny.UI.UILabel();
+            uiTableLayoutPanel8 = new Sunny.UI.UITableLayoutPanel();
+            btnConfirm = new Sunny.UI.UIButton();
+            btnExit = new Sunny.UI.UIButton();
             uiTableLayoutPanel7 = new Sunny.UI.UITableLayoutPanel();
             rdoCash = new Sunny.UI.UIRadioButton();
             uiRadioButton1 = new Sunny.UI.UIRadioButton();
@@ -71,9 +74,7 @@
             uiTextBox7 = new Sunny.UI.UITextBox();
             uiTableLayoutPanel5 = new Sunny.UI.UITableLayoutPanel();
             lblInfor = new Sunny.UI.UILabel();
-            uiTableLayoutPanel8 = new Sunny.UI.UITableLayoutPanel();
-            btnConfirm = new Sunny.UI.UIButton();
-            btnExit = new Sunny.UI.UIButton();
+            lblNameContent = new Sunny.UI.UILabel();
             (uiSplitContainer1).BeginInit();
             uiSplitContainer1.Panel1.SuspendLayout();
             uiSplitContainer1.Panel2.SuspendLayout();
@@ -81,14 +82,15 @@
             uiTableLayoutPanel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvShopping).BeginInit();
             uiTableLayoutPanel4.SuspendLayout();
+            uiPanel1.SuspendLayout();
             uiTableLayoutPanel2.SuspendLayout();
             uiTableLayoutPanel1.SuspendLayout();
+            uiTableLayoutPanel8.SuspendLayout();
             uiTableLayoutPanel7.SuspendLayout();
             uiPanel3.SuspendLayout();
             uiPanel2.SuspendLayout();
             uiTableLayoutPanel6.SuspendLayout();
             uiTableLayoutPanel5.SuspendLayout();
-            uiTableLayoutPanel8.SuspendLayout();
             SuspendLayout();
             // 
             // uiSplitContainer1
@@ -256,6 +258,7 @@
             // uiPanel1
             // 
             uiPanel1.BackColor = SystemColors.ActiveCaption;
+            uiPanel1.Controls.Add(lblNameContent);
             uiPanel1.Dock = DockStyle.Top;
             uiPanel1.Font = new Font("Microsoft Sans Serif", 12F);
             uiPanel1.Location = new Point(0, 244);
@@ -265,7 +268,6 @@
             uiPanel1.RectColor = Color.White;
             uiPanel1.Size = new Size(470, 50);
             uiPanel1.TabIndex = 2;
-            uiPanel1.Text = "Giỏ hàng";
             uiPanel1.TextAlignment = ContentAlignment.MiddleCenter;
             // 
             // uiTableLayoutPanel2
@@ -398,6 +400,47 @@
             lblChose.TabIndex = 0;
             lblChose.Text = "Chọn sản phẩm";
             lblChose.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // uiTableLayoutPanel8
+            // 
+            uiTableLayoutPanel8.BackColor = SystemColors.GradientInactiveCaption;
+            uiTableLayoutPanel8.ColumnCount = 2;
+            uiTableLayoutPanel8.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+            uiTableLayoutPanel8.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+            uiTableLayoutPanel8.Controls.Add(btnConfirm, 0, 0);
+            uiTableLayoutPanel8.Controls.Add(btnExit, 1, 0);
+            uiTableLayoutPanel8.Dock = DockStyle.Fill;
+            uiTableLayoutPanel8.Location = new Point(0, 691);
+            uiTableLayoutPanel8.Name = "uiTableLayoutPanel8";
+            uiTableLayoutPanel8.RowCount = 1;
+            uiTableLayoutPanel8.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            uiTableLayoutPanel8.Size = new Size(595, 109);
+            uiTableLayoutPanel8.TabIndex = 5;
+            uiTableLayoutPanel8.TagString = null;
+            // 
+            // btnConfirm
+            // 
+            btnConfirm.Anchor = AnchorStyles.None;
+            btnConfirm.Font = new Font("Microsoft Sans Serif", 12F);
+            btnConfirm.Location = new Point(86, 32);
+            btnConfirm.MinimumSize = new Size(1, 1);
+            btnConfirm.Name = "btnConfirm";
+            btnConfirm.Size = new Size(125, 44);
+            btnConfirm.TabIndex = 0;
+            btnConfirm.Text = "Đặt hàng";
+            btnConfirm.TipsFont = new Font("Microsoft Sans Serif", 9F);
+            // 
+            // btnExit
+            // 
+            btnExit.Anchor = AnchorStyles.None;
+            btnExit.Font = new Font("Microsoft Sans Serif", 12F);
+            btnExit.Location = new Point(383, 32);
+            btnExit.MinimumSize = new Size(1, 1);
+            btnExit.Name = "btnExit";
+            btnExit.Size = new Size(125, 44);
+            btnExit.TabIndex = 1;
+            btnExit.Text = "Thoát";
+            btnExit.TipsFont = new Font("Microsoft Sans Serif", 9F);
             // 
             // uiTableLayoutPanel7
             // 
@@ -652,46 +695,18 @@
             lblInfor.Text = "Thông tin khách hàng";
             lblInfor.TextAlign = ContentAlignment.MiddleCenter;
             // 
-            // uiTableLayoutPanel8
+            // lblNameContent
             // 
-            uiTableLayoutPanel8.BackColor = SystemColors.GradientInactiveCaption;
-            uiTableLayoutPanel8.ColumnCount = 2;
-            uiTableLayoutPanel8.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
-            uiTableLayoutPanel8.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
-            uiTableLayoutPanel8.Controls.Add(btnConfirm, 0, 0);
-            uiTableLayoutPanel8.Controls.Add(btnExit, 1, 0);
-            uiTableLayoutPanel8.Dock = DockStyle.Fill;
-            uiTableLayoutPanel8.Location = new Point(0, 691);
-            uiTableLayoutPanel8.Name = "uiTableLayoutPanel8";
-            uiTableLayoutPanel8.RowCount = 1;
-            uiTableLayoutPanel8.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            uiTableLayoutPanel8.Size = new Size(595, 109);
-            uiTableLayoutPanel8.TabIndex = 5;
-            uiTableLayoutPanel8.TagString = null;
-            // 
-            // btnConfirm
-            // 
-            btnConfirm.Anchor = AnchorStyles.None;
-            btnConfirm.Font = new Font("Microsoft Sans Serif", 12F);
-            btnConfirm.Location = new Point(86, 32);
-            btnConfirm.MinimumSize = new Size(1, 1);
-            btnConfirm.Name = "btnConfirm";
-            btnConfirm.Size = new Size(125, 44);
-            btnConfirm.TabIndex = 0;
-            btnConfirm.Text = "Đặt hàng";
-            btnConfirm.TipsFont = new Font("Microsoft Sans Serif", 9F);
-            // 
-            // btnExit
-            // 
-            btnExit.Anchor = AnchorStyles.None;
-            btnExit.Font = new Font("Microsoft Sans Serif", 12F);
-            btnExit.Location = new Point(383, 32);
-            btnExit.MinimumSize = new Size(1, 1);
-            btnExit.Name = "btnExit";
-            btnExit.Size = new Size(125, 44);
-            btnExit.TabIndex = 1;
-            btnExit.Text = "Thoát";
-            btnExit.TipsFont = new Font("Microsoft Sans Serif", 9F);
+            lblNameContent.BackColor = SystemColors.GradientInactiveCaption;
+            lblNameContent.Dock = DockStyle.Fill;
+            lblNameContent.Font = new Font("Microsoft Sans Serif", 12F);
+            lblNameContent.ForeColor = Color.FromArgb(48, 48, 48);
+            lblNameContent.Location = new Point(0, 0);
+            lblNameContent.Name = "lblNameContent";
+            lblNameContent.Size = new Size(470, 50);
+            lblNameContent.TabIndex = 0;
+            lblNameContent.Text = "Giỏ hàng";
+            lblNameContent.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // FormSale
             // 
@@ -708,14 +723,15 @@
             uiTableLayoutPanel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dgvShopping).EndInit();
             uiTableLayoutPanel4.ResumeLayout(false);
+            uiPanel1.ResumeLayout(false);
             uiTableLayoutPanel2.ResumeLayout(false);
             uiTableLayoutPanel1.ResumeLayout(false);
+            uiTableLayoutPanel8.ResumeLayout(false);
             uiTableLayoutPanel7.ResumeLayout(false);
             uiPanel3.ResumeLayout(false);
             uiPanel2.ResumeLayout(false);
             uiTableLayoutPanel6.ResumeLayout(false);
             uiTableLayoutPanel5.ResumeLayout(false);
-            uiTableLayoutPanel8.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -762,5 +778,6 @@
         private Sunny.UI.UITableLayoutPanel uiTableLayoutPanel8;
         private Sunny.UI.UIButton btnConfirm;
         private Sunny.UI.UIButton btnExit;
+        private Sunny.UI.UILabel lblNameContent;
     }
 }
