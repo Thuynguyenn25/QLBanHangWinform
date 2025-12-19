@@ -16,5 +16,25 @@ namespace QLBanHang
         {
             InitializeComponent();
         }
+
+        private void uiTableLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void uiTableLayoutPanel4_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void uiTableLayoutPanel5_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void uiTableLayoutPanel1_Paint_1(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }
