@@ -37,6 +37,13 @@ namespace QLBanHang.Data
                 {
                     dbconnectionString = $"Data Source={defaultDbPath}";
                 }
+                Utils.Log(
+                    "DB_PATH",
+                    null,
+                    $"StartupPath: {Application.StartupPath}\n" +
+                    $"Default DB Path: {defaultDbPath}\n" +
+                    $"ConnectionString: {dbconnectionString}"
+                );
 
                 // Khởi tạo kết nối SQLite
                 connection = new SQLiteConnection(dbconnectionString);
@@ -44,6 +51,7 @@ namespace QLBanHang.Data
             catch (Exception ex)
             {
                 Utils.LogDB("SQLiteUtils Constructor", ex, "", "Không thể khởi tạo SQLiteUtils");
+
             }
         }
         public void BackupDataDaily()

@@ -96,8 +96,8 @@
             uiSplitContainer1.Panel2.Controls.Add(dgvProduct);
             uiSplitContainer1.Panel2.Controls.Add(uiPanel3);
             uiSplitContainer1.Panel2.Controls.Add(uiFlowLayoutPanel2);
-            uiSplitContainer1.Size = new Size(1069, 553);
-            uiSplitContainer1.SplitterDistance = 531;
+            uiSplitContainer1.Size = new Size(1087, 553);
+            uiSplitContainer1.SplitterDistance = 539;
             uiSplitContainer1.SplitterWidth = 11;
             uiSplitContainer1.TabIndex = 0;
             // 
@@ -125,7 +125,7 @@
             uiTableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
             uiTableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
             uiTableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-            uiTableLayoutPanel2.Size = new Size(531, 553);
+            uiTableLayoutPanel2.Size = new Size(539, 553);
             uiTableLayoutPanel2.TabIndex = 0;
             uiTableLayoutPanel2.TagString = null;
             // 
@@ -139,7 +139,7 @@
             uiPanel1.Margin = new Padding(4, 5, 4, 5);
             uiPanel1.MinimumSize = new Size(1, 1);
             uiPanel1.Name = "uiPanel1";
-            uiPanel1.Size = new Size(523, 543);
+            uiPanel1.Size = new Size(531, 543);
             uiPanel1.TabIndex = 0;
             uiPanel1.Text = null;
             uiPanel1.TextAlignment = ContentAlignment.MiddleCenter;
@@ -175,7 +175,7 @@
             uiTableLayoutPanel4.RowStyles.Add(new RowStyle(SizeType.Percent, 10.5263157F));
             uiTableLayoutPanel4.RowStyles.Add(new RowStyle(SizeType.Percent, 31.5789471F));
             uiTableLayoutPanel4.RowStyles.Add(new RowStyle(SizeType.Percent, 15.7894735F));
-            uiTableLayoutPanel4.Size = new Size(523, 482);
+            uiTableLayoutPanel4.Size = new Size(531, 482);
             uiTableLayoutPanel4.TabIndex = 1;
             uiTableLayoutPanel4.TagString = null;
             uiTableLayoutPanel4.Paint += uiTableLayoutPanel4_Paint;
@@ -190,7 +190,7 @@
             txtIDProduct.Name = "txtIDProduct";
             txtIDProduct.Padding = new Padding(5);
             txtIDProduct.ShowText = false;
-            txtIDProduct.Size = new Size(395, 40);
+            txtIDProduct.Size = new Size(403, 40);
             txtIDProduct.TabIndex = 0;
             txtIDProduct.TextAlignment = ContentAlignment.MiddleLeft;
             txtIDProduct.Watermark = "";
@@ -205,7 +205,7 @@
             txtName.Name = "txtName";
             txtName.Padding = new Padding(5);
             txtName.ShowText = false;
-            txtName.Size = new Size(395, 40);
+            txtName.Size = new Size(403, 40);
             txtName.TabIndex = 1;
             txtName.TextAlignment = ContentAlignment.MiddleLeft;
             txtName.Watermark = "";
@@ -220,7 +220,7 @@
             uiTextBox4.Name = "uiTextBox4";
             uiTextBox4.Padding = new Padding(5);
             uiTextBox4.ShowText = false;
-            uiTextBox4.Size = new Size(395, 40);
+            uiTextBox4.Size = new Size(403, 40);
             uiTextBox4.TabIndex = 3;
             uiTextBox4.TextAlignment = ContentAlignment.MiddleLeft;
             uiTextBox4.Watermark = "";
@@ -235,7 +235,7 @@
             uiTextBox5.Name = "uiTextBox5";
             uiTextBox5.Padding = new Padding(5);
             uiTextBox5.ShowText = false;
-            uiTextBox5.Size = new Size(395, 40);
+            uiTextBox5.Size = new Size(403, 40);
             uiTextBox5.TabIndex = 4;
             uiTextBox5.TextAlignment = ContentAlignment.MiddleLeft;
             uiTextBox5.Watermark = "";
@@ -325,7 +325,7 @@
             cmbType.MinimumSize = new Size(63, 0);
             cmbType.Name = "cmbType";
             cmbType.Padding = new Padding(0, 0, 30, 2);
-            cmbType.Size = new Size(395, 40);
+            cmbType.Size = new Size(403, 40);
             cmbType.SymbolSize = 24;
             cmbType.TabIndex = 12;
             cmbType.Text = "Danh mục";
@@ -343,7 +343,7 @@
             rtxDescribe.Name = "rtxDescribe";
             rtxDescribe.Padding = new Padding(2);
             rtxDescribe.ShowText = false;
-            rtxDescribe.Size = new Size(395, 142);
+            rtxDescribe.Size = new Size(403, 142);
             rtxDescribe.TabIndex = 13;
             rtxDescribe.Text = "      ";
             rtxDescribe.TextAlignment = ContentAlignment.MiddleCenter;
@@ -362,7 +362,7 @@
             uiFlowLayoutPanel1.Padding = new Padding(2);
             uiFlowLayoutPanel1.RectColor = Color.Transparent;
             uiFlowLayoutPanel1.ShowText = false;
-            uiFlowLayoutPanel1.Size = new Size(395, 70);
+            uiFlowLayoutPanel1.Size = new Size(403, 70);
             uiFlowLayoutPanel1.TabIndex = 14;
             uiFlowLayoutPanel1.Text = "uiFlowLayoutPanel1";
             uiFlowLayoutPanel1.TextAlignment = ContentAlignment.MiddleCenter;
@@ -371,7 +371,7 @@
             // 
             btnDelete.Anchor = AnchorStyles.Right;
             btnDelete.Font = new Font("Microsoft Sans Serif", 12F);
-            btnDelete.Location = new Point(290, 16);
+            btnDelete.Location = new Point(298, 16);
             btnDelete.MinimumSize = new Size(1, 1);
             btnDelete.Name = "btnDelete";
             btnDelete.Radius = 1;
@@ -384,7 +384,7 @@
             // 
             btnEdit.Anchor = AnchorStyles.Top | AnchorStyles.Bottom;
             btnEdit.Font = new Font("Microsoft Sans Serif", 12F);
-            btnEdit.Location = new Point(148, 16);
+            btnEdit.Location = new Point(152, 16);
             btnEdit.MinimumSize = new Size(1, 1);
             btnEdit.Name = "btnEdit";
             btnEdit.Size = new Size(100, 40);
@@ -416,7 +416,7 @@
             uiTableLayoutPanel3.Name = "uiTableLayoutPanel3";
             uiTableLayoutPanel3.RowCount = 1;
             uiTableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-            uiTableLayoutPanel3.Size = new Size(523, 61);
+            uiTableLayoutPanel3.Size = new Size(531, 61);
             uiTableLayoutPanel3.TabIndex = 0;
             uiTableLayoutPanel3.TagString = null;
             // 
@@ -430,13 +430,14 @@
             uiPanel2.Name = "uiPanel2";
             uiPanel2.Radius = 0;
             uiPanel2.RectColor = Color.Transparent;
-            uiPanel2.Size = new Size(523, 61);
+            uiPanel2.Size = new Size(531, 61);
             uiPanel2.TabIndex = 0;
             uiPanel2.Text = "Thông tin sản phẩm";
             uiPanel2.TextAlignment = ContentAlignment.MiddleCenter;
             // 
             // dgvProduct
             // 
+<<<<<<< HEAD
             dataGridViewCellStyle6.BackColor = Color.FromArgb(235, 243, 255);
             dgvProduct.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle6;
             dgvProduct.BackgroundColor = Color.White;
@@ -482,6 +483,53 @@
             dgvProduct.Size = new Size(527, 408);
             dgvProduct.StripeOddColor = Color.FromArgb(235, 243, 255);
             dgvProduct.TabIndex = 2;
+=======
+            dataGridViewCellStyle1.BackColor = Color.FromArgb(235, 243, 255);
+            uiDataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            uiDataGridView1.BackgroundColor = Color.White;
+            uiDataGridView1.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = Color.FromArgb(80, 160, 255);
+            dataGridViewCellStyle2.Font = new Font("Microsoft Sans Serif", 12F);
+            dataGridViewCellStyle2.ForeColor = Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
+            uiDataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            uiDataGridView1.ColumnHeadersHeight = 32;
+            uiDataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            uiDataGridView1.Columns.AddRange(new DataGridViewColumn[] { cChose, cSTT, cIDProduct, cName, cType, cStock });
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = SystemColors.Window;
+            dataGridViewCellStyle3.Font = new Font("Microsoft Sans Serif", 12F);
+            dataGridViewCellStyle3.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
+            uiDataGridView1.DefaultCellStyle = dataGridViewCellStyle3;
+            uiDataGridView1.Dock = DockStyle.Fill;
+            uiDataGridView1.EnableHeadersVisualStyles = false;
+            uiDataGridView1.Font = new Font("Microsoft Sans Serif", 12F);
+            uiDataGridView1.GridColor = Color.FromArgb(80, 160, 255);
+            uiDataGridView1.Location = new Point(0, 145);
+            uiDataGridView1.Name = "uiDataGridView1";
+            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = Color.FromArgb(235, 243, 255);
+            dataGridViewCellStyle4.Font = new Font("Microsoft Sans Serif", 12F);
+            dataGridViewCellStyle4.ForeColor = Color.FromArgb(48, 48, 48);
+            dataGridViewCellStyle4.SelectionBackColor = Color.FromArgb(80, 160, 255);
+            dataGridViewCellStyle4.SelectionForeColor = Color.White;
+            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.True;
+            uiDataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            uiDataGridView1.RowHeadersWidth = 51;
+            dataGridViewCellStyle5.BackColor = Color.White;
+            dataGridViewCellStyle5.Font = new Font("Microsoft Sans Serif", 12F);
+            uiDataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle5;
+            uiDataGridView1.SelectedIndex = -1;
+            uiDataGridView1.Size = new Size(537, 408);
+            uiDataGridView1.StripeOddColor = Color.FromArgb(235, 243, 255);
+            uiDataGridView1.TabIndex = 2;
+>>>>>>> origin/tn_BE
             // 
             // cChose
             // 
@@ -533,7 +581,7 @@
             uiPanel3.Margin = new Padding(4, 5, 4, 5);
             uiPanel3.MinimumSize = new Size(1, 1);
             uiPanel3.Name = "uiPanel3";
-            uiPanel3.Size = new Size(527, 65);
+            uiPanel3.Size = new Size(537, 65);
             uiPanel3.TabIndex = 1;
             uiPanel3.Text = "Danh mục thông tin sản phẩm";
             uiPanel3.TextAlignment = ContentAlignment.MiddleCenter;
@@ -551,7 +599,7 @@
             uiFlowLayoutPanel2.Padding = new Padding(2);
             uiFlowLayoutPanel2.RectColor = Color.White;
             uiFlowLayoutPanel2.ShowText = false;
-            uiFlowLayoutPanel2.Size = new Size(527, 80);
+            uiFlowLayoutPanel2.Size = new Size(537, 80);
             uiFlowLayoutPanel2.TabIndex = 0;
             uiFlowLayoutPanel2.Text = "uiFlowLayoutPanel2";
             uiFlowLayoutPanel2.TextAlignment = ContentAlignment.MiddleCenter;
@@ -560,7 +608,7 @@
             // 
             btnSearch.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             btnSearch.Font = new Font("Microsoft Sans Serif", 12F);
-            btnSearch.Location = new Point(16, 14);
+            btnSearch.Location = new Point(26, 14);
             btnSearch.MinimumSize = new Size(1, 1);
             btnSearch.Name = "btnSearch";
             btnSearch.Size = new Size(125, 40);
@@ -578,7 +626,7 @@
             txtSearch.Name = "txtSearch";
             txtSearch.Padding = new Padding(5);
             txtSearch.ShowText = false;
-            txtSearch.Size = new Size(300, 40);
+            txtSearch.Size = new Size(310, 40);
             txtSearch.TabIndex = 3;
             txtSearch.TextAlignment = ContentAlignment.MiddleLeft;
             txtSearch.Watermark = "";
@@ -587,10 +635,11 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1069, 553);
+            ClientSize = new Size(1087, 553);
             Controls.Add(uiSplitContainer1);
             MinimumSize = new Size(1000, 600);
             Name = "FormProduct";
+            StartPosition = FormStartPosition.CenterParent;
             Text = "FormProduct";
             uiSplitContainer1.Panel1.ResumeLayout(false);
             uiSplitContainer1.Panel2.ResumeLayout(false);
