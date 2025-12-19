@@ -49,6 +49,14 @@
             uiPanel1 = new Sunny.UI.UIPanel();
             btnAddCate = new Sunny.UI.UIButton();
             uiPanel3 = new Sunny.UI.UIPanel();
+            uiDataGridView1 = new Sunny.UI.UIDataGridView();
+            cChose = new DataGridViewCheckBoxColumn();
+            cID = new DataGridViewTextBoxColumn();
+            cIDProduct = new DataGridViewTextBoxColumn();
+            cName = new DataGridViewTextBoxColumn();
+            cNumber = new DataGridViewTextBoxColumn();
+            cPrice = new DataGridViewTextBoxColumn();
+            cType = new DataGridViewTextBoxColumn();
             tblCateMain = new Sunny.UI.UITableLayoutPanel();
             uiTableLayoutPanel1 = new Sunny.UI.UITableLayoutPanel();
             uiPanel8 = new Sunny.UI.UIPanel();
@@ -73,14 +81,6 @@
             uiTextBox5 = new Sunny.UI.UITextBox();
             lbl1 = new Sunny.UI.UIPanel();
             lbl = new Sunny.UI.UIPanel();
-            uiDataGridView1 = new Sunny.UI.UIDataGridView();
-            cChose = new DataGridViewCheckBoxColumn();
-            cID = new DataGridViewTextBoxColumn();
-            cIDProduct = new DataGridViewTextBoxColumn();
-            cName = new DataGridViewTextBoxColumn();
-            cNumber = new DataGridViewTextBoxColumn();
-            cPrice = new DataGridViewTextBoxColumn();
-            cType = new DataGridViewTextBoxColumn();
             tblCatSearch.SuspendLayout();
             uiPanel7.SuspendLayout();
             uiPanel6.SuspendLayout();
@@ -90,6 +90,7 @@
             uiPanel2.SuspendLayout();
             uiPanel1.SuspendLayout();
             uiPanel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)uiDataGridView1).BeginInit();
             tblCateMain.SuspendLayout();
             uiTableLayoutPanel1.SuspendLayout();
             uiPanel8.SuspendLayout();
@@ -102,7 +103,6 @@
             uiPanel15.SuspendLayout();
             uiPanel16.SuspendLayout();
             uiPanel18.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)uiDataGridView1).BeginInit();
             SuspendLayout();
             // 
             // tblCatSearch
@@ -358,6 +358,103 @@
             uiPanel3.TabIndex = 3;
             uiPanel3.Text = null;
             uiPanel3.TextAlignment = ContentAlignment.MiddleCenter;
+            // 
+            // uiDataGridView1
+            // 
+            dataGridViewCellStyle1.BackColor = Color.FromArgb(235, 243, 255);
+            uiDataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            uiDataGridView1.BackgroundColor = Color.White;
+            uiDataGridView1.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = Color.FromArgb(80, 160, 255);
+            dataGridViewCellStyle2.Font = new Font("Microsoft Sans Serif", 12F);
+            dataGridViewCellStyle2.ForeColor = Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
+            uiDataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            uiDataGridView1.ColumnHeadersHeight = 32;
+            uiDataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            uiDataGridView1.Columns.AddRange(new DataGridViewColumn[] { cChose, cID, cIDProduct, cName, cNumber, cPrice, cType });
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = SystemColors.Window;
+            dataGridViewCellStyle3.Font = new Font("Microsoft Sans Serif", 12F);
+            dataGridViewCellStyle3.ForeColor = Color.FromArgb(48, 48, 48);
+            dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
+            uiDataGridView1.DefaultCellStyle = dataGridViewCellStyle3;
+            uiDataGridView1.Dock = DockStyle.Fill;
+            uiDataGridView1.EnableHeadersVisualStyles = false;
+            uiDataGridView1.Font = new Font("Microsoft Sans Serif", 12F);
+            uiDataGridView1.GridColor = Color.FromArgb(80, 160, 255);
+            uiDataGridView1.Location = new Point(0, 0);
+            uiDataGridView1.Name = "uiDataGridView1";
+            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = Color.FromArgb(235, 243, 255);
+            dataGridViewCellStyle4.Font = new Font("Microsoft Sans Serif", 12F);
+            dataGridViewCellStyle4.ForeColor = Color.FromArgb(48, 48, 48);
+            dataGridViewCellStyle4.SelectionBackColor = Color.FromArgb(80, 160, 255);
+            dataGridViewCellStyle4.SelectionForeColor = Color.White;
+            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.True;
+            uiDataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            uiDataGridView1.RowHeadersWidth = 51;
+            dataGridViewCellStyle5.BackColor = Color.White;
+            dataGridViewCellStyle5.Font = new Font("Microsoft Sans Serif", 12F);
+            uiDataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle5;
+            uiDataGridView1.SelectedIndex = -1;
+            uiDataGridView1.Size = new Size(1111, 244);
+            uiDataGridView1.StripeOddColor = Color.FromArgb(235, 243, 255);
+            uiDataGridView1.TabIndex = 0;
+            // 
+            // cChose
+            // 
+            cChose.HeaderText = "Chọn";
+            cChose.MinimumWidth = 6;
+            cChose.Name = "cChose";
+            cChose.Width = 50;
+            // 
+            // cID
+            // 
+            cID.HeaderText = "STT";
+            cID.MinimumWidth = 6;
+            cID.Name = "cID";
+            cID.Width = 80;
+            // 
+            // cIDProduct
+            // 
+            cIDProduct.HeaderText = "Mã hàng";
+            cIDProduct.MinimumWidth = 6;
+            cIDProduct.Name = "cIDProduct";
+            cIDProduct.Width = 200;
+            // 
+            // cName
+            // 
+            cName.HeaderText = "Tên hàng";
+            cName.MinimumWidth = 6;
+            cName.Name = "cName";
+            cName.Width = 250;
+            // 
+            // cNumber
+            // 
+            cNumber.HeaderText = "Số lượng";
+            cNumber.MinimumWidth = 6;
+            cNumber.Name = "cNumber";
+            cNumber.Width = 125;
+            // 
+            // cPrice
+            // 
+            cPrice.HeaderText = "Đơn giá";
+            cPrice.MinimumWidth = 6;
+            cPrice.Name = "cPrice";
+            cPrice.Width = 200;
+            // 
+            // cType
+            // 
+            cType.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            cType.HeaderText = "Loại hàng";
+            cType.MinimumWidth = 6;
+            cType.Name = "cType";
             // 
             // tblCateMain
             // 
@@ -725,102 +822,6 @@
             lbl.Text = null;
             lbl.TextAlignment = ContentAlignment.MiddleCenter;
             // 
-            // uiDataGridView1
-            // 
-            dataGridViewCellStyle1.BackColor = Color.FromArgb(235, 243, 255);
-            uiDataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            uiDataGridView1.BackgroundColor = Color.White;
-            uiDataGridView1.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = Color.FromArgb(80, 160, 255);
-            dataGridViewCellStyle2.Font = new Font("Microsoft Sans Serif", 12F);
-            dataGridViewCellStyle2.ForeColor = Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
-            uiDataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            uiDataGridView1.ColumnHeadersHeight = 32;
-            uiDataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            uiDataGridView1.Columns.AddRange(new DataGridViewColumn[] { cChose, cID, cIDProduct, cName, cNumber, cPrice, cType });
-            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = SystemColors.Window;
-            dataGridViewCellStyle3.Font = new Font("Microsoft Sans Serif", 12F);
-            dataGridViewCellStyle3.ForeColor = Color.FromArgb(48, 48, 48);
-            dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
-            uiDataGridView1.DefaultCellStyle = dataGridViewCellStyle3;
-            uiDataGridView1.Dock = DockStyle.Fill;
-            uiDataGridView1.EnableHeadersVisualStyles = false;
-            uiDataGridView1.Font = new Font("Microsoft Sans Serif", 12F);
-            uiDataGridView1.GridColor = Color.FromArgb(80, 160, 255);
-            uiDataGridView1.Location = new Point(0, 0);
-            uiDataGridView1.Name = "uiDataGridView1";
-            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = Color.FromArgb(235, 243, 255);
-            dataGridViewCellStyle4.Font = new Font("Microsoft Sans Serif", 12F);
-            dataGridViewCellStyle4.ForeColor = Color.FromArgb(48, 48, 48);
-            dataGridViewCellStyle4.SelectionBackColor = Color.FromArgb(80, 160, 255);
-            dataGridViewCellStyle4.SelectionForeColor = Color.White;
-            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.True;
-            uiDataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
-            uiDataGridView1.RowHeadersWidth = 51;
-            dataGridViewCellStyle5.BackColor = Color.White;
-            dataGridViewCellStyle5.Font = new Font("Microsoft Sans Serif", 12F);
-            uiDataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle5;
-            uiDataGridView1.SelectedIndex = -1;
-            uiDataGridView1.Size = new Size(1111, 244);
-            uiDataGridView1.StripeOddColor = Color.FromArgb(235, 243, 255);
-            uiDataGridView1.TabIndex = 0;
-            // 
-            // cChose
-            // 
-            cChose.HeaderText = "Chọn";
-            cChose.MinimumWidth = 6;
-            cChose.Name = "cChose";
-            cChose.Width = 50;
-            // 
-            // cID
-            // 
-            cID.HeaderText = "STT";
-            cID.MinimumWidth = 6;
-            cID.Name = "cID";
-            cID.Width = 80;
-            // 
-            // cIDProduct
-            // 
-            cIDProduct.HeaderText = "Mã hàng";
-            cIDProduct.MinimumWidth = 6;
-            cIDProduct.Name = "cIDProduct";
-            cIDProduct.Width = 200;
-            // 
-            // cName
-            // 
-            cName.HeaderText = "Tên hàng";
-            cName.MinimumWidth = 6;
-            cName.Name = "cName";
-            cName.Width = 250;
-            // 
-            // cNumber
-            // 
-            cNumber.HeaderText = "Số lượng";
-            cNumber.MinimumWidth = 6;
-            cNumber.Name = "cNumber";
-            // 
-            // cPrice
-            // 
-            cPrice.HeaderText = "Đơn giá";
-            cPrice.MinimumWidth = 6;
-            cPrice.Name = "cPrice";
-            cPrice.Width = 200;
-            // 
-            // cType
-            // 
-            cType.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            cType.HeaderText = "Loại hàng";
-            cType.MinimumWidth = 6;
-            cType.Name = "cType";
-            // 
             // FormCategory
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -839,6 +840,7 @@
             uiPanel2.ResumeLayout(false);
             uiPanel1.ResumeLayout(false);
             uiPanel3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)uiDataGridView1).EndInit();
             tblCateMain.ResumeLayout(false);
             uiTableLayoutPanel1.ResumeLayout(false);
             uiPanel8.ResumeLayout(false);
@@ -851,7 +853,6 @@
             uiPanel15.ResumeLayout(false);
             uiPanel16.ResumeLayout(false);
             uiPanel18.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)uiDataGridView1).EndInit();
             ResumeLayout(false);
         }
 
