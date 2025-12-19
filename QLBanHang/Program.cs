@@ -13,6 +13,7 @@ namespace QLBanHang
             ApplicationConfiguration.Initialize();
             Application.Run(new FrmMain());
             //Application.Run(new FormCategory());
+            Application.Run(new FormProduct());
 
         }
     }
