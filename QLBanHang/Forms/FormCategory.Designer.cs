@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
@@ -50,10 +51,11 @@
             btnAddCate = new Sunny.UI.UIButton();
             uiPanel3 = new Sunny.UI.UIPanel();
             dgvCategory = new Sunny.UI.UIDataGridView();
-            cChose = new DataGridViewCheckBoxColumn();
-            cIDCategory = new DataGridViewTextBoxColumn();
-            cName = new DataGridViewTextBoxColumn();
-            cDescription = new DataGridViewTextBoxColumn();
+            cmsCategory = new Sunny.UI.UIContextMenuStrip();
+            tsmiSelect = new ToolStripMenuItem();
+            tsmiSelectItemAll = new ToolStripMenuItem();
+            tsmiUnSelectItem = new ToolStripMenuItem();
+            tsmiDeleteItem = new ToolStripMenuItem();
             tblCateMain = new Sunny.UI.UITableLayoutPanel();
             tlpInput = new Sunny.UI.UITableLayoutPanel();
             uiPanel15 = new Sunny.UI.UIPanel();
@@ -70,6 +72,17 @@
             txtIDCategory = new Sunny.UI.UITextBox();
             uiPanel8 = new Sunny.UI.UIPanel();
             lblIDCategory = new Sunny.UI.UILabel();
+            errorProvider1 = new ErrorProvider(components);
+            errorProvider2 = new ErrorProvider(components);
+            tsmiSelectItem = new ToolStripMenuItem();
+            tsmiSelectAll = new ToolStripMenuItem();
+            tsmiUnSelect = new ToolStripMenuItem();
+            tsmiUnselectAll = new ToolStripMenuItem();
+            DeleteItem = new ToolStripMenuItem();
+            cChose = new DataGridViewCheckBoxColumn();
+            cIDCategory = new DataGridViewTextBoxColumn();
+            cName = new DataGridViewTextBoxColumn();
+            cDescription = new DataGridViewTextBoxColumn();
             tblCatSearch.SuspendLayout();
             uiPanel7.SuspendLayout();
             uiPanel6.SuspendLayout();
@@ -80,6 +93,7 @@
             uiPanel1.SuspendLayout();
             uiPanel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvCategory).BeginInit();
+            cmsCategory.SuspendLayout();
             tblCateMain.SuspendLayout();
             tlpInput.SuspendLayout();
             uiPanel13.SuspendLayout();
@@ -88,6 +102,8 @@
             uiPanel10.SuspendLayout();
             uiPanel9.SuspendLayout();
             uiPanel8.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)errorProvider1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)errorProvider2).BeginInit();
             SuspendLayout();
             // 
             // tblCatSearch
@@ -268,6 +284,7 @@
             btnUpdateCate.TabIndex = 2;
             btnUpdateCate.Text = "Sửa";
             btnUpdateCate.TipsFont = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, 163);
+            btnUpdateCate.Click += btnUpdateCate_Click;
             // 
             // uiPanel2
             // 
@@ -298,6 +315,7 @@
             btnDeleteCate.TabIndex = 2;
             btnDeleteCate.Text = "Xóa";
             btnDeleteCate.TipsFont = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, 163);
+            btnDeleteCate.Click += btnDeleteCate_Click;
             // 
             // uiPanel1
             // 
@@ -367,6 +385,7 @@
             dgvCategory.ColumnHeadersHeight = 32;
             dgvCategory.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             dgvCategory.Columns.AddRange(new DataGridViewColumn[] { cChose, cIDCategory, cName, cDescription });
+            dgvCategory.ContextMenuStrip = cmsCategory;
             dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = SystemColors.Window;
             dataGridViewCellStyle3.Font = new Font("Microsoft Sans Serif", 12F);
@@ -378,7 +397,7 @@
             dgvCategory.Dock = DockStyle.Fill;
             dgvCategory.EnableHeadersVisualStyles = false;
             dgvCategory.Font = new Font("Microsoft Sans Serif", 12F);
-            dgvCategory.GridColor = SystemColors.MenuHighlight;
+            dgvCategory.GridColor = Color.MidnightBlue;
             dgvCategory.Location = new Point(0, 0);
             dgvCategory.Margin = new Padding(5, 3, 3, 3);
             dgvCategory.Name = "dgvCategory";
@@ -399,38 +418,49 @@
             dgvCategory.ScrollBars = ScrollBars.None;
             dgvCategory.ScrollBarStyleInherited = false;
             dgvCategory.SelectedIndex = -1;
+            dgvCategory.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvCategory.Size = new Size(1111, 244);
             dgvCategory.StripeOddColor = Color.FromArgb(235, 243, 255);
             dgvCategory.TabIndex = 0;
             dgvCategory.CellClick += dgvCategory_CellClick;
+            dgvCategory.MouseDown += dgvCategory_MouseDown;
             // 
-            // cChose
+            // cmsCategory
             // 
-            cChose.HeaderText = "Chọn";
-            cChose.MinimumWidth = 6;
-            cChose.Name = "cChose";
-            cChose.Width = 60;
+            cmsCategory.BackColor = Color.FromArgb(243, 249, 255);
+            cmsCategory.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 163);
+            cmsCategory.ImageScalingSize = new Size(20, 20);
+            cmsCategory.Items.AddRange(new ToolStripItem[] { tsmiSelect, tsmiSelectItemAll, tsmiUnSelectItem, tsmiDeleteItem });
+            cmsCategory.Name = "cmsCategory";
+            cmsCategory.Size = new Size(185, 124);
             // 
-            // cIDCategory
+            // tsmiSelect
             // 
-            cIDCategory.HeaderText = "ID Category";
-            cIDCategory.MinimumWidth = 6;
-            cIDCategory.Name = "cIDCategory";
-            cIDCategory.Width = 200;
+            tsmiSelect.Name = "tsmiSelect";
+            tsmiSelect.Size = new Size(184, 30);
+            tsmiSelect.Text = "Chọn ";
+            tsmiSelect.Click += tsmiSelect_Click;
             // 
-            // cName
+            // tsmiSelectItemAll
             // 
-            cName.HeaderText = "Tên danh mục";
-            cName.MinimumWidth = 6;
-            cName.Name = "cName";
-            cName.Width = 250;
+            tsmiSelectItemAll.Name = "tsmiSelectItemAll";
+            tsmiSelectItemAll.Size = new Size(184, 30);
+            tsmiSelectItemAll.Text = "Chọn tất cả";
+            tsmiSelectItemAll.Click += tsmiSelectItemAll_Click;
             // 
-            // cDescription
+            // tsmiUnSelectItem
             // 
-            cDescription.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            cDescription.HeaderText = "Mô tả";
-            cDescription.MinimumWidth = 6;
-            cDescription.Name = "cDescription";
+            tsmiUnSelectItem.Name = "tsmiUnSelectItem";
+            tsmiUnSelectItem.Size = new Size(184, 30);
+            tsmiUnSelectItem.Text = "Bỏ chọn";
+            tsmiUnSelectItem.Click += tsmiUnSelectItem_Click_1;
+            // 
+            // tsmiDeleteItem
+            // 
+            tsmiDeleteItem.Name = "tsmiDeleteItem";
+            tsmiDeleteItem.Size = new Size(184, 30);
+            tsmiDeleteItem.Text = "Xóa";
+            tsmiDeleteItem.Click += tsmiDeleteItem_Click;
             // 
             // tblCateMain
             // 
@@ -683,6 +713,75 @@
             lblIDCategory.Text = "ID Danh mục SP:";
             lblIDCategory.TextAlign = ContentAlignment.MiddleCenter;
             // 
+            // errorProvider1
+            // 
+            errorProvider1.ContainerControl = this;
+            // 
+            // errorProvider2
+            // 
+            errorProvider2.ContainerControl = this;
+            // 
+            // tsmiSelectItem
+            // 
+            tsmiSelectItem.Name = "tsmiSelectItem";
+            tsmiSelectItem.Size = new Size(210, 30);
+            tsmiSelectItem.Text = "Chọn";
+            // 
+            // tsmiSelectAll
+            // 
+            tsmiSelectAll.Name = "tsmiSelectAll";
+            tsmiSelectAll.Size = new Size(210, 30);
+            tsmiSelectAll.Text = "Chọn tất cả";
+            // 
+            // tsmiUnSelect
+            // 
+            tsmiUnSelect.Name = "tsmiUnSelect";
+            tsmiUnSelect.Size = new Size(210, 30);
+            tsmiUnSelect.Text = "Bỏ chọn";
+            // 
+            // tsmiUnselectAll
+            // 
+            tsmiUnselectAll.Name = "tsmiUnselectAll";
+            tsmiUnselectAll.Size = new Size(210, 30);
+            tsmiUnselectAll.Text = "Bỏ chọn tất cả";
+            // 
+            // DeleteItem
+            // 
+            DeleteItem.Name = "DeleteItem";
+            DeleteItem.Size = new Size(210, 30);
+            DeleteItem.Text = "Xóa";
+            // 
+            // cChose
+            // 
+            cChose.HeaderText = "Chọn";
+            cChose.MinimumWidth = 6;
+            cChose.Name = "cChose";
+            cChose.Width = 60;
+            // 
+            // cIDCategory
+            // 
+            cIDCategory.HeaderText = "ID Category";
+            cIDCategory.MinimumWidth = 6;
+            cIDCategory.Name = "cIDCategory";
+            cIDCategory.ReadOnly = true;
+            cIDCategory.Width = 200;
+            // 
+            // cName
+            // 
+            cName.HeaderText = "Tên danh mục";
+            cName.MinimumWidth = 6;
+            cName.Name = "cName";
+            cName.ReadOnly = true;
+            cName.Width = 250;
+            // 
+            // cDescription
+            // 
+            cDescription.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            cDescription.HeaderText = "Mô tả";
+            cDescription.MinimumWidth = 6;
+            cDescription.Name = "cDescription";
+            cDescription.ReadOnly = true;
+            // 
             // FormCategory
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -693,6 +792,7 @@
             StartPosition = FormStartPosition.CenterParent;
             Text = "Quản lí danh mục";
             Load += FormCategory_Load;
+            Shown += FormCategory_Shown;
             tblCatSearch.ResumeLayout(false);
             uiPanel7.ResumeLayout(false);
             uiPanel6.ResumeLayout(false);
@@ -703,6 +803,7 @@
             uiPanel1.ResumeLayout(false);
             uiPanel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dgvCategory).EndInit();
+            cmsCategory.ResumeLayout(false);
             tblCateMain.ResumeLayout(false);
             tlpInput.ResumeLayout(false);
             uiPanel13.ResumeLayout(false);
@@ -711,6 +812,8 @@
             uiPanel10.ResumeLayout(false);
             uiPanel9.ResumeLayout(false);
             uiPanel8.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)errorProvider1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)errorProvider2).EndInit();
             ResumeLayout(false);
         }
 
@@ -752,6 +855,18 @@
         private Sunny.UI.UIPanel uiPanel14;
         private Sunny.UI.UIPanel uiPanel13;
         private Sunny.UI.UIPanel uiPanel12;
+        private ErrorProvider errorProvider1;
+        private ErrorProvider errorProvider2;
+        private ToolStripMenuItem tsmiSelectItem;
+        private ToolStripMenuItem tsmiSelectAll;
+        private ToolStripMenuItem tsmiUnSelect;
+        private ToolStripMenuItem tsmiUnselectAll;
+        private ToolStripMenuItem DeleteItem;
+        private Sunny.UI.UIContextMenuStrip cmsCategory;
+        private ToolStripMenuItem tsmiSelect;
+        private ToolStripMenuItem tsmiSelectItemAll;
+        private ToolStripMenuItem tsmiUnSelectItem;
+        private ToolStripMenuItem tsmiDeleteItem;
         private DataGridViewCheckBoxColumn cChose;
         private DataGridViewTextBoxColumn cIDCategory;
         private DataGridViewTextBoxColumn cName;
