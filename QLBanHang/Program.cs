@@ -12,7 +12,8 @@ namespace QLBanHang
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
             //Application.Run(new FrmMain());
-            Application.Run(new FormCategory());
+            //Application.Run(new FormCategory());
+            Application.Run(new FormProduct());
 
         }
     }
