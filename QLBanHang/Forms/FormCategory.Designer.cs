@@ -51,6 +51,10 @@
             btnAddCate = new Sunny.UI.UIButton();
             uiPanel3 = new Sunny.UI.UIPanel();
             dgvCategory = new Sunny.UI.UIDataGridView();
+            cChose = new DataGridViewCheckBoxColumn();
+            cIDCategory = new DataGridViewTextBoxColumn();
+            cName = new DataGridViewTextBoxColumn();
+            cDescription = new DataGridViewTextBoxColumn();
             cmsCategory = new Sunny.UI.UIContextMenuStrip();
             tsmiSelect = new ToolStripMenuItem();
             tsmiSelectItemAll = new ToolStripMenuItem();
@@ -79,10 +83,6 @@
             tsmiUnSelect = new ToolStripMenuItem();
             tsmiUnselectAll = new ToolStripMenuItem();
             DeleteItem = new ToolStripMenuItem();
-            cChose = new DataGridViewCheckBoxColumn();
-            cIDCategory = new DataGridViewTextBoxColumn();
-            cName = new DataGridViewTextBoxColumn();
-            cDescription = new DataGridViewTextBoxColumn();
             tblCatSearch.SuspendLayout();
             uiPanel7.SuspendLayout();
             uiPanel6.SuspendLayout();
@@ -128,14 +128,14 @@
             uiPanel7.Controls.Add(txtSearchCate);
             uiPanel7.Controls.Add(btnSearchCate);
             uiPanel7.Dock = DockStyle.Fill;
-            uiPanel7.FillColor = SystemColors.ActiveCaption;
+            uiPanel7.FillColor = SystemColors.GradientInactiveCaption;
             uiPanel7.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 163);
             uiPanel7.Location = new Point(555, 0);
             uiPanel7.Margin = new Padding(0);
             uiPanel7.MinimumSize = new Size(1, 1);
             uiPanel7.Name = "uiPanel7";
             uiPanel7.Radius = 0;
-            uiPanel7.RectColor = SystemColors.GradientActiveCaption;
+            uiPanel7.RectColor = SystemColors.GradientInactiveCaption;
             uiPanel7.Size = new Size(556, 60);
             uiPanel7.TabIndex = 3;
             uiPanel7.Text = null;
@@ -160,7 +160,6 @@
             // btnSearchCate
             // 
             btnSearchCate.Anchor = AnchorStyles.None;
-            btnSearchCate.FillColor = Color.SteelBlue;
             btnSearchCate.Font = new Font("Segoe UI", 9F);
             btnSearchCate.Location = new Point(354, 8);
             btnSearchCate.MinimumSize = new Size(1, 1);
@@ -190,7 +189,7 @@
             // 
             // lblTitleCate
             // 
-            lblTitleCate.BackColor = SystemColors.ActiveCaption;
+            lblTitleCate.BackColor = SystemColors.GradientInactiveCaption;
             lblTitleCate.Dock = DockStyle.Fill;
             lblTitleCate.Font = new Font("Segoe UI", 9F);
             lblTitleCate.ForeColor = Color.FromArgb(48, 48, 48);
@@ -228,14 +227,13 @@
             // 
             uiPanel5.Controls.Add(btnClearCate);
             uiPanel5.Dock = DockStyle.Fill;
-            uiPanel5.FillColor = SystemColors.GradientInactiveCaption;
             uiPanel5.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 163);
             uiPanel5.Location = new Point(831, 0);
             uiPanel5.Margin = new Padding(0);
             uiPanel5.MinimumSize = new Size(1, 1);
             uiPanel5.Name = "uiPanel5";
             uiPanel5.Radius = 0;
-            uiPanel5.RectColor = SystemColors.GradientInactiveCaption;
+            uiPanel5.RectColor = Color.FromArgb(243, 249, 255);
             uiPanel5.Size = new Size(280, 60);
             uiPanel5.TabIndex = 4;
             uiPanel5.Text = null;
@@ -244,7 +242,6 @@
             // btnClearCate
             // 
             btnClearCate.Anchor = AnchorStyles.None;
-            btnClearCate.FillColor = Color.SteelBlue;
             btnClearCate.Font = new Font("Segoe UI", 9F);
             btnClearCate.Location = new Point(78, 8);
             btnClearCate.MinimumSize = new Size(1, 1);
@@ -259,14 +256,13 @@
             // 
             uiPanel4.Controls.Add(btnUpdateCate);
             uiPanel4.Dock = DockStyle.Fill;
-            uiPanel4.FillColor = SystemColors.GradientInactiveCaption;
             uiPanel4.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 163);
             uiPanel4.Location = new Point(554, 0);
             uiPanel4.Margin = new Padding(0);
             uiPanel4.MinimumSize = new Size(1, 1);
             uiPanel4.Name = "uiPanel4";
             uiPanel4.Radius = 0;
-            uiPanel4.RectColor = SystemColors.GradientInactiveCaption;
+            uiPanel4.RectColor = Color.FromArgb(243, 249, 255);
             uiPanel4.Size = new Size(277, 60);
             uiPanel4.TabIndex = 3;
             uiPanel4.Text = null;
@@ -275,7 +271,6 @@
             // btnUpdateCate
             // 
             btnUpdateCate.Anchor = AnchorStyles.None;
-            btnUpdateCate.FillColor = Color.SteelBlue;
             btnUpdateCate.Font = new Font("Segoe UI", 9F);
             btnUpdateCate.Location = new Point(76, 8);
             btnUpdateCate.MinimumSize = new Size(1, 1);
@@ -290,14 +285,13 @@
             // 
             uiPanel2.Controls.Add(btnDeleteCate);
             uiPanel2.Dock = DockStyle.Fill;
-            uiPanel2.FillColor = SystemColors.GradientInactiveCaption;
             uiPanel2.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 163);
             uiPanel2.Location = new Point(277, 0);
             uiPanel2.Margin = new Padding(0);
             uiPanel2.MinimumSize = new Size(1, 1);
             uiPanel2.Name = "uiPanel2";
             uiPanel2.Radius = 0;
-            uiPanel2.RectColor = SystemColors.GradientInactiveCaption;
+            uiPanel2.RectColor = Color.FromArgb(243, 249, 255);
             uiPanel2.Size = new Size(277, 60);
             uiPanel2.TabIndex = 2;
             uiPanel2.Text = null;
@@ -306,7 +300,6 @@
             // btnDeleteCate
             // 
             btnDeleteCate.Anchor = AnchorStyles.None;
-            btnDeleteCate.FillColor = Color.SteelBlue;
             btnDeleteCate.Font = new Font("Segoe UI", 9F);
             btnDeleteCate.Location = new Point(76, 8);
             btnDeleteCate.MinimumSize = new Size(1, 1);
@@ -321,14 +314,13 @@
             // 
             uiPanel1.Controls.Add(btnAddCate);
             uiPanel1.Dock = DockStyle.Fill;
-            uiPanel1.FillColor = SystemColors.GradientInactiveCaption;
             uiPanel1.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 163);
             uiPanel1.Location = new Point(0, 0);
             uiPanel1.Margin = new Padding(0);
             uiPanel1.MinimumSize = new Size(1, 1);
             uiPanel1.Name = "uiPanel1";
             uiPanel1.Radius = 0;
-            uiPanel1.RectColor = SystemColors.GradientInactiveCaption;
+            uiPanel1.RectColor = Color.FromArgb(243, 249, 255);
             uiPanel1.Size = new Size(277, 60);
             uiPanel1.TabIndex = 1;
             uiPanel1.Text = null;
@@ -337,7 +329,6 @@
             // btnAddCate
             // 
             btnAddCate.Anchor = AnchorStyles.None;
-            btnAddCate.FillColor = Color.SteelBlue;
             btnAddCate.Font = new Font("Segoe UI", 9F);
             btnAddCate.Location = new Point(79, 8);
             btnAddCate.MinimumSize = new Size(1, 1);
@@ -368,7 +359,6 @@
             // 
             dgvCategory.AllowUserToAddRows = false;
             dgvCategory.AllowUserToDeleteRows = false;
-            dgvCategory.AllowUserToResizeColumns = false;
             dgvCategory.AllowUserToResizeRows = false;
             dataGridViewCellStyle1.BackColor = Color.FromArgb(235, 243, 255);
             dgvCategory.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
@@ -397,7 +387,7 @@
             dgvCategory.Dock = DockStyle.Fill;
             dgvCategory.EnableHeadersVisualStyles = false;
             dgvCategory.Font = new Font("Microsoft Sans Serif", 12F);
-            dgvCategory.GridColor = Color.MidnightBlue;
+            dgvCategory.GridColor = Color.MediumBlue;
             dgvCategory.Location = new Point(0, 0);
             dgvCategory.Margin = new Padding(5, 3, 3, 3);
             dgvCategory.Name = "dgvCategory";
@@ -424,6 +414,37 @@
             dgvCategory.TabIndex = 0;
             dgvCategory.CellClick += dgvCategory_CellClick;
             dgvCategory.MouseDown += dgvCategory_MouseDown;
+            // 
+            // cChose
+            // 
+            cChose.HeaderText = "Chọn";
+            cChose.MinimumWidth = 6;
+            cChose.Name = "cChose";
+            cChose.Width = 60;
+            // 
+            // cIDCategory
+            // 
+            cIDCategory.HeaderText = "ID Category";
+            cIDCategory.MinimumWidth = 6;
+            cIDCategory.Name = "cIDCategory";
+            cIDCategory.ReadOnly = true;
+            cIDCategory.Width = 200;
+            // 
+            // cName
+            // 
+            cName.HeaderText = "Tên danh mục";
+            cName.MinimumWidth = 6;
+            cName.Name = "cName";
+            cName.ReadOnly = true;
+            cName.Width = 250;
+            // 
+            // cDescription
+            // 
+            cDescription.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            cDescription.HeaderText = "Mô tả";
+            cDescription.MinimumWidth = 6;
+            cDescription.Name = "cDescription";
+            cDescription.ReadOnly = true;
             // 
             // cmsCategory
             // 
@@ -750,37 +771,6 @@
             DeleteItem.Name = "DeleteItem";
             DeleteItem.Size = new Size(210, 30);
             DeleteItem.Text = "Xóa";
-            // 
-            // cChose
-            // 
-            cChose.HeaderText = "Chọn";
-            cChose.MinimumWidth = 6;
-            cChose.Name = "cChose";
-            cChose.Width = 60;
-            // 
-            // cIDCategory
-            // 
-            cIDCategory.HeaderText = "ID Category";
-            cIDCategory.MinimumWidth = 6;
-            cIDCategory.Name = "cIDCategory";
-            cIDCategory.ReadOnly = true;
-            cIDCategory.Width = 200;
-            // 
-            // cName
-            // 
-            cName.HeaderText = "Tên danh mục";
-            cName.MinimumWidth = 6;
-            cName.Name = "cName";
-            cName.ReadOnly = true;
-            cName.Width = 250;
-            // 
-            // cDescription
-            // 
-            cDescription.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            cDescription.HeaderText = "Mô tả";
-            cDescription.MinimumWidth = 6;
-            cDescription.Name = "cDescription";
-            cDescription.ReadOnly = true;
             // 
             // FormCategory
             // 
