@@ -396,7 +396,6 @@
             uiPanel3.Text = null;
             uiPanel3.TextAlignment = ContentAlignment.MiddleCenter;
             // 
-<<<<<<< HEAD
             // uiDataGridView1
             // 
             dataGridViewCellStyle1.BackColor = Color.FromArgb(235, 243, 255);
