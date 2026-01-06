@@ -41,8 +41,11 @@
             cName = new DataGridViewTextBoxColumn();
             cPrice = new DataGridViewTextBoxColumn();
             uiTableLayoutPanel4 = new Sunny.UI.UITableLayoutPanel();
-            btnTotal = new Sunny.UI.UIButton();
-            btnDelete = new Sunny.UI.UIButton();
+            uiPanel4 = new Sunny.UI.UIPanel();
+            btnAddCard = new Sunny.UI.UIButton();
+            uiPanel5 = new Sunny.UI.UIPanel();
+            lblTotal = new Sunny.UI.UILabel();
+            txtTotalPrice = new Sunny.UI.UILabel();
             uiPanel1 = new Sunny.UI.UIPanel();
             uiTableLayoutPanel2 = new Sunny.UI.UITableLayoutPanel();
             txtProduct = new Sunny.UI.UILabel();
@@ -50,9 +53,12 @@
             lblAvailable = new Sunny.UI.UILabel();
             uiTextBox2 = new Sunny.UI.UITextBox();
             uiTextBox3 = new Sunny.UI.UITextBox();
-            uiTextBox1 = new Sunny.UI.UITextBox();
+            uiComboBox1 = new Sunny.UI.UIComboBox();
             uiTableLayoutPanel1 = new Sunny.UI.UITableLayoutPanel();
             lblChose = new Sunny.UI.UILabel();
+            uiTableLayoutPanel8 = new Sunny.UI.UITableLayoutPanel();
+            btnConfirm = new Sunny.UI.UIButton();
+            btnExit = new Sunny.UI.UIButton();
             uiTableLayoutPanel7 = new Sunny.UI.UITableLayoutPanel();
             rdoCash = new Sunny.UI.UIRadioButton();
             uiRadioButton1 = new Sunny.UI.UIRadioButton();
@@ -71,9 +77,6 @@
             uiTextBox7 = new Sunny.UI.UITextBox();
             uiTableLayoutPanel5 = new Sunny.UI.UITableLayoutPanel();
             lblInfor = new Sunny.UI.UILabel();
-            uiTableLayoutPanel8 = new Sunny.UI.UITableLayoutPanel();
-            btnConfirm = new Sunny.UI.UIButton();
-            btnExit = new Sunny.UI.UIButton();
             (uiSplitContainer1).BeginInit();
             uiSplitContainer1.Panel1.SuspendLayout();
             uiSplitContainer1.Panel2.SuspendLayout();
@@ -81,19 +84,24 @@
             uiTableLayoutPanel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvShopping).BeginInit();
             uiTableLayoutPanel4.SuspendLayout();
+            uiPanel4.SuspendLayout();
+            uiPanel5.SuspendLayout();
             uiTableLayoutPanel2.SuspendLayout();
             uiTableLayoutPanel1.SuspendLayout();
+            uiTableLayoutPanel8.SuspendLayout();
             uiTableLayoutPanel7.SuspendLayout();
             uiPanel3.SuspendLayout();
             uiPanel2.SuspendLayout();
             uiTableLayoutPanel6.SuspendLayout();
             uiTableLayoutPanel5.SuspendLayout();
-            uiTableLayoutPanel8.SuspendLayout();
             SuspendLayout();
             // 
             // uiSplitContainer1
             // 
+            uiSplitContainer1.BarColor = Color.FromArgb(80, 160, 255);
             uiSplitContainer1.Dock = DockStyle.Fill;
+            uiSplitContainer1.HandleColor = Color.MediumBlue;
+            uiSplitContainer1.HandleHoverColor = SystemColors.Highlight;
             uiSplitContainer1.Location = new Point(0, 0);
             uiSplitContainer1.MinimumSize = new Size(20, 20);
             uiSplitContainer1.Name = "uiSplitContainer1";
@@ -137,6 +145,9 @@
             // 
             // dgvShopping
             // 
+            dgvShopping.AllowUserToAddRows = false;
+            dgvShopping.AllowUserToDeleteRows = false;
+            dgvShopping.AllowUserToResizeRows = false;
             dataGridViewCellStyle1.BackColor = Color.FromArgb(235, 243, 255);
             dgvShopping.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             dgvShopping.BackgroundColor = Color.White;
@@ -175,6 +186,7 @@
             dataGridViewCellStyle4.SelectionForeColor = Color.White;
             dataGridViewCellStyle4.WrapMode = DataGridViewTriState.True;
             dgvShopping.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dgvShopping.RowHeadersVisible = false;
             dgvShopping.RowHeadersWidth = 51;
             dataGridViewCellStyle5.BackColor = Color.White;
             dataGridViewCellStyle5.Font = new Font("Microsoft Sans Serif", 12F);
@@ -217,8 +229,8 @@
             uiTableLayoutPanel4.ColumnCount = 2;
             uiTableLayoutPanel4.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
             uiTableLayoutPanel4.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
-            uiTableLayoutPanel4.Controls.Add(btnTotal, 1, 0);
-            uiTableLayoutPanel4.Controls.Add(btnDelete, 0, 0);
+            uiTableLayoutPanel4.Controls.Add(uiPanel4, 0, 0);
+            uiTableLayoutPanel4.Controls.Add(uiPanel5, 1, 0);
             uiTableLayoutPanel4.Dock = DockStyle.Fill;
             uiTableLayoutPanel4.Location = new Point(0, 404);
             uiTableLayoutPanel4.Margin = new Padding(0);
@@ -229,29 +241,65 @@
             uiTableLayoutPanel4.TabIndex = 1;
             uiTableLayoutPanel4.TagString = null;
             // 
-            // btnTotal
+            // uiPanel4
             // 
-            btnTotal.Anchor = AnchorStyles.None;
-            btnTotal.Font = new Font("Microsoft Sans Serif", 12F);
-            btnTotal.Location = new Point(290, 28);
-            btnTotal.MinimumSize = new Size(1, 1);
-            btnTotal.Name = "btnTotal";
-            btnTotal.Size = new Size(125, 45);
-            btnTotal.TabIndex = 0;
-            btnTotal.Text = "Tổng tiền";
-            btnTotal.TipsFont = new Font("Microsoft Sans Serif", 9F);
+            uiPanel4.Controls.Add(btnAddCard);
+            uiPanel4.Dock = DockStyle.Fill;
+            uiPanel4.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 163);
+            uiPanel4.Location = new Point(4, 5);
+            uiPanel4.Margin = new Padding(4, 5, 4, 5);
+            uiPanel4.MinimumSize = new Size(1, 1);
+            uiPanel4.Name = "uiPanel4";
+            uiPanel4.Size = new Size(227, 92);
+            uiPanel4.TabIndex = 1;
+            uiPanel4.Text = null;
+            uiPanel4.TextAlignment = ContentAlignment.MiddleCenter;
             // 
-            // btnDelete
+            // btnAddCard
             // 
-            btnDelete.Anchor = AnchorStyles.None;
-            btnDelete.Font = new Font("Microsoft Sans Serif", 12F);
-            btnDelete.Location = new Point(55, 28);
-            btnDelete.MinimumSize = new Size(1, 1);
-            btnDelete.Name = "btnDelete";
-            btnDelete.Size = new Size(125, 45);
-            btnDelete.TabIndex = 1;
-            btnDelete.Text = "Xóa";
-            btnDelete.TipsFont = new Font("Microsoft Sans Serif", 9F);
+            btnAddCard.Anchor = AnchorStyles.None;
+            btnAddCard.Font = new Font("Microsoft Sans Serif", 12F);
+            btnAddCard.Location = new Point(23, 45);
+            btnAddCard.MinimumSize = new Size(1, 1);
+            btnAddCard.Name = "btnAddCard";
+            btnAddCard.Size = new Size(179, 44);
+            btnAddCard.TabIndex = 1;
+            btnAddCard.Text = "Thêm vào giỏ hàng";
+            btnAddCard.TipsFont = new Font("Microsoft Sans Serif", 9F);
+            // 
+            // uiPanel5
+            // 
+            uiPanel5.Controls.Add(lblTotal);
+            uiPanel5.Controls.Add(txtTotalPrice);
+            uiPanel5.Dock = DockStyle.Fill;
+            uiPanel5.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 163);
+            uiPanel5.Location = new Point(239, 5);
+            uiPanel5.Margin = new Padding(4, 5, 4, 5);
+            uiPanel5.MinimumSize = new Size(1, 1);
+            uiPanel5.Name = "uiPanel5";
+            uiPanel5.Size = new Size(227, 92);
+            uiPanel5.TabIndex = 2;
+            uiPanel5.Text = null;
+            uiPanel5.TextAlignment = ContentAlignment.MiddleCenter;
+            // 
+            // lblTotal
+            // 
+            lblTotal.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 163);
+            lblTotal.ForeColor = Color.FromArgb(48, 48, 48);
+            lblTotal.Location = new Point(110, 15);
+            lblTotal.Name = "lblTotal";
+            lblTotal.Size = new Size(113, 29);
+            lblTotal.TabIndex = 1;
+            // 
+            // txtTotalPrice
+            // 
+            txtTotalPrice.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 163);
+            txtTotalPrice.ForeColor = Color.FromArgb(48, 48, 48);
+            txtTotalPrice.Location = new Point(3, 15);
+            txtTotalPrice.Name = "txtTotalPrice";
+            txtTotalPrice.Size = new Size(101, 29);
+            txtTotalPrice.TabIndex = 0;
+            txtTotalPrice.Text = "Tổng tiền: ";
             // 
             // uiPanel1
             // 
@@ -279,7 +327,7 @@
             uiTableLayoutPanel2.Controls.Add(lblAvailable, 0, 2);
             uiTableLayoutPanel2.Controls.Add(uiTextBox2, 1, 1);
             uiTableLayoutPanel2.Controls.Add(uiTextBox3, 1, 2);
-            uiTableLayoutPanel2.Controls.Add(uiTextBox1, 1, 0);
+            uiTableLayoutPanel2.Controls.Add(uiComboBox1, 1, 0);
             uiTableLayoutPanel2.Dock = DockStyle.Top;
             uiTableLayoutPanel2.Location = new Point(0, 64);
             uiTableLayoutPanel2.Name = "uiTableLayoutPanel2";
@@ -324,12 +372,11 @@
             lblAvailable.Name = "lblAvailable";
             lblAvailable.Size = new Size(114, 60);
             lblAvailable.TabIndex = 2;
-            lblAvailable.Text = "Có sẵn:";
+            lblAvailable.Text = "Số lượng";
             lblAvailable.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // uiTextBox2
             // 
-            uiTextBox2.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             uiTextBox2.Font = new Font("Microsoft Sans Serif", 12F);
             uiTextBox2.Location = new Point(124, 65);
             uiTextBox2.Margin = new Padding(4, 5, 20, 5);
@@ -357,20 +404,24 @@
             uiTextBox3.TextAlignment = ContentAlignment.MiddleLeft;
             uiTextBox3.Watermark = "";
             // 
-            // uiTextBox1
+            // uiComboBox1
             // 
-            uiTextBox1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            uiTextBox1.Font = new Font("Microsoft Sans Serif", 12F);
-            uiTextBox1.Location = new Point(124, 5);
-            uiTextBox1.Margin = new Padding(4, 5, 20, 5);
-            uiTextBox1.MinimumSize = new Size(1, 16);
-            uiTextBox1.Name = "uiTextBox1";
-            uiTextBox1.Padding = new Padding(5);
-            uiTextBox1.ShowText = false;
-            uiTextBox1.Size = new Size(326, 50);
-            uiTextBox1.TabIndex = 6;
-            uiTextBox1.TextAlignment = ContentAlignment.MiddleLeft;
-            uiTextBox1.Watermark = "";
+            uiComboBox1.DataSource = null;
+            uiComboBox1.Dock = DockStyle.Fill;
+            uiComboBox1.FillColor = Color.White;
+            uiComboBox1.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 163);
+            uiComboBox1.ItemHoverColor = Color.FromArgb(155, 200, 255);
+            uiComboBox1.ItemSelectForeColor = Color.FromArgb(235, 243, 255);
+            uiComboBox1.Location = new Point(124, 5);
+            uiComboBox1.Margin = new Padding(4, 5, 4, 5);
+            uiComboBox1.MinimumSize = new Size(63, 0);
+            uiComboBox1.Name = "uiComboBox1";
+            uiComboBox1.Padding = new Padding(0, 0, 30, 2);
+            uiComboBox1.Size = new Size(342, 50);
+            uiComboBox1.SymbolSize = 24;
+            uiComboBox1.TabIndex = 6;
+            uiComboBox1.TextAlignment = ContentAlignment.MiddleLeft;
+            uiComboBox1.Watermark = "";
             // 
             // uiTableLayoutPanel1
             // 
@@ -398,6 +449,47 @@
             lblChose.TabIndex = 0;
             lblChose.Text = "Chọn sản phẩm";
             lblChose.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // uiTableLayoutPanel8
+            // 
+            uiTableLayoutPanel8.BackColor = SystemColors.GradientInactiveCaption;
+            uiTableLayoutPanel8.ColumnCount = 2;
+            uiTableLayoutPanel8.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+            uiTableLayoutPanel8.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+            uiTableLayoutPanel8.Controls.Add(btnConfirm, 0, 0);
+            uiTableLayoutPanel8.Controls.Add(btnExit, 1, 0);
+            uiTableLayoutPanel8.Dock = DockStyle.Fill;
+            uiTableLayoutPanel8.Location = new Point(0, 691);
+            uiTableLayoutPanel8.Name = "uiTableLayoutPanel8";
+            uiTableLayoutPanel8.RowCount = 1;
+            uiTableLayoutPanel8.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            uiTableLayoutPanel8.Size = new Size(595, 109);
+            uiTableLayoutPanel8.TabIndex = 5;
+            uiTableLayoutPanel8.TagString = null;
+            // 
+            // btnConfirm
+            // 
+            btnConfirm.Anchor = AnchorStyles.None;
+            btnConfirm.Font = new Font("Microsoft Sans Serif", 12F);
+            btnConfirm.Location = new Point(86, 32);
+            btnConfirm.MinimumSize = new Size(1, 1);
+            btnConfirm.Name = "btnConfirm";
+            btnConfirm.Size = new Size(125, 44);
+            btnConfirm.TabIndex = 0;
+            btnConfirm.Text = "Đặt hàng";
+            btnConfirm.TipsFont = new Font("Microsoft Sans Serif", 9F);
+            // 
+            // btnExit
+            // 
+            btnExit.Anchor = AnchorStyles.None;
+            btnExit.Font = new Font("Microsoft Sans Serif", 12F);
+            btnExit.Location = new Point(383, 32);
+            btnExit.MinimumSize = new Size(1, 1);
+            btnExit.Name = "btnExit";
+            btnExit.Size = new Size(125, 44);
+            btnExit.TabIndex = 1;
+            btnExit.Text = "Thoát";
+            btnExit.TipsFont = new Font("Microsoft Sans Serif", 9F);
             // 
             // uiTableLayoutPanel7
             // 
@@ -488,7 +580,7 @@
             lblBill.Name = "lblBill";
             lblBill.Size = new Size(595, 55);
             lblBill.TabIndex = 0;
-            lblBill.Text = "Thông tin hóa đơn";
+            lblBill.Text = " ";
             lblBill.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // uiTableLayoutPanel6
@@ -550,7 +642,7 @@
             lblEmail.Name = "lblEmail";
             lblEmail.Size = new Size(144, 83);
             lblEmail.TabIndex = 2;
-            lblEmail.Text = "Email:";
+            lblEmail.Text = "Ngày sinh:";
             lblEmail.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // lblAdrress
@@ -652,47 +744,6 @@
             lblInfor.Text = "Thông tin khách hàng";
             lblInfor.TextAlign = ContentAlignment.MiddleCenter;
             // 
-            // uiTableLayoutPanel8
-            // 
-            uiTableLayoutPanel8.BackColor = SystemColors.GradientInactiveCaption;
-            uiTableLayoutPanel8.ColumnCount = 2;
-            uiTableLayoutPanel8.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
-            uiTableLayoutPanel8.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
-            uiTableLayoutPanel8.Controls.Add(btnConfirm, 0, 0);
-            uiTableLayoutPanel8.Controls.Add(btnExit, 1, 0);
-            uiTableLayoutPanel8.Dock = DockStyle.Fill;
-            uiTableLayoutPanel8.Location = new Point(0, 691);
-            uiTableLayoutPanel8.Name = "uiTableLayoutPanel8";
-            uiTableLayoutPanel8.RowCount = 1;
-            uiTableLayoutPanel8.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            uiTableLayoutPanel8.Size = new Size(595, 109);
-            uiTableLayoutPanel8.TabIndex = 5;
-            uiTableLayoutPanel8.TagString = null;
-            // 
-            // btnConfirm
-            // 
-            btnConfirm.Anchor = AnchorStyles.None;
-            btnConfirm.Font = new Font("Microsoft Sans Serif", 12F);
-            btnConfirm.Location = new Point(86, 32);
-            btnConfirm.MinimumSize = new Size(1, 1);
-            btnConfirm.Name = "btnConfirm";
-            btnConfirm.Size = new Size(125, 44);
-            btnConfirm.TabIndex = 0;
-            btnConfirm.Text = "Đặt hàng";
-            btnConfirm.TipsFont = new Font("Microsoft Sans Serif", 9F);
-            // 
-            // btnExit
-            // 
-            btnExit.Anchor = AnchorStyles.None;
-            btnExit.Font = new Font("Microsoft Sans Serif", 12F);
-            btnExit.Location = new Point(383, 32);
-            btnExit.MinimumSize = new Size(1, 1);
-            btnExit.Name = "btnExit";
-            btnExit.Size = new Size(125, 44);
-            btnExit.TabIndex = 1;
-            btnExit.Text = "Thoát";
-            btnExit.TipsFont = new Font("Microsoft Sans Serif", 9F);
-            // 
             // FormSale
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -708,14 +759,16 @@
             uiTableLayoutPanel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dgvShopping).EndInit();
             uiTableLayoutPanel4.ResumeLayout(false);
+            uiPanel4.ResumeLayout(false);
+            uiPanel5.ResumeLayout(false);
             uiTableLayoutPanel2.ResumeLayout(false);
             uiTableLayoutPanel1.ResumeLayout(false);
+            uiTableLayoutPanel8.ResumeLayout(false);
             uiTableLayoutPanel7.ResumeLayout(false);
             uiPanel3.ResumeLayout(false);
             uiPanel2.ResumeLayout(false);
             uiTableLayoutPanel6.ResumeLayout(false);
             uiTableLayoutPanel5.ResumeLayout(false);
-            uiTableLayoutPanel8.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -730,17 +783,9 @@
         private Sunny.UI.UILabel lblAvailable;
         private Sunny.UI.UITextBox uiTextBox2;
         private Sunny.UI.UITextBox uiTextBox3;
-        private Sunny.UI.UITextBox uiTextBox1;
         private Sunny.UI.UIPanel uiPanel1;
         private Sunny.UI.UITableLayoutPanel uiTableLayoutPanel3;
-        private Sunny.UI.UIDataGridView dgvShopping;
-        private DataGridViewCheckBoxColumn cChose;
-        private DataGridViewTextBoxColumn cSTT;
-        private DataGridViewTextBoxColumn cName;
-        private DataGridViewTextBoxColumn cPrice;
         private Sunny.UI.UITableLayoutPanel uiTableLayoutPanel4;
-        private Sunny.UI.UIButton btnTotal;
-        private Sunny.UI.UIButton btnDelete;
         private Sunny.UI.UITableLayoutPanel uiTableLayoutPanel6;
         private Sunny.UI.UITableLayoutPanel uiTableLayoutPanel5;
         private Sunny.UI.UILabel lblInfor;
@@ -762,5 +807,16 @@
         private Sunny.UI.UITableLayoutPanel uiTableLayoutPanel8;
         private Sunny.UI.UIButton btnConfirm;
         private Sunny.UI.UIButton btnExit;
+        private Sunny.UI.UIComboBox uiComboBox1;
+        private Sunny.UI.UIDataGridView dgvShopping;
+        private DataGridViewCheckBoxColumn cChose;
+        private DataGridViewTextBoxColumn cSTT;
+        private DataGridViewTextBoxColumn cName;
+        private DataGridViewTextBoxColumn cPrice;
+        private Sunny.UI.UIPanel uiPanel4;
+        private Sunny.UI.UIButton btnAddCard;
+        private Sunny.UI.UIPanel uiPanel5;
+        private Sunny.UI.UILabel lblTotal;
+        private Sunny.UI.UILabel txtTotalPrice;
     }
 }

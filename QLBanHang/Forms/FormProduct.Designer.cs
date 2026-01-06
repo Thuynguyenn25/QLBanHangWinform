@@ -37,6 +37,7 @@
             uiTableLayoutPanel2 = new Sunny.UI.UITableLayoutPanel();
             uiPanel1 = new Sunny.UI.UIPanel();
             uiTableLayoutPanel4 = new Sunny.UI.UITableLayoutPanel();
+            btnClear = new Sunny.UI.UIButton();
             txtIDProduct = new Sunny.UI.UITextBox();
             txtName = new Sunny.UI.UITextBox();
             txtPrice = new Sunny.UI.UITextBox();
@@ -51,10 +52,11 @@
             btnDelete = new Sunny.UI.UIButton();
             btnEdit = new Sunny.UI.UIButton();
             btnAdd = new Sunny.UI.UIButton();
-            btnClear = new Sunny.UI.UIButton();
-            uiTableLayoutPanel5 = new Sunny.UI.UITableLayoutPanel();
-            chkIsActive = new Sunny.UI.UICheckBox();
+            uiTableLayoutPanel6 = new Sunny.UI.UITableLayoutPanel();
             uiLabel1 = new Sunny.UI.UILabel();
+            uiPanel5 = new Sunny.UI.UIPanel();
+            chkIsActive = new Sunny.UI.UICheckBox();
+            btnImport = new Sunny.UI.UIButton();
             uiTableLayoutPanel3 = new Sunny.UI.UITableLayoutPanel();
             uiPanel2 = new Sunny.UI.UIPanel();
             uiTableLayoutPanel1 = new Sunny.UI.UITableLayoutPanel();
@@ -83,7 +85,8 @@
             uiPanel1.SuspendLayout();
             uiTableLayoutPanel4.SuspendLayout();
             uiFlowLayoutPanel1.SuspendLayout();
-            uiTableLayoutPanel5.SuspendLayout();
+            uiTableLayoutPanel6.SuspendLayout();
+            uiPanel5.SuspendLayout();
             uiTableLayoutPanel3.SuspendLayout();
             uiTableLayoutPanel1.SuspendLayout();
             uiPanel4.SuspendLayout();
@@ -97,6 +100,7 @@
             uiSplitContainer1.BarColor = Color.FromArgb(80, 160, 255);
             uiSplitContainer1.Dock = DockStyle.Fill;
             uiSplitContainer1.HandleColor = Color.MediumBlue;
+            uiSplitContainer1.HandleHoverColor = SystemColors.Highlight;
             uiSplitContainer1.Location = new Point(0, 0);
             uiSplitContainer1.MinimumSize = new Size(20, 20);
             uiSplitContainer1.Name = "uiSplitContainer1";
@@ -174,8 +178,8 @@
             uiTableLayoutPanel4.Controls.Add(lblStock, 0, 4);
             uiTableLayoutPanel4.Controls.Add(cboCategory, 1, 2);
             uiTableLayoutPanel4.Controls.Add(uiFlowLayoutPanel1, 1, 6);
-            uiTableLayoutPanel4.Controls.Add(btnClear, 0, 5);
-            uiTableLayoutPanel4.Controls.Add(uiTableLayoutPanel5, 1, 5);
+            uiTableLayoutPanel4.Controls.Add(uiTableLayoutPanel6, 0, 5);
+            uiTableLayoutPanel4.Controls.Add(uiPanel5, 1, 5);
             uiTableLayoutPanel4.Dock = DockStyle.Fill;
             uiTableLayoutPanel4.Location = new Point(0, 61);
             uiTableLayoutPanel4.Margin = new Padding(0);
@@ -192,10 +196,23 @@
             uiTableLayoutPanel4.TabIndex = 1;
             uiTableLayoutPanel4.TagString = null;
             // 
+            // btnClear
+            // 
+            btnClear.Anchor = AnchorStyles.None;
+            btnClear.Font = new Font("Microsoft Sans Serif", 12F);
+            btnClear.Location = new Point(150, 29);
+            btnClear.MinimumSize = new Size(1, 1);
+            btnClear.Name = "btnClear";
+            btnClear.Size = new Size(108, 42);
+            btnClear.TabIndex = 16;
+            btnClear.Text = "Clear";
+            btnClear.TipsFont = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 163);
+            btnClear.Click += btnClear_Click;
+            // 
             // txtIDProduct
             // 
             txtIDProduct.Dock = DockStyle.Fill;
-            txtIDProduct.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            txtIDProduct.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 163);
             txtIDProduct.Location = new Point(124, 5);
             txtIDProduct.Margin = new Padding(4, 5, 4, 5);
             txtIDProduct.MinimumSize = new Size(1, 16);
@@ -210,7 +227,7 @@
             // txtName
             // 
             txtName.Dock = DockStyle.Fill;
-            txtName.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            txtName.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 163);
             txtName.Location = new Point(124, 55);
             txtName.Margin = new Padding(4, 5, 4, 5);
             txtName.MinimumSize = new Size(1, 16);
@@ -225,7 +242,7 @@
             // txtPrice
             // 
             txtPrice.Dock = DockStyle.Fill;
-            txtPrice.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            txtPrice.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 163);
             txtPrice.Location = new Point(124, 155);
             txtPrice.Margin = new Padding(4, 5, 4, 5);
             txtPrice.MinimumSize = new Size(1, 16);
@@ -240,7 +257,7 @@
             // txtStock
             // 
             txtStock.Dock = DockStyle.Fill;
-            txtStock.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            txtStock.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 163);
             txtStock.Location = new Point(124, 205);
             txtStock.Margin = new Padding(4, 5, 4, 5);
             txtStock.MinimumSize = new Size(1, 16);
@@ -309,7 +326,7 @@
             lblStock.Name = "lblStock";
             lblStock.Size = new Size(114, 50);
             lblStock.TabIndex = 10;
-            lblStock.Text = "SL tồn kho";
+            lblStock.Text = "SL tồn kho: ";
             lblStock.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // cboCategory
@@ -391,55 +408,71 @@
             btnAdd.TipsFont = new Font("Microsoft Sans Serif", 9F);
             btnAdd.Click += btnAdd_Click;
             // 
-            // btnClear
+            // uiTableLayoutPanel6
             // 
-            btnClear.Anchor = AnchorStyles.None;
-            btnClear.Font = new Font("Microsoft Sans Serif", 12F);
-            btnClear.Location = new Point(3, 305);
-            btnClear.MinimumSize = new Size(1, 1);
-            btnClear.Name = "btnClear";
-            btnClear.Size = new Size(114, 42);
-            btnClear.TabIndex = 16;
-            btnClear.Text = "Clear";
-            btnClear.TipsFont = new Font("Microsoft Sans Serif", 9F);
-            btnClear.Click += btnClear_Click;
+            uiTableLayoutPanel6.ColumnCount = 1;
+            uiTableLayoutPanel6.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+            uiTableLayoutPanel6.Controls.Add(uiLabel1, 0, 0);
+            uiTableLayoutPanel6.Controls.Add(btnImport, 0, 1);
+            uiTableLayoutPanel6.Dock = DockStyle.Fill;
+            uiTableLayoutPanel6.Location = new Point(3, 253);
+            uiTableLayoutPanel6.Name = "uiTableLayoutPanel6";
+            uiTableLayoutPanel6.RowCount = 2;
+            uiTableLayoutPanel6.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
+            uiTableLayoutPanel6.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
+            uiTableLayoutPanel6.Size = new Size(114, 146);
+            uiTableLayoutPanel6.TabIndex = 18;
+            uiTableLayoutPanel6.TagString = null;
             // 
-            // uiTableLayoutPanel5
+            // uiLabel1
             // 
-            uiTableLayoutPanel5.ColumnCount = 1;
-            uiTableLayoutPanel5.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
-            uiTableLayoutPanel5.Controls.Add(chkIsActive, 0, 0);
-            uiTableLayoutPanel5.Controls.Add(uiLabel1, 0, 1);
-            uiTableLayoutPanel5.Dock = DockStyle.Fill;
-            uiTableLayoutPanel5.Location = new Point(123, 253);
-            uiTableLayoutPanel5.Name = "uiTableLayoutPanel5";
-            uiTableLayoutPanel5.RowCount = 2;
-            uiTableLayoutPanel5.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-            uiTableLayoutPanel5.RowStyles.Add(new RowStyle(SizeType.Absolute, 69F));
-            uiTableLayoutPanel5.Size = new Size(448, 146);
-            uiTableLayoutPanel5.TabIndex = 17;
-            uiTableLayoutPanel5.TagString = null;
+            uiLabel1.Dock = DockStyle.Bottom;
+            uiLabel1.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 163);
+            uiLabel1.ForeColor = Color.FromArgb(48, 48, 48);
+            uiLabel1.Location = new Point(3, 44);
+            uiLabel1.Name = "uiLabel1";
+            uiLabel1.Size = new Size(108, 29);
+            uiLabel1.TabIndex = 16;
+            uiLabel1.Text = "uiLabel1";
+            // 
+            // uiPanel5
+            // 
+            uiPanel5.Controls.Add(btnClear);
+            uiPanel5.Controls.Add(chkIsActive);
+            uiPanel5.Dock = DockStyle.Fill;
+            uiPanel5.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 163);
+            uiPanel5.Location = new Point(124, 255);
+            uiPanel5.Margin = new Padding(4, 5, 4, 5);
+            uiPanel5.MinimumSize = new Size(1, 1);
+            uiPanel5.Name = "uiPanel5";
+            uiPanel5.RectColor = Color.FromArgb(243, 249, 255);
+            uiPanel5.Size = new Size(446, 142);
+            uiPanel5.TabIndex = 19;
+            uiPanel5.Text = null;
+            uiPanel5.TextAlignment = ContentAlignment.MiddleCenter;
             // 
             // chkIsActive
             // 
             chkIsActive.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 163);
             chkIsActive.ForeColor = Color.FromArgb(48, 48, 48);
-            chkIsActive.Location = new Point(3, 3);
+            chkIsActive.Location = new Point(-1, 0);
             chkIsActive.MinimumSize = new Size(1, 1);
             chkIsActive.Name = "chkIsActive";
             chkIsActive.Size = new Size(114, 36);
             chkIsActive.TabIndex = 15;
             chkIsActive.Text = "Đang bán";
             // 
-            // uiLabel1
+            // btnImport
             // 
-            uiLabel1.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 163);
-            uiLabel1.ForeColor = Color.FromArgb(48, 48, 48);
-            uiLabel1.Location = new Point(3, 77);
-            uiLabel1.Name = "uiLabel1";
-            uiLabel1.Size = new Size(125, 29);
-            uiLabel1.TabIndex = 16;
-            uiLabel1.Text = "uiLabel1";
+            btnImport.Anchor = AnchorStyles.None;
+            btnImport.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 163);
+            btnImport.Location = new Point(3, 90);
+            btnImport.MinimumSize = new Size(1, 1);
+            btnImport.Name = "btnImport";
+            btnImport.Size = new Size(108, 39);
+            btnImport.TabIndex = 2;
+            btnImport.Text = "Import";
+            btnImport.TipsFont = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 163);
             // 
             // uiTableLayoutPanel3
             // 
@@ -460,7 +493,7 @@
             // uiPanel2
             // 
             uiPanel2.Dock = DockStyle.Fill;
-            uiPanel2.Font = new Font("Microsoft Sans Serif", 12F);
+            uiPanel2.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 163);
             uiPanel2.Location = new Point(0, 0);
             uiPanel2.Margin = new Padding(0);
             uiPanel2.MinimumSize = new Size(1, 1);
@@ -671,13 +704,13 @@
             // 
             txtSearch.Anchor = AnchorStyles.None;
             txtSearch.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 163);
-            txtSearch.Location = new Point(223, 17);
+            txtSearch.Location = new Point(222, 14);
             txtSearch.Margin = new Padding(4, 5, 4, 5);
             txtSearch.MinimumSize = new Size(1, 16);
             txtSearch.Name = "txtSearch";
             txtSearch.Padding = new Padding(5);
             txtSearch.ShowText = false;
-            txtSearch.Size = new Size(286, 36);
+            txtSearch.Size = new Size(286, 40);
             txtSearch.TabIndex = 1;
             txtSearch.TextAlignment = ContentAlignment.MiddleLeft;
             txtSearch.Watermark = "";
@@ -687,13 +720,13 @@
             // 
             btnSearch.Anchor = AnchorStyles.None;
             btnSearch.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 163);
-            btnSearch.Location = new Point(91, 12);
+            btnSearch.Location = new Point(79, 12);
             btnSearch.MinimumSize = new Size(1, 1);
             btnSearch.Name = "btnSearch";
             btnSearch.Size = new Size(125, 44);
             btnSearch.TabIndex = 0;
             btnSearch.Text = "Tìm kiếm";
-            btnSearch.TipsFont = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, 163);
+            btnSearch.TipsFont = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 163);
             btnSearch.Click += btnSearch_Click;
             // 
             // FormProduct
@@ -716,7 +749,8 @@
             uiPanel1.ResumeLayout(false);
             uiTableLayoutPanel4.ResumeLayout(false);
             uiFlowLayoutPanel1.ResumeLayout(false);
-            uiTableLayoutPanel5.ResumeLayout(false);
+            uiTableLayoutPanel6.ResumeLayout(false);
+            uiPanel5.ResumeLayout(false);
             uiTableLayoutPanel3.ResumeLayout(false);
             uiTableLayoutPanel1.ResumeLayout(false);
             uiPanel4.ResumeLayout(false);
@@ -773,7 +807,9 @@
         private ToolStripMenuItem tsmiSelectAll;
         private ToolStripMenuItem tsmiUnselect;
         private ToolStripMenuItem tsmiDeleteItem;
-        private Sunny.UI.UITableLayoutPanel uiTableLayoutPanel5;
+        private Sunny.UI.UIButton btnImport;
+        private Sunny.UI.UITableLayoutPanel uiTableLayoutPanel6;
+        private Sunny.UI.UIPanel uiPanel5;
         private Sunny.UI.UILabel uiLabel1;
     }
 }

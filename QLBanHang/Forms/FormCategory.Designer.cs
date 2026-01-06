@@ -29,16 +29,17 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle7 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle8 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle9 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle10 = new DataGridViewCellStyle();
             tblCatSearch = new Sunny.UI.UITableLayoutPanel();
             uiPanel7 = new Sunny.UI.UIPanel();
             txtSearchCate = new Sunny.UI.UITextBox();
             btnSearchCate = new Sunny.UI.UIButton();
             uiPanel6 = new Sunny.UI.UIPanel();
+            btnExport = new Sunny.UI.UIButton();
             lblTitleCate = new Sunny.UI.UILabel();
             tblCatbuton = new Sunny.UI.UITableLayoutPanel();
             uiPanel5 = new Sunny.UI.UIPanel();
@@ -144,7 +145,7 @@
             // txtSearchCate
             // 
             txtSearchCate.Anchor = AnchorStyles.None;
-            txtSearchCate.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 163);
+            txtSearchCate.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 163);
             txtSearchCate.Location = new Point(43, 8);
             txtSearchCate.Margin = new Padding(4, 5, 4, 5);
             txtSearchCate.MinimumSize = new Size(1, 16);
@@ -172,6 +173,7 @@
             // 
             // uiPanel6
             // 
+            uiPanel6.Controls.Add(btnExport);
             uiPanel6.Controls.Add(lblTitleCate);
             uiPanel6.Dock = DockStyle.Fill;
             uiPanel6.FillColor = SystemColors.ActiveCaption;
@@ -186,6 +188,18 @@
             uiPanel6.TabIndex = 2;
             uiPanel6.Text = null;
             uiPanel6.TextAlignment = ContentAlignment.MiddleCenter;
+            // 
+            // btnExport
+            // 
+            btnExport.Anchor = AnchorStyles.None;
+            btnExport.Font = new Font("Segoe UI", 9F);
+            btnExport.Location = new Point(226, 8);
+            btnExport.MinimumSize = new Size(1, 1);
+            btnExport.Name = "btnExport";
+            btnExport.Size = new Size(108, 42);
+            btnExport.TabIndex = 3;
+            btnExport.Text = "Xuất file ";
+            btnExport.TipsFont = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, 163);
             // 
             // lblTitleCate
             // 
@@ -360,30 +374,30 @@
             dgvCategory.AllowUserToAddRows = false;
             dgvCategory.AllowUserToDeleteRows = false;
             dgvCategory.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.BackColor = Color.FromArgb(235, 243, 255);
-            dgvCategory.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle6.BackColor = Color.FromArgb(235, 243, 255);
+            dgvCategory.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle6;
             dgvCategory.BackgroundColor = Color.White;
             dgvCategory.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = Color.FromArgb(80, 160, 255);
-            dataGridViewCellStyle2.Font = new Font("Microsoft Sans Serif", 12F);
-            dataGridViewCellStyle2.ForeColor = Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
-            dgvCategory.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle7.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle7.BackColor = Color.FromArgb(80, 160, 255);
+            dataGridViewCellStyle7.Font = new Font("Microsoft Sans Serif", 12F);
+            dataGridViewCellStyle7.ForeColor = Color.White;
+            dataGridViewCellStyle7.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = DataGridViewTriState.True;
+            dgvCategory.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
             dgvCategory.ColumnHeadersHeight = 32;
             dgvCategory.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             dgvCategory.Columns.AddRange(new DataGridViewColumn[] { cChose, cIDCategory, cName, cDescription });
             dgvCategory.ContextMenuStrip = cmsCategory;
-            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = SystemColors.Window;
-            dataGridViewCellStyle3.Font = new Font("Microsoft Sans Serif", 12F);
-            dataGridViewCellStyle3.ForeColor = Color.FromArgb(48, 48, 48);
-            dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
-            dgvCategory.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle8.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = SystemColors.Window;
+            dataGridViewCellStyle8.Font = new Font("Microsoft Sans Serif", 12F);
+            dataGridViewCellStyle8.ForeColor = Color.FromArgb(48, 48, 48);
+            dataGridViewCellStyle8.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = DataGridViewTriState.False;
+            dgvCategory.DefaultCellStyle = dataGridViewCellStyle8;
             dgvCategory.Dock = DockStyle.Fill;
             dgvCategory.EnableHeadersVisualStyles = false;
             dgvCategory.Font = new Font("Microsoft Sans Serif", 12F);
@@ -391,19 +405,19 @@
             dgvCategory.Location = new Point(0, 0);
             dgvCategory.Margin = new Padding(5, 3, 3, 3);
             dgvCategory.Name = "dgvCategory";
-            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = Color.FromArgb(235, 243, 255);
-            dataGridViewCellStyle4.Font = new Font("Microsoft Sans Serif", 12F);
-            dataGridViewCellStyle4.ForeColor = Color.FromArgb(48, 48, 48);
-            dataGridViewCellStyle4.SelectionBackColor = Color.FromArgb(80, 160, 255);
-            dataGridViewCellStyle4.SelectionForeColor = Color.White;
-            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.True;
-            dgvCategory.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle9.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = Color.FromArgb(235, 243, 255);
+            dataGridViewCellStyle9.Font = new Font("Microsoft Sans Serif", 12F);
+            dataGridViewCellStyle9.ForeColor = Color.FromArgb(48, 48, 48);
+            dataGridViewCellStyle9.SelectionBackColor = Color.FromArgb(80, 160, 255);
+            dataGridViewCellStyle9.SelectionForeColor = Color.White;
+            dataGridViewCellStyle9.WrapMode = DataGridViewTriState.True;
+            dgvCategory.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
             dgvCategory.RowHeadersVisible = false;
             dgvCategory.RowHeadersWidth = 51;
-            dataGridViewCellStyle5.BackColor = Color.White;
-            dataGridViewCellStyle5.Font = new Font("Microsoft Sans Serif", 12F);
-            dgvCategory.RowsDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle10.BackColor = Color.White;
+            dataGridViewCellStyle10.Font = new Font("Microsoft Sans Serif", 12F);
+            dgvCategory.RowsDefaultCellStyle = dataGridViewCellStyle10;
             dgvCategory.ScrollBarRectColor = Color.White;
             dgvCategory.ScrollBars = ScrollBars.None;
             dgvCategory.ScrollBarStyleInherited = false;
@@ -577,7 +591,7 @@
             // txtName
             // 
             txtName.Anchor = AnchorStyles.Left | AnchorStyles.Right;
-            txtName.Font = new Font("Microsoft Sans Serif", 12F);
+            txtName.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 163);
             txtName.Location = new Point(17, 15);
             txtName.Margin = new Padding(4, 5, 4, 5);
             txtName.MinimumSize = new Size(1, 16);
@@ -608,7 +622,7 @@
             // lblName
             // 
             lblName.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Right;
-            lblName.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblName.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 163);
             lblName.ForeColor = Color.FromArgb(48, 48, 48);
             lblName.Location = new Point(49, 22);
             lblName.Name = "lblName";
@@ -635,7 +649,7 @@
             // txtDescription
             // 
             txtDescription.Anchor = AnchorStyles.Left | AnchorStyles.Right;
-            txtDescription.Font = new Font("Microsoft Sans Serif", 12F);
+            txtDescription.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 163);
             txtDescription.Location = new Point(7, 15);
             txtDescription.Margin = new Padding(4, 5, 4, 5);
             txtDescription.MinimumSize = new Size(1, 16);
@@ -666,7 +680,7 @@
             // lblDescription
             // 
             lblDescription.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Right;
-            lblDescription.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblDescription.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 163);
             lblDescription.ForeColor = Color.FromArgb(48, 48, 48);
             lblDescription.Location = new Point(64, 21);
             lblDescription.Name = "lblDescription";
@@ -694,7 +708,7 @@
             // 
             txtIDCategory.Anchor = AnchorStyles.Left | AnchorStyles.Right;
             txtIDCategory.Enabled = false;
-            txtIDCategory.Font = new Font("Microsoft Sans Serif", 12F);
+            txtIDCategory.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 163);
             txtIDCategory.Location = new Point(17, 15);
             txtIDCategory.Margin = new Padding(4, 5, 4, 5);
             txtIDCategory.MinimumSize = new Size(1, 16);
@@ -725,7 +739,7 @@
             // lblIDCategory
             // 
             lblIDCategory.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Right;
-            lblIDCategory.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblIDCategory.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 163);
             lblIDCategory.ForeColor = Color.FromArgb(48, 48, 48);
             lblIDCategory.Location = new Point(49, 23);
             lblIDCategory.Name = "lblIDCategory";
@@ -861,5 +875,6 @@
         private DataGridViewTextBoxColumn cIDCategory;
         private DataGridViewTextBoxColumn cName;
         private DataGridViewTextBoxColumn cDescription;
+        private Sunny.UI.UIButton btnExport;
     }
 }
