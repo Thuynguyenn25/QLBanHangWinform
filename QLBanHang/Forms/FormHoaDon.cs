@@ -21,5 +21,10 @@ namespace QLBanHang.Forms
         {
 
         }
+
+        private void uiLabel14_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

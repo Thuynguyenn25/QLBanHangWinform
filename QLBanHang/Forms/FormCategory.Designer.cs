@@ -200,6 +200,7 @@
             btnExport.TabIndex = 3;
             btnExport.Text = "Xuất file ";
             btnExport.TipsFont = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, 163);
+            btnExport.Click += btnExport_Click;
             // 
             // lblTitleCate
             // 

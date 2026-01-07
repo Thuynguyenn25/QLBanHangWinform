@@ -1,4 +1,5 @@
 ﻿using QLBanHang.Data;
+using QLBanHang.Helpers;
 using QLBanHang.Model;
 using System;
 using System.Collections.Generic;
@@ -75,6 +76,10 @@ namespace QLBanHang
         {
             LoadCategory();
             LoadProduct(0);
+
+            dgvCart.Columns[3].DefaultCellStyle.Format = "#,##0";
+            dgvCart.Columns[5].DefaultCellStyle.Format = "#,##0";
+
             _loaded = true;
         }
         private void cboCategory_SelectedIndexChanged(object sender, EventArgs e)
@@ -103,7 +108,7 @@ namespace QLBanHang
             decimal price = Convert.ToDecimal(dt.Rows[0]["Price"]);
             int stock = Convert.ToInt32(dt.Rows[0]["Stock"]);
 
-            txtUnitPrice.Text = price.ToString("0.##");
+            txtUnitPrice.Text = price.ToString("#,##0");
 
         }
 
@@ -137,38 +142,88 @@ namespace QLBanHang
                 txtCount.Focus();
                 return false;
             }
-            if (!decimal.TryParse(txtUnitPrice.Text, out unitPrice) || unitPrice < 0)
+
+            string priceText = txtUnitPrice.Text.Replace(",", "").Trim();
+            if (!decimal.TryParse(priceText, out unitPrice) || unitPrice < 0)
             {
                 MessageBox.Show("Đơn giá không hợp lệ!");
                 txtUnitPrice.Focus();
                 return false;
             }
+
             return true;
         }
+
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            if (cboProduct1.SelectedValue == null)
+            try
             {
-                MessageBox.Show("Vui lòng chọn sản phẩm!");
-                return;
-            }
-            int productId = Convert.ToInt32(cboProduct1.SelectedValue);
-            string productName = cboProduct1.Text;
+                if (cboProduct1.SelectedValue == null)
+                {
+                    MessageBox.Show("Vui lòng chọn sản phẩm!");
+                    return;
+                }
+                int productId = Convert.ToInt32(cboProduct1.SelectedValue);
+                string productName = cboProduct1.Text;
 
-            if (!CheckInput(out int count, out decimal unitPrice))
-                return;
-            int stock = GetStockFromDb(productId);
-            decimal lineTotal = unitPrice * count;
-            if (count > stock)
+                if (!CheckInput(out int addQty, out decimal unitPrice))
+                    return;
+
+                int stock = GetStockFromDb(productId);
+
+                foreach (DataGridViewRow row in dgvCart.Rows)
+                {
+                    if (row.IsNewRow) continue;
+
+                    if (row.Cells["cProductID"].Value == null) continue;
+
+                    int rowProductId = Convert.ToInt32(row.Cells["cProductID"].Value);
+
+                    if (rowProductId == productId)
+                    {
+                        int currentQty = Convert.ToInt32(row.Cells["cCount"].Value);
+                        int newQty = currentQty + addQty;
+
+                        if (newQty > stock)
+                        {
+                            MessageBox.Show($"Không đủ tồn kho! Tồn: {stock}, trong giỏ: {currentQty}");
+                            return;
+                        }
+                        row.Cells["cCount"].Value = newQty;
+                        row.Cells["cUnitPrice"].Value = unitPrice;
+                        row.Cells["cLineTotal"].Value = newQty * unitPrice;
+                        RecalcTotalAmount();
+                        return;
+                    }
+                }
+
+                if (addQty > stock)
+                {
+                    MessageBox.Show($"Không đủ tồn kho! Tồn hiện tại: {stock}");
+                    return;
+                }
+
+                decimal lineTotal = unitPrice * addQty;
+
+                dgvCart.Rows.Add(
+                    false,                    
+                    dgvCart.Rows.Count + 1,   
+                    productName,              
+                    unitPrice,                 
+                    addQty,                  
+                    lineTotal,                
+                    productId                 
+                );
+                RecalcTotalAmount();
+            }
+            catch (Exception ex)
             {
-                MessageBox.Show($"Không đủ tồn kho! Tồn hiện tại: {stock}");
-                return;
+                MessageBox.Show(ex.Message);
+                Utils.Log("Add Cart: ", ex);
             }
-            
-            dgvCart.Rows.Add(false,dgvCart.Rows.Count+1,productName, count, unitPrice, lineTotal);
-
-            RecalcTotalAmount();
         }
+
+
 
         private void RecalcTotalAmount()
         {
@@ -182,8 +237,152 @@ namespace QLBanHang
                 totalAmount += Convert.ToDecimal(row.Cells[5].Value);
             }
 
-            lblTotalAmount.Text = "Tổng tiền: " + totalAmount.ToString("0,0"); 
+            lblTotalAmount.Text = "Tổng tiền: " + totalAmount.ToString("#,##0");
+
         }
+        //-----------
+        private void dgvCart_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+        //------
+        //cập nhật lại STT
+        private void ReindexCartSTT()
+        {
+            int stt = 1;
+            foreach (DataGridViewRow row in dgvCart.Rows)
+            {
+                if (row.IsNewRow) continue;
+                row.Cells[1].Value = stt++;
+            }
+        }
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            bool hasChecked = false;
+            for (int i = dgvCart.Rows.Count - 1; i >= 0; i--)
+            {
+                DataGridViewRow row = dgvCart.Rows[i];
+                if (row.IsNewRow) continue;
+                bool isChecked = row.Cells[0].Value != null &&
+                                 Convert.ToBoolean(row.Cells[0].Value);
+                if (isChecked)
+                {
+                    dgvCart.Rows.RemoveAt(i);
+                    hasChecked = true;
+                }
+            }
+            if (!hasChecked)
+            {
+                MessageBox.Show("Vui lòng tick sản phẩm cần xóa!");
+                return;
+            }
+            ReindexCartSTT();
+            RecalcTotalAmount();
+        }
+
+        //-------------------
+        private decimal GetCartTotalAmount()
+        {
+            decimal total = 0;
+            foreach (DataGridViewRow row in dgvCart.Rows)
+            {
+                if (row.IsNewRow) continue;
+                if (row.Cells[6].Value == null) continue;
+
+                total += Convert.ToDecimal(row.Cells[6].Value);
+            }
+            return total;
+        }
+
+        private bool CartHasItems()
+        {
+            foreach (DataGridViewRow row in dgvCart.Rows)
+                if (!row.IsNewRow) return true;
+            return false;
+        }
+
+        private void btnConfirm_Click(object sender, EventArgs e)
+        {
+            if (!CartHasItems())
+            {
+                MessageBox.Show("Giỏ hàng đang trống!");
+                return;
+            }
+
+            string nameCustomer = txtNameCustomer.Text.Trim();
+            string phone = txtPhone.Text.Trim();
+
+            if (string.IsNullOrWhiteSpace(nameCustomer))
+            {
+                MessageBox.Show("Vui lòng nhập tên khách hàng!");
+                txtNameCustomer.Focus();
+                return;
+            }
+
+            decimal totalAmount = GetCartTotalAmount();
+            string orderDate = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
+
+            SQLiteUtils sql = new SQLiteUtils();
+
+            try
+            {
+                string insertOrder =
+                    $"INSERT INTO Orders(OrderDate, CustomerName, Phone, TotalAmount) " +
+                    $"VALUES('{orderDate}', '{nameCustomer}', '{phone}', {totalAmount});";
+
+                sql.ExecuteQuery(insertOrder);
+
+                DataTable dtOrderId = sql.ExecuteQuery(
+                    "SELECT MAX(OrderId) AS OrderId FROM Orders;"
+                );
+
+                int orderId = Convert.ToInt32(dtOrderId.Rows[0]["OrderId"]);
+
+                foreach (DataGridViewRow row in dgvCart.Rows)
+                {
+                    if (row.IsNewRow) continue;
+
+                    int productId = Convert.ToInt32(row.Cells["cProductID"].Value);
+                    int count = Convert.ToInt32(row.Cells["cCount"].Value);
+                    decimal unitPrice = Convert.ToDecimal(row.Cells["cUnitPrice"].Value);
+                    decimal lineTotal = Convert.ToDecimal(row.Cells["cLineTotal"].Value);
+
+                    int stockNow = GetStockFromDb(productId);
+                    if (count > stockNow)
+                    {
+                        MessageBox.Show(
+                            $"Không đủ tồn kho cho sản phẩm ID={productId}. " +
+                            $"Tồn: {stockNow}, cần: {count}"
+                        );
+                        return;
+                    }
+
+                    string insertDetail =
+                        $"INSERT INTO OrderDetails(OrderId, ProductId, Quantity, UnitPrice, LineTotal) " +
+                        $"VALUES({orderId}, {productId}, {count}, {unitPrice}, {lineTotal});";
+
+                    sql.ExecuteQuery(insertDetail);
+
+                    string updateStock =
+                        $"UPDATE Products SET Stock = Stock - {count} " +
+                        $"WHERE ProductId = {productId};";
+
+                    sql.ExecuteQuery(updateStock);
+                }
+
+                MessageBox.Show($"Đặt hàng thành công! Mã hóa đơn: {orderId}");
+
+                dgvCart.Rows.Clear();
+                lblTotalAmount.Text = "Tổng tiền: 0";
+                txtCount.Text = "";
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Đặt hàng thất bại: " + ex.Message);
+            }
+        }
+
+
 
 
     }

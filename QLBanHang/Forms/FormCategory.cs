@@ -10,6 +10,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
+
 
 namespace QLBanHang
 {
@@ -19,7 +21,7 @@ namespace QLBanHang
         {
             InitializeComponent();
             this.Shown += FormCategory_Shown;
-                
+
         }
 
         private void FormCategory_Shown(object sender, EventArgs e)
@@ -32,7 +34,7 @@ namespace QLBanHang
             btnAddCate.Enabled = !isEditing;
             btnUpdateCate.Enabled = isEditing;
             btnDeleteCate.Enabled = isEditing;
-          
+
         }
         public void Clear()
         {
@@ -75,7 +77,7 @@ namespace QLBanHang
             LoadCategory();
             SetButtonState(false);
         }
-       
+
 
         private bool ValidateInput()
         {
@@ -217,25 +219,48 @@ namespace QLBanHang
             }
             SearchCategory();
         }
+        private bool CategoryHasProducts(int categoryId)
+        {
+            string q = $"SELECT 1 FROM Products WHERE CategoryID = {categoryId} LIMIT 1;";
+            SQLiteUtils sql = new SQLiteUtils();
+            DataTable dt = sql.ExecuteQuery(q);
+            return dt.Rows.Count > 0;
+        }
+
 
         private void btnDeleteCate_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrWhiteSpace(txtIDCategory.Text))
+            {
+                MessageBox.Show("Vui lòng chọn danh mục cần xóa!");
+                return;
+            }
+
             int idCategory = int.Parse(txtIDCategory.Text);
 
+            // ✅ chặn xóa nếu còn product
+            if (CategoryHasProducts(idCategory))
+            {
+                MessageBox.Show("Không thể xóa! Danh mục này vẫn còn sản phẩm.");
+                return;
+            }
+
             DialogResult result = MessageBox.Show(
-             $"Bạn có chắc chắn muốn xóa danh mục số {idCategory} không?",
-            "Xác nhận xóa",
-            MessageBoxButtons.YesNo,
-            MessageBoxIcon.Warning
+                $"Bạn có chắc chắn muốn xóa danh mục số {idCategory} không?",
+                "Xác nhận xóa",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Warning
             );
             if (result != DialogResult.Yes) return;
 
-            SQLiteUtils sQL = new SQLiteUtils();
-            string query = $"DELETE FROM Products WHERE ProductID = {idCategory}";
-            sQL.ExecuteQuery(query);
+            SQLiteUtils sql = new SQLiteUtils();
+            string query = $"DELETE FROM Categories WHERE CategoryID = {idCategory}";
+            sql.ExecuteQuery(query);
 
             LoadCategory();
+            Clear();
         }
+
 
         //--------------
         private void dgvCategory_MouseDown(object sender, MouseEventArgs e)
@@ -281,7 +306,6 @@ namespace QLBanHang
         private void tsmiDeleteItem_Click(object sender, EventArgs e)
         {
             dgvCategory.EndEdit();
-
             int countChecked = 0;
             foreach (DataGridViewRow row in dgvCategory.Rows)
             {
@@ -289,43 +313,94 @@ namespace QLBanHang
                                  Convert.ToBoolean(row.Cells["cChose"].Value);
                 if (isChecked) countChecked++;
             }
-
             if (countChecked == 0)
             {
                 MessageBox.Show("Vui lòng tick chọn ô để xóa!");
                 return;
             }
-
             DialogResult result = MessageBox.Show(
                 $"Bạn có chắc chắn muốn xóa {countChecked} danh mục đã chọn không?",
                 "Xác nhận xóa",
                 MessageBoxButtons.YesNo,
                 MessageBoxIcon.Warning
             );
-
             if (result != DialogResult.Yes) return;
-
             SQLiteUtils sql = new SQLiteUtils();
-
             foreach (DataGridViewRow row in dgvCategory.Rows)
             {
                 bool isChecked = row.Cells["cChose"].Value != null &&
                                  Convert.ToBoolean(row.Cells["cChose"].Value);
-                if (isChecked)
+                if (!isChecked) continue;
+                int idCategory = Convert.ToInt32(row.Cells["cIDCategory"].Value);
+                if (CategoryHasProducts(idCategory))
                 {
-                    int idCategory = Convert.ToInt32(row.Cells["cIDCategory"].Value);
-                    string query = $"DELETE FROM Categories WHERE CategoryID = {idCategory}";
-                    sql.ExecuteQuery(query);
+                    MessageBox.Show($"Không thể xóa danh mục ID={idCategory} vì vẫn còn sản phẩm.");
+                    continue;
                 }
+                string query = $"DELETE FROM Categories WHERE CategoryID = {idCategory}";
+                sql.ExecuteQuery(query);
             }
-
             LoadCategory();
+            Clear();
         }
 
+        private void btnExport_Click(object sender, EventArgs e)
+        {
+            if (dgvCategory.Rows.Count == 0)
+            {
+                MessageBox.Show("Không có dữ liệu để export!");
+                return;
+            }
 
+            using (SaveFileDialog sfd = new SaveFileDialog())
+            {
+                sfd.Filter = "CSV file (*.csv)|*.csv";
+                sfd.FileName = "categories.csv";
 
+                if (sfd.ShowDialog() != DialogResult.OK) return;
 
+                try
+                {
+                    using (StreamWriter sw = new StreamWriter(sfd.FileName, false, Encoding.UTF8))
+                    {
+                        // Header
+                        sw.WriteLine("CategoryID,Name,Description");
 
+                        foreach (DataGridViewRow row in dgvCategory.Rows)
+                        {
+                            if (row.IsNewRow) continue;
+
+                            // Lấy theo đúng tên cột bạn đang dùng
+                            string id = row.Cells["cIDCategory"].Value?.ToString() ?? "";
+                            string name = row.Cells["cName"].Value?.ToString() ?? "";
+                            string desc = row.Cells["cDescription"].Value?.ToString() ?? "";
+
+                            // Escape CSV (nếu có dấu phẩy, dấu nháy, xuống dòng)
+                            name = EscapeCsv(name);
+                            desc = EscapeCsv(desc);
+
+                            sw.WriteLine($"{id},{name},{desc}");
+                        }
+                    }
+
+                    MessageBox.Show("Export CSV thành công!");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Export thất bại: " + ex.Message);
+                }
+            }
+        }
+
+        private string EscapeCsv(string s)
+        {
+            if (s == null) return "";
+
+            bool mustQuote = s.Contains(",") || s.Contains("\"") || s.Contains("\n") || s.Contains("\r");
+            s = s.Replace("\"", "\"\""); 
+
+            return mustQuote ? $"\"{s}\"" : s;
+        }
 
     }
 }

@@ -18,6 +18,7 @@ namespace QLBanHang
         {
             InitializeComponent();
             this.Shown += FormProduct_Shown;
+            txtPrice.Leave += txtPrice_Leave;
         }
         private void FormProduct_Shown(object sender, EventArgs e)
         {
@@ -39,11 +40,14 @@ namespace QLBanHang
                 int isActiveValue = Convert.ToInt32(dr["IsActive"]);
                 string isActiveText = isActiveValue == 1 ? "Đang bán" : "Ngừng bán";
 
+                decimal price = Convert.ToDecimal(dr["Price"]);
+                string priceText = price.ToString("#,##0");
+
                 dgvProduct.Rows.Add(
                     false,
                     dr["ProductID"],
                     dr["Name"],
-                    dr["Price"],
+                    priceText,
                     dr["Stock"],
                     isActiveText,
                     dr["CategoryID"]
@@ -98,11 +102,14 @@ namespace QLBanHang
                 return false;
             }
 
-            if (!decimal.TryParse(txtPrice.Text.Trim(), out decimal price) || price < 0)
+            string priceText = txtPrice.Text.Replace(",", "").Trim();
+            if (!decimal.TryParse(priceText, out decimal price) || price < 0)
             {
-                MessageBox.Show("Price không hợp lệ!");
+                MessageBox.Show("Đơn giá không hợp lệ!");
+                txtPrice.Focus();
                 return false;
             }
+
 
             if (!int.TryParse(txtStock.Text.Trim(), out int stock) || stock < 0)
             {
@@ -143,7 +150,7 @@ namespace QLBanHang
 
                 int productID = int.Parse(txtIDProduct.Text.Trim());
                 string name = txtName.Text.Trim();
-                decimal price = decimal.Parse(txtPrice.Text.Trim());
+                decimal price = decimal.Parse(txtPrice.Text.Replace(",", ""));
                 int stock = int.Parse(txtStock.Text.Trim());
 
                 int categoryID = Convert.ToInt32(cboCategory.SelectedValue);
@@ -177,7 +184,12 @@ namespace QLBanHang
 
                 txtIDProduct.Text = row.Cells["cIDProduct"].Value?.ToString() ?? "";
                 txtName.Text = row.Cells["cName"].Value?.ToString() ?? "";
-                txtPrice.Text = row.Cells["cPrice"].Value?.ToString() ?? "";
+                string p = row.Cells["cPrice"].Value?.ToString() ?? "0";
+                if (decimal.TryParse(p.Replace(",", ""), out decimal pr))
+                    txtPrice.Text = pr.ToString("#,##0");
+                else
+                    txtPrice.Text = p;
+
                 txtStock.Text = row.Cells["cStock"].Value?.ToString() ?? "";
 
                 if (row.Cells["cCategoryID"].Value != null)
@@ -202,7 +214,7 @@ namespace QLBanHang
                 int productID = int.Parse(txtIDProduct.Text);
 
                 string name = txtName.Text;
-                decimal price = decimal.Parse(txtPrice.Text);
+                decimal price = decimal.Parse(txtPrice.Text.Replace(",", ""));
                 int stock = int.Parse(txtStock.Text);
                 int categoryID = Convert.ToInt32(cboCategory.SelectedValue);
                 int isActive = chkIsActive.Checked ? 1 : 0;
@@ -386,8 +398,8 @@ namespace QLBanHang
             {
                 if (stock < 5)
                 {
-                    row.DefaultCellStyle.BackColor = Color.LightPink;   
-                    row.DefaultCellStyle.ForeColor = Color.DarkRed;    
+                    row.DefaultCellStyle.BackColor = Color.LightPink;
+                    row.DefaultCellStyle.ForeColor = Color.DarkRed;
                 }
                 else
                 {
@@ -396,11 +408,26 @@ namespace QLBanHang
                 }
             }
         }
+
+        private void txtPrice_Leave(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtPrice.Text)) return;
+
+            if (decimal.TryParse(txtPrice.Text.Replace(",", ""), out decimal price))
+            {
+                txtPrice.Text = price.ToString("#,##0"); // 12000 -> 12,000
+            }
+            else
+            {
+                MessageBox.Show("Đơn giá không hợp lệ");
+                txtPrice.Focus();
+            }
+        }
         //--------------------
 
 
 
-      
+
 
     }
 }

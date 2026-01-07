@@ -37,7 +37,6 @@
             uiTableLayoutPanel2 = new Sunny.UI.UITableLayoutPanel();
             uiPanel1 = new Sunny.UI.UIPanel();
             uiTableLayoutPanel4 = new Sunny.UI.UITableLayoutPanel();
-            btnClear = new Sunny.UI.UIButton();
             txtIDProduct = new Sunny.UI.UITextBox();
             txtName = new Sunny.UI.UITextBox();
             txtPrice = new Sunny.UI.UITextBox();
@@ -54,9 +53,10 @@
             btnAdd = new Sunny.UI.UIButton();
             uiTableLayoutPanel6 = new Sunny.UI.UITableLayoutPanel();
             uiLabel1 = new Sunny.UI.UILabel();
-            uiPanel5 = new Sunny.UI.UIPanel();
-            chkIsActive = new Sunny.UI.UICheckBox();
             btnImport = new Sunny.UI.UIButton();
+            uiPanel5 = new Sunny.UI.UIPanel();
+            btnClear = new Sunny.UI.UIButton();
+            chkIsActive = new Sunny.UI.UICheckBox();
             uiTableLayoutPanel3 = new Sunny.UI.UITableLayoutPanel();
             uiPanel2 = new Sunny.UI.UIPanel();
             uiTableLayoutPanel1 = new Sunny.UI.UITableLayoutPanel();
@@ -196,19 +196,6 @@
             uiTableLayoutPanel4.TabIndex = 1;
             uiTableLayoutPanel4.TagString = null;
             // 
-            // btnClear
-            // 
-            btnClear.Anchor = AnchorStyles.None;
-            btnClear.Font = new Font("Microsoft Sans Serif", 12F);
-            btnClear.Location = new Point(150, 29);
-            btnClear.MinimumSize = new Size(1, 1);
-            btnClear.Name = "btnClear";
-            btnClear.Size = new Size(108, 42);
-            btnClear.TabIndex = 16;
-            btnClear.Text = "Clear";
-            btnClear.TipsFont = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 163);
-            btnClear.Click += btnClear_Click;
-            // 
             // txtIDProduct
             // 
             txtIDProduct.Dock = DockStyle.Fill;
@@ -253,6 +240,7 @@
             txtPrice.TabIndex = 3;
             txtPrice.TextAlignment = ContentAlignment.MiddleLeft;
             txtPrice.Watermark = "";
+            txtPrice.Leave += txtPrice_Leave;
             // 
             // txtStock
             // 
@@ -435,6 +423,18 @@
             uiLabel1.TabIndex = 16;
             uiLabel1.Text = "uiLabel1";
             // 
+            // btnImport
+            // 
+            btnImport.Anchor = AnchorStyles.None;
+            btnImport.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 163);
+            btnImport.Location = new Point(3, 90);
+            btnImport.MinimumSize = new Size(1, 1);
+            btnImport.Name = "btnImport";
+            btnImport.Size = new Size(108, 39);
+            btnImport.TabIndex = 2;
+            btnImport.Text = "Import";
+            btnImport.TipsFont = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 163);
+            // 
             // uiPanel5
             // 
             uiPanel5.Controls.Add(btnClear);
@@ -451,6 +451,19 @@
             uiPanel5.Text = null;
             uiPanel5.TextAlignment = ContentAlignment.MiddleCenter;
             // 
+            // btnClear
+            // 
+            btnClear.Anchor = AnchorStyles.None;
+            btnClear.Font = new Font("Microsoft Sans Serif", 12F);
+            btnClear.Location = new Point(150, 29);
+            btnClear.MinimumSize = new Size(1, 1);
+            btnClear.Name = "btnClear";
+            btnClear.Size = new Size(108, 42);
+            btnClear.TabIndex = 16;
+            btnClear.Text = "Clear";
+            btnClear.TipsFont = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 163);
+            btnClear.Click += btnClear_Click;
+            // 
             // chkIsActive
             // 
             chkIsActive.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 163);
@@ -461,18 +474,6 @@
             chkIsActive.Size = new Size(114, 36);
             chkIsActive.TabIndex = 15;
             chkIsActive.Text = "Đang bán";
-            // 
-            // btnImport
-            // 
-            btnImport.Anchor = AnchorStyles.None;
-            btnImport.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 163);
-            btnImport.Location = new Point(3, 90);
-            btnImport.MinimumSize = new Size(1, 1);
-            btnImport.Name = "btnImport";
-            btnImport.Size = new Size(108, 39);
-            btnImport.TabIndex = 2;
-            btnImport.Text = "Import";
-            btnImport.TipsFont = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 163);
             // 
             // uiTableLayoutPanel3
             // 
