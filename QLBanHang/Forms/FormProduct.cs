@@ -54,7 +54,7 @@ namespace QLBanHang
                     );
             }
             SetButtonState(false);
-
+            ActiveProductCount();
         }
         public void LoadCategories()
         {
@@ -74,7 +74,7 @@ namespace QLBanHang
             LoadProduct();
             LoadCategories();
             SetButtonState(false);
-
+            
         }
         public bool ValidateInput()
         {
@@ -424,6 +424,29 @@ namespace QLBanHang
             }
         }
         //--------------------
+
+        private void ActiveProductCount()
+        {
+            string query = "SELECT COUNT(*) AS Total FROM Products WHERE IsActive = 1";
+            SQLiteUtils sql = new SQLiteUtils();
+            DataTable dt = sql.ExecuteQuery(query);
+
+            int total = 0;
+            if (dt.Rows.Count > 0)
+                total = Convert.ToInt32(dt.Rows[0]["Total"]);
+
+            lblTotalActive.Text = $"Đang bán: {total}";
+      
+        }
+
+
+        //-------------------------
+
+        private void btnImport_Click(object sender, EventArgs e)
+        {
+
+        }
+        
 
 
 

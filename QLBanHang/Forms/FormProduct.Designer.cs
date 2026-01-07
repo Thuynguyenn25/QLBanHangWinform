@@ -52,7 +52,7 @@
             btnEdit = new Sunny.UI.UIButton();
             btnAdd = new Sunny.UI.UIButton();
             uiTableLayoutPanel6 = new Sunny.UI.UITableLayoutPanel();
-            uiLabel1 = new Sunny.UI.UILabel();
+            lblTotalActive = new Sunny.UI.UILabel();
             btnImport = new Sunny.UI.UIButton();
             uiPanel5 = new Sunny.UI.UIPanel();
             btnClear = new Sunny.UI.UIButton();
@@ -400,7 +400,7 @@
             // 
             uiTableLayoutPanel6.ColumnCount = 1;
             uiTableLayoutPanel6.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
-            uiTableLayoutPanel6.Controls.Add(uiLabel1, 0, 0);
+            uiTableLayoutPanel6.Controls.Add(lblTotalActive, 0, 0);
             uiTableLayoutPanel6.Controls.Add(btnImport, 0, 1);
             uiTableLayoutPanel6.Dock = DockStyle.Fill;
             uiTableLayoutPanel6.Location = new Point(3, 253);
@@ -412,16 +412,16 @@
             uiTableLayoutPanel6.TabIndex = 18;
             uiTableLayoutPanel6.TagString = null;
             // 
-            // uiLabel1
+            // lblTotalActive
             // 
-            uiLabel1.Dock = DockStyle.Bottom;
-            uiLabel1.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 163);
-            uiLabel1.ForeColor = Color.FromArgb(48, 48, 48);
-            uiLabel1.Location = new Point(3, 44);
-            uiLabel1.Name = "uiLabel1";
-            uiLabel1.Size = new Size(108, 29);
-            uiLabel1.TabIndex = 16;
-            uiLabel1.Text = "uiLabel1";
+            lblTotalActive.Dock = DockStyle.Bottom;
+            lblTotalActive.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 163);
+            lblTotalActive.ForeColor = Color.FromArgb(48, 48, 48);
+            lblTotalActive.Location = new Point(3, 17);
+            lblTotalActive.Name = "lblTotalActive";
+            lblTotalActive.Size = new Size(108, 56);
+            lblTotalActive.TabIndex = 16;
+            lblTotalActive.Text = "Tổng sản phầm đang bán: ";
             // 
             // btnImport
             // 
@@ -434,6 +434,7 @@
             btnImport.TabIndex = 2;
             btnImport.Text = "Import";
             btnImport.TipsFont = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 163);
+            btnImport.Click += btnImport_Click;
             // 
             // uiPanel5
             // 
@@ -468,7 +469,7 @@
             // 
             chkIsActive.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 163);
             chkIsActive.ForeColor = Color.FromArgb(48, 48, 48);
-            chkIsActive.Location = new Point(-1, 0);
+            chkIsActive.Location = new Point(0, 0);
             chkIsActive.MinimumSize = new Size(1, 1);
             chkIsActive.Name = "chkIsActive";
             chkIsActive.Size = new Size(114, 36);
@@ -811,6 +812,6 @@
         private Sunny.UI.UIButton btnImport;
         private Sunny.UI.UITableLayoutPanel uiTableLayoutPanel6;
         private Sunny.UI.UIPanel uiPanel5;
-        private Sunny.UI.UILabel uiLabel1;
+        private Sunny.UI.UILabel lblTotalActive;
     }
 }
