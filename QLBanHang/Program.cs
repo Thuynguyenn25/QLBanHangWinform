@@ -1,3 +1,5 @@
+using QLBanHang.Forms;
+
 namespace QLBanHang
 {
     internal static class Program
@@ -15,6 +17,7 @@ namespace QLBanHang
             //Application.Run(new FormCategory());
             //Application.Run(new FormProduct());
             //Application.Run(new FormSale());
+            Application.Run(new FormHoaDon());
         }
     }
 }
