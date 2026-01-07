@@ -13,11 +13,8 @@ namespace QLBanHang
             ApplicationConfiguration.Initialize();
             Application.Run(new FrmMain());
             //Application.Run(new FormCategory());
-<<<<<<< HEAD
             //Application.Run(new FormProduct());
             //Application.Run(new FormSale());
-=======
->>>>>>> origin/tn_BE
 
         }
     }

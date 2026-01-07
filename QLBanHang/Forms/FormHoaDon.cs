@@ -8,15 +8,18 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace QLBanHang
+namespace QLBanHang.Forms
 {
-    public partial class FormSale : Form
+    public partial class FormHoaDon : Form
     {
-        public FormSale()
+        public FormHoaDon()
         {
             InitializeComponent();
         }
 
-        
+        private void FormHoaDon_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

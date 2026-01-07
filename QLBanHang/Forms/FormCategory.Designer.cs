@@ -50,35 +50,19 @@
             uiPanel1 = new Sunny.UI.UIPanel();
             btnAddCate = new Sunny.UI.UIButton();
             uiPanel3 = new Sunny.UI.UIPanel();
-<<<<<<< HEAD
-            uiDataGridView1 = new Sunny.UI.UIDataGridView();
-            cChose = new DataGridViewCheckBoxColumn();
-            cID = new DataGridViewTextBoxColumn();
-            cIDProduct = new DataGridViewTextBoxColumn();
-            cName = new DataGridViewTextBoxColumn();
-            cNumber = new DataGridViewTextBoxColumn();
-            cPrice = new DataGridViewTextBoxColumn();
-            cType = new DataGridViewTextBoxColumn();
-=======
             dgvCategory = new Sunny.UI.UIDataGridView();
+            cChose = new DataGridViewCheckBoxColumn();
+            cIDCategory = new DataGridViewTextBoxColumn();
+            cName = new DataGridViewTextBoxColumn();
+            cDescription = new DataGridViewTextBoxColumn();
             cmsCategory = new Sunny.UI.UIContextMenuStrip();
             tsmiSelect = new ToolStripMenuItem();
             tsmiSelectItemAll = new ToolStripMenuItem();
             tsmiUnSelectItem = new ToolStripMenuItem();
             tsmiDeleteItem = new ToolStripMenuItem();
->>>>>>> origin/tn_BE
             tblCateMain = new Sunny.UI.UITableLayoutPanel();
             tlpInput = new Sunny.UI.UITableLayoutPanel();
             uiPanel15 = new Sunny.UI.UIPanel();
-<<<<<<< HEAD
-            uiTextBox4 = new Sunny.UI.UITextBox();
-            uiPanel16 = new Sunny.UI.UIPanel();
-            lblType = new Sunny.UI.UILabel();
-            uiPanel18 = new Sunny.UI.UIPanel();
-            uiTextBox5 = new Sunny.UI.UITextBox();
-            lbl1 = new Sunny.UI.UIPanel();
-            lbl = new Sunny.UI.UIPanel();
-=======
             uiPanel14 = new Sunny.UI.UIPanel();
             uiPanel13 = new Sunny.UI.UIPanel();
             txtName = new Sunny.UI.UITextBox();
@@ -99,11 +83,6 @@
             tsmiUnSelect = new ToolStripMenuItem();
             tsmiUnselectAll = new ToolStripMenuItem();
             DeleteItem = new ToolStripMenuItem();
-            cChose = new DataGridViewCheckBoxColumn();
-            cIDCategory = new DataGridViewTextBoxColumn();
-            cName = new DataGridViewTextBoxColumn();
-            cDescription = new DataGridViewTextBoxColumn();
->>>>>>> origin/tn_BE
             tblCatSearch.SuspendLayout();
             uiPanel7.SuspendLayout();
             uiPanel6.SuspendLayout();
@@ -113,21 +92,11 @@
             uiPanel2.SuspendLayout();
             uiPanel1.SuspendLayout();
             uiPanel3.SuspendLayout();
-<<<<<<< HEAD
-            ((System.ComponentModel.ISupportInitialize)uiDataGridView1).BeginInit();
-=======
             ((System.ComponentModel.ISupportInitialize)dgvCategory).BeginInit();
             cmsCategory.SuspendLayout();
->>>>>>> origin/tn_BE
             tblCateMain.SuspendLayout();
             tlpInput.SuspendLayout();
             uiPanel13.SuspendLayout();
-<<<<<<< HEAD
-            uiPanel14.SuspendLayout();
-            uiPanel15.SuspendLayout();
-            uiPanel16.SuspendLayout();
-            uiPanel18.SuspendLayout();
-=======
             uiPanel12.SuspendLayout();
             uiPanel11.SuspendLayout();
             uiPanel10.SuspendLayout();
@@ -135,7 +104,6 @@
             uiPanel8.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)errorProvider1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)errorProvider2).BeginInit();
->>>>>>> origin/tn_BE
             SuspendLayout();
             // 
             // tblCatSearch
@@ -396,13 +364,6 @@
             uiPanel3.Text = null;
             uiPanel3.TextAlignment = ContentAlignment.MiddleCenter;
             // 
-            // uiDataGridView1
-            // 
-            dataGridViewCellStyle1.BackColor = Color.FromArgb(235, 243, 255);
-            uiDataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            uiDataGridView1.BackgroundColor = Color.White;
-            uiDataGridView1.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
-=======
             // dgvCategory
             // 
             dgvCategory.AllowUserToAddRows = false;
@@ -413,7 +374,6 @@
             dgvCategory.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             dgvCategory.BackgroundColor = Color.White;
             dgvCategory.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
->>>>>>> origin/tn_BE
             dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle2.BackColor = Color.FromArgb(80, 160, 255);
             dataGridViewCellStyle2.Font = new Font("Microsoft Sans Serif", 12F);
@@ -421,18 +381,11 @@
             dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
             dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
-<<<<<<< HEAD
-            uiDataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            uiDataGridView1.ColumnHeadersHeight = 32;
-            uiDataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            uiDataGridView1.Columns.AddRange(new DataGridViewColumn[] { cChose, cID, cIDProduct, cName, cNumber, cPrice, cType });
-=======
             dgvCategory.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             dgvCategory.ColumnHeadersHeight = 32;
             dgvCategory.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             dgvCategory.Columns.AddRange(new DataGridViewColumn[] { cChose, cIDCategory, cName, cDescription });
             dgvCategory.ContextMenuStrip = cmsCategory;
->>>>>>> origin/tn_BE
             dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = SystemColors.Window;
             dataGridViewCellStyle3.Font = new Font("Microsoft Sans Serif", 12F);
@@ -440,15 +393,6 @@
             dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
             dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
             dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
-<<<<<<< HEAD
-            uiDataGridView1.DefaultCellStyle = dataGridViewCellStyle3;
-            uiDataGridView1.Dock = DockStyle.Fill;
-            uiDataGridView1.EnableHeadersVisualStyles = false;
-            uiDataGridView1.Font = new Font("Microsoft Sans Serif", 12F);
-            uiDataGridView1.GridColor = Color.FromArgb(80, 160, 255);
-            uiDataGridView1.Location = new Point(0, 0);
-            uiDataGridView1.Name = "uiDataGridView1";
-=======
             dgvCategory.DefaultCellStyle = dataGridViewCellStyle3;
             dgvCategory.Dock = DockStyle.Fill;
             dgvCategory.EnableHeadersVisualStyles = false;
@@ -457,7 +401,6 @@
             dgvCategory.Location = new Point(0, 0);
             dgvCategory.Margin = new Padding(5, 3, 3, 3);
             dgvCategory.Name = "dgvCategory";
->>>>>>> origin/tn_BE
             dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle4.BackColor = Color.FromArgb(235, 243, 255);
             dataGridViewCellStyle4.Font = new Font("Microsoft Sans Serif", 12F);
@@ -465,66 +408,6 @@
             dataGridViewCellStyle4.SelectionBackColor = Color.FromArgb(80, 160, 255);
             dataGridViewCellStyle4.SelectionForeColor = Color.White;
             dataGridViewCellStyle4.WrapMode = DataGridViewTriState.True;
-<<<<<<< HEAD
-            uiDataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
-            uiDataGridView1.RowHeadersWidth = 51;
-            dataGridViewCellStyle5.BackColor = Color.White;
-            dataGridViewCellStyle5.Font = new Font("Microsoft Sans Serif", 12F);
-            uiDataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle5;
-            uiDataGridView1.SelectedIndex = -1;
-            uiDataGridView1.Size = new Size(1111, 244);
-            uiDataGridView1.StripeOddColor = Color.FromArgb(235, 243, 255);
-            uiDataGridView1.TabIndex = 0;
-            // 
-            // cChose
-            // 
-            cChose.HeaderText = "Chọn";
-            cChose.MinimumWidth = 6;
-            cChose.Name = "cChose";
-            cChose.Width = 50;
-            // 
-            // cID
-            // 
-            cID.HeaderText = "STT";
-            cID.MinimumWidth = 6;
-            cID.Name = "cID";
-            cID.Width = 80;
-            // 
-            // cIDProduct
-            // 
-            cIDProduct.HeaderText = "Mã hàng";
-            cIDProduct.MinimumWidth = 6;
-            cIDProduct.Name = "cIDProduct";
-            cIDProduct.Width = 200;
-            // 
-            // cName
-            // 
-            cName.HeaderText = "Tên hàng";
-            cName.MinimumWidth = 6;
-            cName.Name = "cName";
-            cName.Width = 250;
-            // 
-            // cNumber
-            // 
-            cNumber.HeaderText = "Số lượng";
-            cNumber.MinimumWidth = 6;
-            cNumber.Name = "cNumber";
-            cNumber.Width = 125;
-            // 
-            // cPrice
-            // 
-            cPrice.HeaderText = "Đơn giá";
-            cPrice.MinimumWidth = 6;
-            cPrice.Name = "cPrice";
-            cPrice.Width = 200;
-            // 
-            // cType
-            // 
-            cType.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            cType.HeaderText = "Loại hàng";
-            cType.MinimumWidth = 6;
-            cType.Name = "cType";
-=======
             dgvCategory.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
             dgvCategory.RowHeadersVisible = false;
             dgvCategory.RowHeadersWidth = 51;
@@ -541,6 +424,37 @@
             dgvCategory.TabIndex = 0;
             dgvCategory.CellClick += dgvCategory_CellClick;
             dgvCategory.MouseDown += dgvCategory_MouseDown;
+            // 
+            // cChose
+            // 
+            cChose.HeaderText = "Chọn";
+            cChose.MinimumWidth = 6;
+            cChose.Name = "cChose";
+            cChose.Width = 60;
+            // 
+            // cIDCategory
+            // 
+            cIDCategory.HeaderText = "ID Category";
+            cIDCategory.MinimumWidth = 6;
+            cIDCategory.Name = "cIDCategory";
+            cIDCategory.ReadOnly = true;
+            cIDCategory.Width = 200;
+            // 
+            // cName
+            // 
+            cName.HeaderText = "Tên danh mục";
+            cName.MinimumWidth = 6;
+            cName.Name = "cName";
+            cName.ReadOnly = true;
+            cName.Width = 250;
+            // 
+            // cDescription
+            // 
+            cDescription.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            cDescription.HeaderText = "Mô tả";
+            cDescription.MinimumWidth = 6;
+            cDescription.Name = "cDescription";
+            cDescription.ReadOnly = true;
             // 
             // cmsCategory
             // 
@@ -578,7 +492,6 @@
             tsmiDeleteItem.Size = new Size(184, 30);
             tsmiDeleteItem.Text = "Xóa";
             tsmiDeleteItem.Click += tsmiDeleteItem_Click;
->>>>>>> origin/tn_BE
             // 
             // tblCateMain
             // 
@@ -682,7 +595,7 @@
             txtName.Padding = new Padding(5);
             txtName.Radius = 1;
             txtName.ShowText = false;
-            txtName.Size = new Size(213, 53);
+            txtName.Size = new Size(210, 53);
             txtName.TabIndex = 0;
             txtName.TextAlignment = ContentAlignment.MiddleLeft;
             txtName.Watermark = "";
@@ -865,66 +778,9 @@
             // 
             // DeleteItem
             // 
-<<<<<<< HEAD
-            lbl1.Font = new Font("Microsoft Sans Serif", 12F);
-            lbl1.Location = new Point(876, 75);
-            lbl1.Margin = new Padding(0);
-            lbl1.MinimumSize = new Size(1, 1);
-            lbl1.Name = "lbl1";
-            lbl1.RectColor = Color.Transparent;
-            lbl1.Size = new Size(235, 75);
-            lbl1.TabIndex = 11;
-            lbl1.Text = null;
-            lbl1.TextAlignment = ContentAlignment.MiddleCenter;
-            // 
-            // lbl
-            // 
-            lbl.Font = new Font("Microsoft Sans Serif", 12F);
-            lbl.Location = new Point(738, 75);
-            lbl.Margin = new Padding(0);
-            lbl.MinimumSize = new Size(1, 1);
-            lbl.Name = "lbl";
-            lbl.RectColor = Color.Transparent;
-            lbl.Size = new Size(138, 75);
-            lbl.TabIndex = 12;
-            lbl.Text = null;
-            lbl.TextAlignment = ContentAlignment.MiddleCenter;
-=======
             DeleteItem.Name = "DeleteItem";
             DeleteItem.Size = new Size(210, 30);
             DeleteItem.Text = "Xóa";
-            // 
-            // cChose
-            // 
-            cChose.HeaderText = "Chọn";
-            cChose.MinimumWidth = 6;
-            cChose.Name = "cChose";
-            cChose.Width = 60;
-            // 
-            // cIDCategory
-            // 
-            cIDCategory.HeaderText = "ID Category";
-            cIDCategory.MinimumWidth = 6;
-            cIDCategory.Name = "cIDCategory";
-            cIDCategory.ReadOnly = true;
-            cIDCategory.Width = 200;
-            // 
-            // cName
-            // 
-            cName.HeaderText = "Tên danh mục";
-            cName.MinimumWidth = 6;
-            cName.Name = "cName";
-            cName.ReadOnly = true;
-            cName.Width = 250;
-            // 
-            // cDescription
-            // 
-            cDescription.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            cDescription.HeaderText = "Mô tả";
-            cDescription.MinimumWidth = 6;
-            cDescription.Name = "cDescription";
-            cDescription.ReadOnly = true;
->>>>>>> origin/tn_BE
             // 
             // FormCategory
             // 
@@ -946,21 +802,11 @@
             uiPanel2.ResumeLayout(false);
             uiPanel1.ResumeLayout(false);
             uiPanel3.ResumeLayout(false);
-<<<<<<< HEAD
-            ((System.ComponentModel.ISupportInitialize)uiDataGridView1).EndInit();
-=======
             ((System.ComponentModel.ISupportInitialize)dgvCategory).EndInit();
             cmsCategory.ResumeLayout(false);
->>>>>>> origin/tn_BE
             tblCateMain.ResumeLayout(false);
             tlpInput.ResumeLayout(false);
             uiPanel13.ResumeLayout(false);
-<<<<<<< HEAD
-            uiPanel14.ResumeLayout(false);
-            uiPanel15.ResumeLayout(false);
-            uiPanel16.ResumeLayout(false);
-            uiPanel18.ResumeLayout(false);
-=======
             uiPanel12.ResumeLayout(false);
             uiPanel11.ResumeLayout(false);
             uiPanel10.ResumeLayout(false);
@@ -968,7 +814,6 @@
             uiPanel8.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)errorProvider1).EndInit();
             ((System.ComponentModel.ISupportInitialize)errorProvider2).EndInit();
->>>>>>> origin/tn_BE
             ResumeLayout(false);
         }
 
