@@ -27,7 +27,23 @@ namespace QLBanHang
             dgvCategory.ClearSelection();
             dgvCategory.CurrentCell = null;
         }
+        private void SetButtonState(bool isEditing)
+        {
+            btnAddCate.Enabled = !isEditing;
+            btnUpdateCate.Enabled = isEditing;
+            btnDeleteCate.Enabled = isEditing;
+          
+        }
+        public void Clear()
+        {
+            txtIDCategory.Clear();
+            txtName.Clear();
+            txtDescription.Clear();
+            errorProvider2.Clear();
+            errorProvider1.Clear();
 
+            SetButtonState(false);
+        }
         private void LoadCategory()
         {
             try
@@ -57,15 +73,9 @@ namespace QLBanHang
         private void FormCategory_Load(object sender, EventArgs e)
         {
             LoadCategory();
-            //bool hasSelectedRow = false;
-            //setButtonState(hasSelectedRow);
+            SetButtonState(false);
         }
-        //private void setButtonState(bool hasSelectedRow)
-        //{
-        //    btnAddCate.Enabled = true;
-        //    btnUpdateCate.Enabled = hasSelectedRow;
-        //    btnDeleteCate.Enabled = hasSelectedRow;
-        //}
+       
 
         private bool ValidateInput()
         {
@@ -87,11 +97,7 @@ namespace QLBanHang
         }
         private void btnClearCate_Click(object sender, EventArgs e)
         {
-            txtIDCategory.Clear();
-            txtName.Clear();
-            txtDescription.Clear();
-            errorProvider2.Clear();
-            errorProvider1.Clear();
+            Clear();
         }
 
         //-----
@@ -124,6 +130,7 @@ namespace QLBanHang
                 Utils.Log("Add Category: ", ex);
             }
             LoadCategory();
+            Clear();
         }
         private void dgvCategory_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -162,6 +169,7 @@ namespace QLBanHang
                 Utils.Log("Update Category: ", ex);
             }
             LoadCategory();
+            Clear();
         }
 
 
@@ -212,7 +220,21 @@ namespace QLBanHang
 
         private void btnDeleteCate_Click(object sender, EventArgs e)
         {
+            int idCategory = int.Parse(txtIDCategory.Text);
 
+            DialogResult result = MessageBox.Show(
+             $"Bạn có chắc chắn muốn xóa danh mục số {idCategory} không?",
+            "Xác nhận xóa",
+            MessageBoxButtons.YesNo,
+            MessageBoxIcon.Warning
+            );
+            if (result != DialogResult.Yes) return;
+
+            SQLiteUtils sQL = new SQLiteUtils();
+            string query = $"DELETE FROM Products WHERE ProductID = {idCategory}";
+            sQL.ExecuteQuery(query);
+
+            LoadCategory();
         }
 
         //--------------
@@ -232,6 +254,7 @@ namespace QLBanHang
                 int colIndex = hit.ColumnIndex >= 0 ? hit.ColumnIndex : 1;
                 dgvCategory.CurrentCell = dgvCategory.Rows[hit.RowIndex].Cells[colIndex];
             }
+            SetButtonState(true);
         }
         private void tsmiSelect_Click(object sender, EventArgs e)
         {
@@ -257,7 +280,7 @@ namespace QLBanHang
         }
         private void tsmiDeleteItem_Click(object sender, EventArgs e)
         {
-            dgvCategory.EndEdit(); // quan trọng: commit checkbox vừa tick
+            dgvCategory.EndEdit();
 
             int countChecked = 0;
             foreach (DataGridViewRow row in dgvCategory.Rows)
