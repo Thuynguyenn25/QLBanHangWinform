@@ -348,59 +348,64 @@ namespace QLBanHang
         {
             if (dgvCategory.Rows.Count == 0)
             {
-                MessageBox.Show("Không có dữ liệu để export!");
+                MessageBox.Show("Không có dữ liệu để xuất!", "Thông báo", MessageBoxButtons.OK,
+                MessageBoxIcon.Warning);
                 return;
             }
 
-            using (SaveFileDialog sfd = new SaveFileDialog())
+            SaveFileDialog sfd = new SaveFileDialog();
+            sfd.Filter = "CSV (*.csv) | *.csv";
+            sfd.FileName = "DanhSachMuc.csv";
+            sfd.Title = "Xuất danh sách mục";
+
+            if (sfd.ShowDialog() == DialogResult.OK)
             {
-                sfd.Filter = "CSV file (*.csv)|*.csv";
-                sfd.FileName = "categories.csv";
-
-                if (sfd.ShowDialog() != DialogResult.OK) return;
-
                 try
                 {
-                    using (StreamWriter sw = new StreamWriter(sfd.FileName, false, Encoding.UTF8))
-                    {
-                        // Header
-                        sw.WriteLine("CategoryID,Name,Description");
-
-                        foreach (DataGridViewRow row in dgvCategory.Rows)
-                        {
-                            if (row.IsNewRow) continue;
-
-                            // Lấy theo đúng tên cột bạn đang dùng
-                            string id = row.Cells["cIDCategory"].Value?.ToString() ?? "";
-                            string name = row.Cells["cName"].Value?.ToString() ?? "";
-                            string desc = row.Cells["cDescription"].Value?.ToString() ?? "";
-
-                            // Escape CSV (nếu có dấu phẩy, dấu nháy, xuống dòng)
-                            name = EscapeCsv(name);
-                            desc = EscapeCsv(desc);
-
-                            sw.WriteLine($"{id},{name},{desc}");
-                        }
-                    }
-
-                    MessageBox.Show("Export CSV thành công!");
+                    ExportToCSV(dgvCategory, sfd.FileName);
+                    MessageBox.Show("Xuất file thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Export thất bại: " + ex.Message);
+                    MessageBox.Show("Lỗi khi xuất file" + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
 
-        private string EscapeCsv(string s)
+        private void ExportToCSV(DataGridView dgv, string filePath)
         {
-            if (s == null) return "";
+            StringBuilder sb = new StringBuilder();
 
-            bool mustQuote = s.Contains(",") || s.Contains("\"") || s.Contains("\n") || s.Contains("\r");
-            s = s.Replace("\"", "\"\""); 
+            // Lấy tiêu đề cột
+            string[] columnNames = new string[dgv.Columns.Count];
+            for (int i = 0; i < dgv.Columns.Count; i++)
+            {
+                columnNames[i] = dgv.Columns[i].HeaderText;
+            }
+            sb.AppendLine(string.Join(",", columnNames));
 
-            return mustQuote ? $"\"{s}\"" : s;
+            // Lấy dữ liệu dòng
+            foreach (DataGridViewRow row in dgv.Rows)
+            {
+                if (!row.IsNewRow)
+                {
+                    string[] cells = new string[dgv.Columns.Count];
+                    for (int i = 0; i < dgv.Columns.Count; i++)
+                    {
+                        var value = row.Cells[i].Value;
+                        string cellText = value != null ? value.ToString() : "";
+                        if (cellText.Contains(","))
+                        {
+                            cellText = "\"" + cellText + "\"";
+                        }
+
+                        cells[i] = cellText;
+                    }
+                    sb.AppendLine(string.Join(",", cells));
+                }
+            }
+            File.WriteAllText(filePath, sb.ToString(), Encoding.UTF8);
         }
 
-    }
+}
 }

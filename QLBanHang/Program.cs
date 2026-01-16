@@ -15,7 +15,7 @@ namespace QLBanHang
             //Application.Run(new FormCategory());
             //Application.Run(new FormProduct());
             //Application.Run(new FormSale());
-            //Application.Run(new FormHoaDon());
+            //Application.Run(new QLBanHang.Forms.FormHoaDon());
         }
     }
 }

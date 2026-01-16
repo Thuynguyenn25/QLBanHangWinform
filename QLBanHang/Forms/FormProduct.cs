@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace QLBanHang
 {
@@ -73,8 +74,7 @@ namespace QLBanHang
         {
             LoadProduct();
             LoadCategories();
-            SetButtonState(false);
-            
+            SetButtonState(false); 
         }
         public bool ValidateInput()
         {
@@ -83,25 +83,19 @@ namespace QLBanHang
                 MessageBox.Show("Vui lòng nhập mã hàng");
                 return false;
             }
-
-            if (!int.TryParse(txtIDProduct.Text.Trim(), out _))
-            {
-                MessageBox.Show("Mã hàng phải là số!");
-                return false;
-            }
+            string productId = txtIDProduct.Text.Trim();
+            if (productId.Contains(",")) { MessageBox.Show("Mã hàng không được chứa dấu phẩy"); return false; }
 
             if (string.IsNullOrWhiteSpace(txtName.Text))
             {
                 MessageBox.Show("Vui lòng nhập tên hàng");
                 return false;
             }
-
             if (cboCategory.SelectedIndex == -1 || cboCategory.SelectedValue == null)
             {
                 MessageBox.Show("Vui lòng chọn danh mục");
                 return false;
             }
-
             string priceText = txtPrice.Text.Replace(",", "").Trim();
             if (!decimal.TryParse(priceText, out decimal price) || price < 0)
             {
@@ -109,14 +103,11 @@ namespace QLBanHang
                 txtPrice.Focus();
                 return false;
             }
-
-
             if (!int.TryParse(txtStock.Text.Trim(), out int stock) || stock < 0)
             {
                 MessageBox.Show("Stock không hợp lệ!");
                 return false;
             }
-
             return true;
         }
         private void SetButtonState(bool isEditing)
@@ -148,7 +139,7 @@ namespace QLBanHang
             {
                 if (!ValidateInput()) return;
 
-                int productID = int.Parse(txtIDProduct.Text.Trim());
+                string productID = txtIDProduct.Text.Trim();
                 string name = txtName.Text.Trim();
                 decimal price = decimal.Parse(txtPrice.Text.Replace(",", ""));
                 int stock = int.Parse(txtStock.Text.Trim());
@@ -173,7 +164,6 @@ namespace QLBanHang
             LoadProduct();
             Clear();
         }
-
 
         private void dgvProduct_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -211,7 +201,8 @@ namespace QLBanHang
             {
                 if (!ValidateInput()) return;
 
-                int productID = int.Parse(txtIDProduct.Text);
+                string productID = txtIDProduct.Text.Trim();
+
 
                 string name = txtName.Text;
                 decimal price = decimal.Parse(txtPrice.Text.Replace(",", ""));
@@ -355,7 +346,7 @@ namespace QLBanHang
                                 Convert.ToBoolean(row.Cells[0].Value);
                 if (isChecked)
                 {
-                    int idProduct = Convert.ToInt32(row.Cells["cIDProduct"].Value);
+                    string idProduct = row.Cells["cIDProduct"].Value?.ToString() ?? "";
                     string query = $"DELETE FROM Products WHERE ProductID = {idProduct}";
                     sQL.ExecuteQuery(query);
                 }
@@ -368,7 +359,7 @@ namespace QLBanHang
         {
             if (btnDelete.Enabled)
             {
-                int idProduct = int.Parse(txtIDProduct.Text);
+                string idProduct = txtIDProduct.Text.Trim();
 
                 DialogResult result = MessageBox.Show(
                  $"Bạn có chắc chắn muốn xóa sản phẩm số {idProduct} không?",
@@ -415,7 +406,7 @@ namespace QLBanHang
 
             if (decimal.TryParse(txtPrice.Text.Replace(",", ""), out decimal price))
             {
-                txtPrice.Text = price.ToString("#,##0"); // 12000 -> 12,000
+                txtPrice.Text = price.ToString("#,##0"); 
             }
             else
             {
@@ -444,11 +435,90 @@ namespace QLBanHang
 
         private void btnImport_Click(object sender, EventArgs e)
         {
+            using (OpenFileDialog ofd = new OpenFileDialog())
+            {
+                ofd.Filter = "CSV file (*.csv)|*.csv";
+                if (ofd.ShowDialog() != DialogResult.OK) return;
 
+                try
+                {
+                    int inserted = 0, updated = 0, skipped = 0;
+
+                    // Nếu file hay bị "đang được dùng bởi process khác" -> bạn nhớ đóng Excel/Notepad đang mở file CSV
+                    string[] lines = File.ReadAllLines(ofd.FileName, Encoding.UTF8);
+
+                    if (lines.Length <= 1)
+                    {
+                        MessageBox.Show("File CSV trống hoặc không đúng định dạng!");
+                        return;
+                    }
+
+                    SQLiteUtils sql = new SQLiteUtils();
+
+                    for (int i = 1; i < lines.Length; i++)
+                    {
+                        string line = lines[i].Trim();
+                        if (string.IsNullOrWhiteSpace(line)) { skipped++; continue; }
+
+                        string[] parts = line.Split(',');
+                        if (parts.Length < 6) { skipped++; continue; }
+
+                        // ✅ ProductID dạng TEXT
+                        string productId = parts[0].Trim();
+                        if (string.IsNullOrWhiteSpace(productId)) { skipped++; continue; }
+                        if (productId.Contains(",")) { skipped++; continue; } // tránh lỗi csv
+
+                        string name = parts[1].Trim();
+                        if (string.IsNullOrWhiteSpace(name)) { skipped++; continue; }
+
+                        if (!int.TryParse(parts[2].Trim(), out int categoryId)) { skipped++; continue; }
+
+                        string priceText = parts[3].Trim().Replace(",", "");
+                        if (!decimal.TryParse(priceText, out decimal price) || price < 0) { skipped++; continue; }
+
+                        if (!int.TryParse(parts[4].Trim(), out int stock) || stock < 0) { skipped++; continue; }
+
+                        if (!int.TryParse(parts[5].Trim(), out int isActive)) { skipped++; continue; }
+                        isActive = (isActive == 1) ? 1 : 0;
+
+                        // Escape dấu '
+                        string safeId = productId.Replace("'", "''");
+                        string safeName = name.Replace("'", "''");
+
+                        DataTable dtCheck = sql.ExecuteQuery(
+                            $"SELECT 1 FROM Products WHERE ProductID = '{safeId}' LIMIT 1;"
+                        );
+
+                        if (dtCheck.Rows.Count > 0)
+                        {
+                            string qUpdate =
+                                $"UPDATE Products SET " +
+                                $"Name='{safeName}', CategoryID={categoryId}, Price={price}, Stock={stock}, IsActive={isActive} " +
+                                $"WHERE ProductID='{safeId}';";
+
+                            sql.ExecuteQuery(qUpdate);
+                            updated++;
+                        }
+                        else
+                        {
+                            string qInsert =
+                                $"INSERT INTO Products(ProductID, Name, CategoryID, Price, Stock, IsActive) " +
+                                $"VALUES('{safeId}', '{safeName}', {categoryId}, {price}, {stock}, {isActive});";
+
+                            sql.ExecuteQuery(qInsert);
+                            inserted++;
+                        }
+                    }
+                    MessageBox.Show($"Import xong!\nThêm mới: {inserted}\nCập nhật: {updated}\nBỏ qua: {skipped}");
+                    LoadProduct();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Import thất bại: " + ex.Message);
+                    Utils.Log("Import CSV: ", ex);
+                }
+            }
         }
-        
-
-
 
 
 

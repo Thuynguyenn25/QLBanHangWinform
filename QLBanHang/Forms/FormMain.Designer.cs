@@ -75,7 +75,7 @@
             tblMain.RowStyles.Add(new RowStyle(SizeType.Absolute, 65F));
             tblMain.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
             tblMain.RowStyles.Add(new RowStyle(SizeType.Absolute, 50F));
-            tblMain.Size = new Size(1025, 482);
+            tblMain.Size = new Size(1025, 553);
             tblMain.TabIndex = 0;
             tblMain.TagString = null;
             // 
@@ -120,7 +120,7 @@
             // tsmiExit
             // 
             tsmiExit.Name = "tsmiExit";
-            tsmiExit.Size = new Size(224, 28);
+            tsmiExit.Size = new Size(138, 28);
             tsmiExit.Text = "Thoát";
             // 
             // tsmiCatgr
@@ -159,7 +159,7 @@
             // tsmiSale
             // 
             tsmiSale.Name = "tsmiSale";
-            tsmiSale.Size = new Size(224, 28);
+            tsmiSale.Size = new Size(167, 28);
             tsmiSale.Text = "Bán hàng";
             tsmiSale.Click += tsmiSale_Click;
             // 
@@ -169,7 +169,7 @@
             pnlFooter.Dock = DockStyle.Fill;
             pnlFooter.FillColor = SystemColors.ActiveCaption;
             pnlFooter.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 163);
-            pnlFooter.Location = new Point(0, 432);
+            pnlFooter.Location = new Point(0, 503);
             pnlFooter.Margin = new Padding(0);
             pnlFooter.MinimumSize = new Size(1, 1);
             pnlFooter.Name = "pnlFooter";
@@ -221,7 +221,7 @@
             pnlContent.MinimumSize = new Size(1, 1);
             pnlContent.Name = "pnlContent";
             pnlContent.RectColor = SystemColors.ActiveBorder;
-            pnlContent.Size = new Size(1025, 367);
+            pnlContent.Size = new Size(1025, 438);
             pnlContent.TabIndex = 1;
             pnlContent.Text = null;
             pnlContent.TextAlignment = ContentAlignment.MiddleCenter;
@@ -232,7 +232,7 @@
             lblHintFM.BackColor = SystemColors.GradientActiveCaption;
             lblHintFM.Font = new Font("Segoe UI", 9F);
             lblHintFM.ForeColor = Color.FromArgb(48, 48, 48);
-            lblHintFM.Location = new Point(321, 67);
+            lblHintFM.Location = new Point(321, 103);
             lblHintFM.Name = "lblHintFM";
             lblHintFM.Size = new Size(350, 70);
             lblHintFM.TabIndex = 1;
@@ -245,7 +245,7 @@
             lblTitleFM.BackColor = SystemColors.GradientActiveCaption;
             lblTitleFM.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 163);
             lblTitleFM.ForeColor = Color.FromArgb(48, 48, 48);
-            lblTitleFM.Location = new Point(349, -13);
+            lblTitleFM.Location = new Point(349, 23);
             lblTitleFM.Name = "lblTitleFM";
             lblTitleFM.Size = new Size(284, 80);
             lblTitleFM.TabIndex = 0;
@@ -300,10 +300,11 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1025, 482);
+            ClientSize = new Size(1025, 553);
             Controls.Add(tblMain);
             IsMdiContainer = true;
             MainMenuStrip = msMenu;
+            MinimumSize = new Size(800, 500);
             Name = "FrmMain";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Quản lí bán hàng";

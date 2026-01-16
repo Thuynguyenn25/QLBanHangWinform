@@ -1,15 +1,12 @@
 ﻿using QLBanHang.Data;
+using QLBanHang.Forms;
 using QLBanHang.Helpers;
 using QLBanHang.Model;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Data.SQLite;
-using System.Drawing;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace QLBanHang
@@ -20,7 +17,23 @@ namespace QLBanHang
         {
             InitializeComponent();
         }
+
         private bool _loaded = false;
+
+        private readonly List<CartItem> _cart = new List<CartItem>();
+
+        private void FormSale_Load(object sender, EventArgs e)
+        {
+            LoadCategory();
+            LoadProduct(0);
+
+            LoadCustomerAutoComplete();
+
+            dgvCart.Columns[3].DefaultCellStyle.Format = "#,##0";
+            dgvCart.Columns[5].DefaultCellStyle.Format = "#,##0";
+
+            _loaded = true;
+        }
 
         private void LoadCategory()
         {
@@ -47,12 +60,12 @@ namespace QLBanHang
 
             if (categoryId == 0)
             {
-                query = @" SELECT ProductId, Name FROM Products WHERE IsActive = 1";
+                query = @"SELECT ProductId, Name FROM Products WHERE IsActive = 1";
                 dt = sql.ExecuteQuery(query);
             }
             else
             {
-                query = $" SELECT ProductId, Name FROM Products WHERE IsActive = 1 AND CategoryId = '{categoryId}'";
+                query = $"SELECT ProductId, Name FROM Products WHERE IsActive = 1 AND CategoryId = '{categoryId}'";
                 dt = sql.ExecuteQuery(query);
             }
 
@@ -63,25 +76,15 @@ namespace QLBanHang
 
             if (dt.Rows.Count > 0)
             {
-                int firstProductId = Convert.ToInt32(dt.Rows[0]["ProductId"]);
+                string firstProductId = dt.Rows[0]["ProductId"].ToString();
                 LoadPrice(firstProductId);
             }
             else
             {
                 txtUnitPrice.Text = "";
             }
-
         }
-        private void FormSale_Load(object sender, EventArgs e)
-        {
-            LoadCategory();
-            LoadProduct(0);
 
-            dgvCart.Columns[3].DefaultCellStyle.Format = "#,##0";
-            dgvCart.Columns[5].DefaultCellStyle.Format = "#,##0";
-
-            _loaded = true;
-        }
         private void cboCategory_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (!_loaded) return;
@@ -91,11 +94,20 @@ namespace QLBanHang
             LoadProduct(categoryId);
         }
 
-        private void LoadPrice(int productID)
+        private void cboProduct1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            productID = Convert.ToInt32(productID);
-            string query = $" SELECT Price, Stock FROM Products WHERE ProductId = '{productID}' AND IsActive = 1 LIMIT 1;";
+            if (!_loaded) return;
+            if (cboProduct1.SelectedValue == null) return;
 
+            string productId = cboProduct1.SelectedValue.ToString();
+            LoadPrice(productId);
+
+        }
+
+        private void LoadPrice(string productId)
+        {
+            string safeId = productId.Replace("'", "''");
+            string query = $"SELECT Price, Stock FROM Products WHERE ProductId = '{safeId}' AND IsActive = 1 LIMIT 1;";
             SQLiteUtils sql = new SQLiteUtils();
             DataTable dt = sql.ExecuteQuery(query);
 
@@ -104,33 +116,24 @@ namespace QLBanHang
                 txtUnitPrice.Text = "";
                 return;
             }
-
             decimal price = Convert.ToDecimal(dt.Rows[0]["Price"]);
-            int stock = Convert.ToInt32(dt.Rows[0]["Stock"]);
-
             txtUnitPrice.Text = price.ToString("#,##0");
-
         }
 
-        private void cboProduct1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (!_loaded) return;
-            if (cboProduct1.SelectedValue == null) return;
 
-            int productId = Convert.ToInt32(cboProduct1.SelectedValue);
-            LoadPrice(productId);
-        }
-
-        //-----------------
-        private int GetStockFromDb(int productId)
+        private int GetStockFromDb(string productId)
         {
-            string query = $"SELECT Stock FROM Products WHERE ProductId = {productId} AND IsActive = 1 LIMIT 1;";
+            string safeId = productId.Replace("'", "''");
+
+            string query = $"SELECT Stock FROM Products WHERE ProductId = '{safeId}' AND IsActive = 1 LIMIT 1;";
             SQLiteUtils sql = new SQLiteUtils();
             DataTable dt = sql.ExecuteQuery(query);
 
             if (dt.Rows.Count == 0) return 0;
             return Convert.ToInt32(dt.Rows[0]["Stock"]);
         }
+
+
         private bool CheckInput(out int count, out decimal unitPrice)
         {
             count = 0;
@@ -154,6 +157,29 @@ namespace QLBanHang
             return true;
         }
 
+        private void ReloadCartGrid()
+        {
+            dgvCart.Rows.Clear();
+            int stt = 1;
+
+            foreach (var item in _cart)
+            {
+                dgvCart.Rows.Add(
+                    false,
+                    stt++,
+                    item.ProductName,
+                    item.UnitPrice,
+                    item.Quantity,
+                    item.LineTotal,
+                    item.ProductId
+                );
+            }
+
+            lblTotalAmount.Text = "Tổng tiền: " + _cart.Sum(x => x.LineTotal).ToString("#,##0");
+        }
+
+        private bool CartHasItems() => _cart.Count > 0;
+
         private void btnAdd_Click(object sender, EventArgs e)
         {
             try
@@ -163,7 +189,8 @@ namespace QLBanHang
                     MessageBox.Show("Vui lòng chọn sản phẩm!");
                     return;
                 }
-                int productId = Convert.ToInt32(cboProduct1.SelectedValue);
+
+                string productId = cboProduct1.SelectedValue.ToString();
                 string productName = cboProduct1.Text;
 
                 if (!CheckInput(out int addQty, out decimal unitPrice))
@@ -171,50 +198,39 @@ namespace QLBanHang
 
                 int stock = GetStockFromDb(productId);
 
-                foreach (DataGridViewRow row in dgvCart.Rows)
+                var item = _cart.FirstOrDefault(x => x.ProductId == productId);
+
+                if (item != null)
                 {
-                    if (row.IsNewRow) continue;
+                    int newQty = item.Quantity + addQty;
 
-                    if (row.Cells["cProductID"].Value == null) continue;
-
-                    int rowProductId = Convert.ToInt32(row.Cells["cProductID"].Value);
-
-                    if (rowProductId == productId)
+                    if (newQty > stock)
                     {
-                        int currentQty = Convert.ToInt32(row.Cells["cCount"].Value);
-                        int newQty = currentQty + addQty;
-
-                        if (newQty > stock)
-                        {
-                            MessageBox.Show($"Không đủ tồn kho! Tồn: {stock}, trong giỏ: {currentQty}");
-                            return;
-                        }
-                        row.Cells["cCount"].Value = newQty;
-                        row.Cells["cUnitPrice"].Value = unitPrice;
-                        row.Cells["cLineTotal"].Value = newQty * unitPrice;
-                        RecalcTotalAmount();
+                        MessageBox.Show($"Không đủ tồn kho! Tồn: {stock}, trong giỏ: {item.Quantity}");
                         return;
                     }
-                }
 
-                if (addQty > stock)
+                    item.Quantity = newQty;
+                    item.UnitPrice = unitPrice;
+                }
+                else
                 {
-                    MessageBox.Show($"Không đủ tồn kho! Tồn hiện tại: {stock}");
-                    return;
+                    if (addQty > stock)
+                    {
+                        MessageBox.Show($"Không đủ tồn kho! Tồn hiện tại: {stock}");
+                        return;
+                    }
+
+                    _cart.Add(new CartItem
+                    {
+                        ProductId = productId,
+                        ProductName = productName,
+                        Quantity = addQty,
+                        UnitPrice = unitPrice
+                    });
                 }
 
-                decimal lineTotal = unitPrice * addQty;
-
-                dgvCart.Rows.Add(
-                    false,                    
-                    dgvCart.Rows.Count + 1,   
-                    productName,              
-                    unitPrice,                 
-                    addQty,                  
-                    lineTotal,                
-                    productId                 
-                );
-                RecalcTotalAmount();
+                ReloadCartGrid();
             }
             catch (Exception ex)
             {
@@ -222,84 +238,37 @@ namespace QLBanHang
                 Utils.Log("Add Cart: ", ex);
             }
         }
-
-
-
-        private void RecalcTotalAmount()
-        {
-            decimal totalAmount = 0;
-
-            foreach (DataGridViewRow row in dgvCart.Rows)
-            {
-                if (row.IsNewRow) continue;
-                if (row.Cells[5].Value == null) continue;
-
-                totalAmount += Convert.ToDecimal(row.Cells[5].Value);
-            }
-
-            lblTotalAmount.Text = "Tổng tiền: " + totalAmount.ToString("#,##0");
-
-        }
-        //-----------
-        private void dgvCart_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-        //------
-        //cập nhật lại STT
-        private void ReindexCartSTT()
-        {
-            int stt = 1;
-            foreach (DataGridViewRow row in dgvCart.Rows)
-            {
-                if (row.IsNewRow) continue;
-                row.Cells[1].Value = stt++;
-            }
-        }
         private void btnDelete_Click(object sender, EventArgs e)
         {
+            if (dgvCart.Rows.Count == 0) return;
+
             bool hasChecked = false;
+
             for (int i = dgvCart.Rows.Count - 1; i >= 0; i--)
             {
-                DataGridViewRow row = dgvCart.Rows[i];
+                var row = dgvCart.Rows[i];
                 if (row.IsNewRow) continue;
+
                 bool isChecked = row.Cells[0].Value != null &&
                                  Convert.ToBoolean(row.Cells[0].Value);
-                if (isChecked)
-                {
-                    dgvCart.Rows.RemoveAt(i);
-                    hasChecked = true;
-                }
+
+                if (!isChecked) continue;
+
+                string productId = row.Cells["cProductID"].Value?.ToString() ?? "";
+                _cart.RemoveAll(x => x.ProductId == productId);
+
+                hasChecked = true;
             }
+
             if (!hasChecked)
             {
                 MessageBox.Show("Vui lòng tick sản phẩm cần xóa!");
                 return;
             }
-            ReindexCartSTT();
-            RecalcTotalAmount();
+
+            ReloadCartGrid();
         }
 
-        //-------------------
-        private decimal GetCartTotalAmount()
-        {
-            decimal total = 0;
-            foreach (DataGridViewRow row in dgvCart.Rows)
-            {
-                if (row.IsNewRow) continue;
-                if (row.Cells[6].Value == null) continue;
-
-                total += Convert.ToDecimal(row.Cells[6].Value);
-            }
-            return total;
-        }
-
-        private bool CartHasItems()
-        {
-            foreach (DataGridViewRow row in dgvCart.Rows)
-                if (!row.IsNewRow) return true;
-            return false;
-        }
 
         private void btnConfirm_Click(object sender, EventArgs e)
         {
@@ -319,7 +288,11 @@ namespace QLBanHang
                 return;
             }
 
-            decimal totalAmount = GetCartTotalAmount();
+
+            nameCustomer = nameCustomer.Replace("'", "''");
+            phone = phone.Replace("'", "''");
+
+            decimal totalAmount = _cart.Sum(x => x.LineTotal);
             string orderDate = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
 
             SQLiteUtils sql = new SQLiteUtils();
@@ -332,48 +305,40 @@ namespace QLBanHang
 
                 sql.ExecuteQuery(insertOrder);
 
-                DataTable dtOrderId = sql.ExecuteQuery(
-                    "SELECT MAX(OrderId) AS OrderId FROM Orders;"
-                );
-
+                DataTable dtOrderId = sql.ExecuteQuery("SELECT MAX(OrderId) AS OrderId FROM Orders;");
                 int orderId = Convert.ToInt32(dtOrderId.Rows[0]["OrderId"]);
 
-                foreach (DataGridViewRow row in dgvCart.Rows)
+                foreach (var item in _cart)
                 {
-                    if (row.IsNewRow) continue;
-
-                    int productId = Convert.ToInt32(row.Cells["cProductID"].Value);
-                    int count = Convert.ToInt32(row.Cells["cCount"].Value);
-                    decimal unitPrice = Convert.ToDecimal(row.Cells["cUnitPrice"].Value);
-                    decimal lineTotal = Convert.ToDecimal(row.Cells["cLineTotal"].Value);
-
-                    int stockNow = GetStockFromDb(productId);
-                    if (count > stockNow)
+                    int stockNow = GetStockFromDb(item.ProductId);
+                    if (item.Quantity > stockNow)
                     {
                         MessageBox.Show(
-                            $"Không đủ tồn kho cho sản phẩm ID={productId}. " +
-                            $"Tồn: {stockNow}, cần: {count}"
+                            $"Không đủ tồn kho cho sản phẩm {item.ProductName}. " +
+                            $"Tồn: {stockNow}, cần: {item.Quantity}"
                         );
                         return;
                     }
 
                     string insertDetail =
                         $"INSERT INTO OrderDetails(OrderId, ProductId, Quantity, UnitPrice, LineTotal) " +
-                        $"VALUES({orderId}, {productId}, {count}, {unitPrice}, {lineTotal});";
+                        $"VALUES({orderId}, '{item.ProductId}', {item.Quantity}, {item.UnitPrice}, {item.LineTotal});";
 
                     sql.ExecuteQuery(insertDetail);
 
                     string updateStock =
-                        $"UPDATE Products SET Stock = Stock - {count} " +
-                        $"WHERE ProductId = {productId};";
+                        $"UPDATE Products SET Stock = Stock - {item.Quantity} WHERE ProductId = '{item.ProductId}';";
 
                     sql.ExecuteQuery(updateStock);
                 }
 
                 MessageBox.Show($"Đặt hàng thành công! Mã hóa đơn: {orderId}");
 
-                dgvCart.Rows.Clear();
-                lblTotalAmount.Text = "Tổng tiền: 0";
+                var f = new FormHoaDon(orderId);
+                f.ShowDialog();
+
+                _cart.Clear();
+                ReloadCartGrid();
                 txtCount.Text = "";
             }
             catch (Exception ex)
@@ -381,8 +346,45 @@ namespace QLBanHang
                 MessageBox.Show("Đặt hàng thất bại: " + ex.Message);
             }
         }
+        //-------------
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+        //-----------------
 
+        private void LoadCustomerAutoComplete()
+        {
+            SQLiteUtils sql = new SQLiteUtils();
 
+            DataTable dtName = sql.ExecuteQuery(@"
+                SELECT DISTINCT CustomerName
+                FROM Orders
+                WHERE CustomerName IS NOT NULL AND TRIM(CustomerName) <> ''
+                ORDER BY CustomerName;
+            ");
+
+            var srcName = new AutoCompleteStringCollection();
+            foreach (DataRow r in dtName.Rows) srcName.Add(r["CustomerName"].ToString());
+
+            txtNameCustomer.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            txtNameCustomer.AutoCompleteSource = AutoCompleteSource.CustomSource;
+            txtNameCustomer.AutoCompleteCustomSource = srcName;
+
+            DataTable dtPhone = sql.ExecuteQuery(@"
+                SELECT DISTINCT Phone
+                FROM Orders
+                WHERE Phone IS NOT NULL AND TRIM(Phone) <> ''
+                ORDER BY Phone;
+            ");
+
+            var srcPhone = new AutoCompleteStringCollection();
+            foreach (DataRow r in dtPhone.Rows) srcPhone.Add(r["Phone"].ToString());
+
+            txtPhone.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            txtPhone.AutoCompleteSource = AutoCompleteSource.CustomSource;
+            txtPhone.AutoCompleteCustomSource = srcPhone;
+        }
 
 
     }

@@ -28,11 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle7 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle8 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle9 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle10 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
             uiSplitContainer1 = new Sunny.UI.UISplitContainer();
             uiTableLayoutPanel3 = new Sunny.UI.UITableLayoutPanel();
             dgvCart = new Sunny.UI.UIDataGridView();
@@ -72,6 +72,7 @@
             uiPanel2 = new Sunny.UI.UIPanel();
             lblBill = new Sunny.UI.UILabel();
             uiTableLayoutPanel6 = new Sunny.UI.UITableLayoutPanel();
+            lblAddress = new Sunny.UI.UILabel();
             lblNamaCustomer = new Sunny.UI.UILabel();
             lblPhone = new Sunny.UI.UILabel();
             txtNameCustomer = new Sunny.UI.UITextBox();
@@ -79,7 +80,6 @@
             txtAddress = new Sunny.UI.UITextBox();
             uiTableLayoutPanel5 = new Sunny.UI.UITableLayoutPanel();
             lblInfor = new Sunny.UI.UILabel();
-            lblAddress = new Sunny.UI.UILabel();
             (uiSplitContainer1).BeginInit();
             uiSplitContainer1.Panel1.SuspendLayout();
             uiSplitContainer1.Panel2.SuspendLayout();
@@ -122,8 +122,8 @@
             uiSplitContainer1.Panel2.Controls.Add(uiPanel2);
             uiSplitContainer1.Panel2.Controls.Add(uiTableLayoutPanel6);
             uiSplitContainer1.Panel2.Controls.Add(uiTableLayoutPanel5);
-            uiSplitContainer1.Size = new Size(1157, 756);
-            uiSplitContainer1.SplitterDistance = 582;
+            uiSplitContainer1.Size = new Size(1153, 759);
+            uiSplitContainer1.SplitterDistance = 579;
             uiSplitContainer1.SplitterWidth = 11;
             uiSplitContainer1.TabIndex = 0;
             // 
@@ -144,7 +144,7 @@
             uiTableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Percent, 10F));
             uiTableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Percent, 70F));
             uiTableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Percent, 10F));
-            uiTableLayoutPanel3.Size = new Size(582, 506);
+            uiTableLayoutPanel3.Size = new Size(579, 509);
             uiTableLayoutPanel3.TabIndex = 2;
             uiTableLayoutPanel3.TagString = null;
             // 
@@ -153,95 +153,106 @@
             dgvCart.AllowUserToAddRows = false;
             dgvCart.AllowUserToDeleteRows = false;
             dgvCart.AllowUserToResizeRows = false;
-            dataGridViewCellStyle6.BackColor = Color.FromArgb(235, 243, 255);
-            dgvCart.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle1.BackColor = Color.FromArgb(235, 243, 255);
+            dgvCart.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             dgvCart.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvCart.BackgroundColor = Color.White;
             dgvCart.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle7.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle7.BackColor = Color.FromArgb(80, 160, 255);
-            dataGridViewCellStyle7.Font = new Font("Microsoft Sans Serif", 12F);
-            dataGridViewCellStyle7.ForeColor = Color.White;
-            dataGridViewCellStyle7.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle7.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = DataGridViewTriState.True;
-            dgvCart.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = Color.FromArgb(80, 160, 255);
+            dataGridViewCellStyle2.Font = new Font("Microsoft Sans Serif", 12F);
+            dataGridViewCellStyle2.ForeColor = Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
+            dgvCart.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             dgvCart.ColumnHeadersHeight = 32;
             dgvCart.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             dgvCart.Columns.AddRange(new DataGridViewColumn[] { cChose, cSTT, cName, cUnitPrice, cCount, cLineTotal, cProductID });
-            dataGridViewCellStyle8.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = SystemColors.Window;
-            dataGridViewCellStyle8.Font = new Font("Microsoft Sans Serif", 12F);
-            dataGridViewCellStyle8.ForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle8.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle8.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = DataGridViewTriState.False;
-            dgvCart.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = SystemColors.Window;
+            dataGridViewCellStyle3.Font = new Font("Microsoft Sans Serif", 12F);
+            dataGridViewCellStyle3.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
+            dgvCart.DefaultCellStyle = dataGridViewCellStyle3;
             dgvCart.Dock = DockStyle.Fill;
             dgvCart.EnableHeadersVisualStyles = false;
             dgvCart.Font = new Font("Microsoft Sans Serif", 12F);
-            dgvCart.GridColor = Color.FromArgb(80, 160, 255);
+            dgvCart.GridColor = Color.RoyalBlue;
             dgvCart.Location = new Point(0, 100);
             dgvCart.Margin = new Padding(0);
             dgvCart.Name = "dgvCart";
-            dataGridViewCellStyle9.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle9.BackColor = Color.FromArgb(235, 243, 255);
-            dataGridViewCellStyle9.Font = new Font("Microsoft Sans Serif", 12F);
-            dataGridViewCellStyle9.ForeColor = Color.FromArgb(48, 48, 48);
-            dataGridViewCellStyle9.SelectionBackColor = Color.FromArgb(80, 160, 255);
-            dataGridViewCellStyle9.SelectionForeColor = Color.White;
-            dataGridViewCellStyle9.WrapMode = DataGridViewTriState.True;
-            dgvCart.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = Color.FromArgb(235, 243, 255);
+            dataGridViewCellStyle4.Font = new Font("Microsoft Sans Serif", 12F);
+            dataGridViewCellStyle4.ForeColor = Color.FromArgb(48, 48, 48);
+            dataGridViewCellStyle4.SelectionBackColor = Color.FromArgb(80, 160, 255);
+            dataGridViewCellStyle4.SelectionForeColor = Color.White;
+            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.True;
+            dgvCart.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
             dgvCart.RowHeadersVisible = false;
             dgvCart.RowHeadersWidth = 51;
-            dataGridViewCellStyle10.BackColor = Color.White;
-            dataGridViewCellStyle10.Font = new Font("Microsoft Sans Serif", 12F);
-            dgvCart.RowsDefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle5.BackColor = Color.White;
+            dataGridViewCellStyle5.Font = new Font("Microsoft Sans Serif", 12F);
+            dgvCart.RowsDefaultCellStyle = dataGridViewCellStyle5;
             dgvCart.SelectedIndex = -1;
-            dgvCart.Size = new Size(582, 354);
+            dgvCart.Size = new Size(579, 356);
             dgvCart.StripeOddColor = Color.FromArgb(235, 243, 255);
             dgvCart.TabIndex = 2;
-            dgvCart.CellClick += dgvCart_CellClick;
             // 
             // cChose
             // 
+            cChose.FillWeight = 22.6474552F;
             cChose.HeaderText = "";
             cChose.MinimumWidth = 6;
             cChose.Name = "cChose";
             // 
             // cSTT
             // 
+            cSTT.FillWeight = 23.95754F;
             cSTT.HeaderText = "STT";
             cSTT.MinimumWidth = 6;
             cSTT.Name = "cSTT";
+            cSTT.ReadOnly = true;
             // 
             // cName
             // 
+            cName.FillWeight = 71.11582F;
             cName.HeaderText = "Tên sản phẩm";
             cName.MinimumWidth = 6;
             cName.Name = "cName";
+            cName.ReadOnly = true;
             // 
             // cUnitPrice
             // 
+            cUnitPrice.FillWeight = 37.53668F;
             cUnitPrice.HeaderText = "Đơn giá";
             cUnitPrice.MinimumWidth = 6;
             cUnitPrice.Name = "cUnitPrice";
+            cUnitPrice.ReadOnly = true;
             // 
             // cCount
             // 
+            cCount.FillWeight = 24.1294022F;
             cCount.HeaderText = "SL";
             cCount.MinimumWidth = 6;
             cCount.Name = "cCount";
+            cCount.ReadOnly = true;
             // 
             // cLineTotal
             // 
             cLineTotal.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            cLineTotal.FillWeight = 42.2574043F;
             cLineTotal.HeaderText = "Thành tiền";
             cLineTotal.MinimumWidth = 6;
             cLineTotal.Name = "cLineTotal";
+            cLineTotal.ReadOnly = true;
             // 
             // cProductID
             // 
+            cProductID.FillWeight = 50F;
             cProductID.HeaderText = "ProductID";
             cProductID.MinimumWidth = 6;
             cProductID.Name = "cProductID";
@@ -259,7 +270,7 @@
             uiTableLayoutPanel4.Name = "uiTableLayoutPanel4";
             uiTableLayoutPanel4.RowCount = 1;
             uiTableLayoutPanel4.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-            uiTableLayoutPanel4.Size = new Size(582, 50);
+            uiTableLayoutPanel4.Size = new Size(579, 50);
             uiTableLayoutPanel4.TabIndex = 3;
             uiTableLayoutPanel4.TagString = null;
             // 
@@ -267,12 +278,12 @@
             // 
             uiLabel1.BackColor = Color.White;
             uiLabel1.Dock = DockStyle.Fill;
-            uiLabel1.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            uiLabel1.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 163);
             uiLabel1.ForeColor = Color.FromArgb(48, 48, 48);
             uiLabel1.Location = new Point(0, 0);
             uiLabel1.Margin = new Padding(0);
             uiLabel1.Name = "uiLabel1";
-            uiLabel1.Size = new Size(582, 50);
+            uiLabel1.Size = new Size(579, 50);
             uiLabel1.TabIndex = 1;
             uiLabel1.Text = "Giỏ Hàng";
             uiLabel1.TextAlign = ContentAlignment.MiddleCenter;
@@ -280,11 +291,11 @@
             // lblTotalAmount
             // 
             lblTotalAmount.Dock = DockStyle.Fill;
-            lblTotalAmount.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblTotalAmount.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 163);
             lblTotalAmount.ForeColor = Color.FromArgb(48, 48, 48);
-            lblTotalAmount.Location = new Point(3, 454);
+            lblTotalAmount.Location = new Point(3, 456);
             lblTotalAmount.Name = "lblTotalAmount";
-            lblTotalAmount.Size = new Size(576, 52);
+            lblTotalAmount.Size = new Size(573, 53);
             lblTotalAmount.TabIndex = 4;
             lblTotalAmount.Text = "Tổng tiền: ";
             lblTotalAmount.TextAlign = ContentAlignment.MiddleCenter;
@@ -303,7 +314,7 @@
             uiTableLayoutPanel9.Name = "uiTableLayoutPanel9";
             uiTableLayoutPanel9.RowCount = 1;
             uiTableLayoutPanel9.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            uiTableLayoutPanel9.Size = new Size(582, 50);
+            uiTableLayoutPanel9.Size = new Size(579, 50);
             uiTableLayoutPanel9.TabIndex = 5;
             uiTableLayoutPanel9.TagString = null;
             // 
@@ -311,26 +322,26 @@
             // 
             btnAdd.Anchor = AnchorStyles.None;
             btnAdd.Font = new Font("Microsoft Sans Serif", 12F);
-            btnAdd.Location = new Point(83, 8);
+            btnAdd.Location = new Point(82, 8);
             btnAdd.MinimumSize = new Size(1, 1);
             btnAdd.Name = "btnAdd";
             btnAdd.Size = new Size(125, 34);
             btnAdd.TabIndex = 0;
             btnAdd.Text = "Thêm";
-            btnAdd.TipsFont = new Font("Microsoft Sans Serif", 9F);
+            btnAdd.TipsFont = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 163);
             btnAdd.Click += btnAdd_Click;
             // 
             // btnDelete
             // 
             btnDelete.Anchor = AnchorStyles.None;
             btnDelete.Font = new Font("Microsoft Sans Serif", 12F);
-            btnDelete.Location = new Point(374, 8);
+            btnDelete.Location = new Point(371, 8);
             btnDelete.MinimumSize = new Size(1, 1);
             btnDelete.Name = "btnDelete";
             btnDelete.Size = new Size(125, 34);
             btnDelete.TabIndex = 1;
             btnDelete.Text = "Xóa";
-            btnDelete.TipsFont = new Font("Microsoft Sans Serif", 9F);
+            btnDelete.TipsFont = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 163);
             btnDelete.Click += btnDelete_Click;
             // 
             // uiTableLayoutPanel2
@@ -355,7 +366,7 @@
             uiTableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 25F));
             uiTableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 25F));
             uiTableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 25F));
-            uiTableLayoutPanel2.Size = new Size(582, 186);
+            uiTableLayoutPanel2.Size = new Size(579, 186);
             uiTableLayoutPanel2.TabIndex = 1;
             uiTableLayoutPanel2.TagString = null;
             // 
@@ -369,7 +380,7 @@
             txtUnitPrice.Name = "txtUnitPrice";
             txtUnitPrice.Padding = new Padding(5);
             txtUnitPrice.ShowText = false;
-            txtUnitPrice.Size = new Size(438, 36);
+            txtUnitPrice.Size = new Size(435, 36);
             txtUnitPrice.TabIndex = 1;
             txtUnitPrice.TextAlignment = ContentAlignment.MiddleLeft;
             txtUnitPrice.Watermark = "";
@@ -399,7 +410,7 @@
             cboProduct1.MinimumSize = new Size(63, 0);
             cboProduct1.Name = "cboProduct1";
             cboProduct1.Padding = new Padding(5, 5, 30, 5);
-            cboProduct1.Size = new Size(438, 36);
+            cboProduct1.Size = new Size(435, 36);
             cboProduct1.SymbolSize = 24;
             cboProduct1.TabIndex = 8;
             cboProduct1.Text = "Sản Phẩm";
@@ -425,7 +436,7 @@
             lblPrice.ForeColor = Color.FromArgb(48, 48, 48);
             lblPrice.Location = new Point(3, 92);
             lblPrice.Name = "lblPrice";
-            lblPrice.Size = new Size(114, 29);
+            lblPrice.Size = new Size(114, 41);
             lblPrice.TabIndex = 10;
             lblPrice.Text = "Đơn giá:";
             lblPrice.TextAlign = ContentAlignment.MiddleRight;
@@ -455,7 +466,7 @@
             cboCategory.MinimumSize = new Size(63, 0);
             cboCategory.Name = "cboCategory";
             cboCategory.Padding = new Padding(0, 0, 30, 2);
-            cboCategory.Size = new Size(438, 36);
+            cboCategory.Size = new Size(435, 36);
             cboCategory.SymbolSize = 24;
             cboCategory.TabIndex = 12;
             cboCategory.Text = "Danh mục";
@@ -473,7 +484,7 @@
             txtCount.Name = "txtCount";
             txtCount.Padding = new Padding(5);
             txtCount.ShowText = false;
-            txtCount.Size = new Size(438, 38);
+            txtCount.Size = new Size(435, 38);
             txtCount.TabIndex = 13;
             txtCount.TextAlignment = ContentAlignment.MiddleLeft;
             txtCount.Watermark = "";
@@ -489,18 +500,18 @@
             uiTableLayoutPanel1.Name = "uiTableLayoutPanel1";
             uiTableLayoutPanel1.RowCount = 1;
             uiTableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-            uiTableLayoutPanel1.Size = new Size(582, 64);
+            uiTableLayoutPanel1.Size = new Size(579, 64);
             uiTableLayoutPanel1.TabIndex = 0;
             uiTableLayoutPanel1.TagString = null;
             // 
             // lblChose
             // 
             lblChose.Dock = DockStyle.Fill;
-            lblChose.Font = new Font("Microsoft Sans Serif", 12F);
+            lblChose.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 163);
             lblChose.ForeColor = Color.FromArgb(48, 48, 48);
             lblChose.Location = new Point(3, 0);
             lblChose.Name = "lblChose";
-            lblChose.Size = new Size(576, 64);
+            lblChose.Size = new Size(573, 64);
             lblChose.TabIndex = 0;
             lblChose.Text = "Chọn sản phẩm";
             lblChose.TextAlign = ContentAlignment.MiddleCenter;
@@ -520,15 +531,15 @@
             uiTableLayoutPanel8.Name = "uiTableLayoutPanel8";
             uiTableLayoutPanel8.RowCount = 1;
             uiTableLayoutPanel8.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            uiTableLayoutPanel8.Size = new Size(564, 65);
+            uiTableLayoutPanel8.Size = new Size(563, 68);
             uiTableLayoutPanel8.TabIndex = 5;
             uiTableLayoutPanel8.TagString = null;
             // 
             // btnConfirm
             // 
             btnConfirm.Anchor = AnchorStyles.None;
-            btnConfirm.Font = new Font("Microsoft Sans Serif", 12F);
-            btnConfirm.Location = new Point(33, 10);
+            btnConfirm.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 163);
+            btnConfirm.Location = new Point(33, 12);
             btnConfirm.MinimumSize = new Size(1, 1);
             btnConfirm.Name = "btnConfirm";
             btnConfirm.Radius = 1;
@@ -541,8 +552,8 @@
             // btnExit
             // 
             btnExit.Anchor = AnchorStyles.None;
-            btnExit.Font = new Font("Microsoft Sans Serif", 12F);
-            btnExit.Location = new Point(221, 12);
+            btnExit.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 163);
+            btnExit.Location = new Point(220, 13);
             btnExit.MinimumSize = new Size(1, 1);
             btnExit.Name = "btnExit";
             btnExit.Radius = 1;
@@ -550,15 +561,16 @@
             btnExit.TabIndex = 1;
             btnExit.Text = "Thoát";
             btnExit.TipsFont = new Font("Microsoft Sans Serif", 9F);
+            btnExit.Click += btnExit_Click;
             // 
             // lblTotal
             // 
             lblTotal.Dock = DockStyle.Fill;
-            lblTotal.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblTotal.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 163);
             lblTotal.ForeColor = Color.FromArgb(48, 48, 48);
-            lblTotal.Location = new Point(379, 0);
+            lblTotal.Location = new Point(377, 0);
             lblTotal.Name = "lblTotal";
-            lblTotal.Size = new Size(182, 65);
+            lblTotal.Size = new Size(183, 68);
             lblTotal.TabIndex = 2;
             lblTotal.Text = "Tổng tiền:";
             lblTotal.TextAlign = ContentAlignment.MiddleCenter;
@@ -577,7 +589,7 @@
             uiTableLayoutPanel7.RowStyles.Add(new RowStyle(SizeType.Percent, 33.3333321F));
             uiTableLayoutPanel7.RowStyles.Add(new RowStyle(SizeType.Percent, 33.3333321F));
             uiTableLayoutPanel7.RowStyles.Add(new RowStyle(SizeType.Percent, 33.3333321F));
-            uiTableLayoutPanel7.Size = new Size(564, 200);
+            uiTableLayoutPanel7.Size = new Size(563, 200);
             uiTableLayoutPanel7.TabIndex = 4;
             uiTableLayoutPanel7.TagString = null;
             // 
@@ -588,7 +600,7 @@
             rdoCash.Location = new Point(3, 3);
             rdoCash.MinimumSize = new Size(1, 1);
             rdoCash.Name = "rdoCash";
-            rdoCash.Size = new Size(558, 60);
+            rdoCash.Size = new Size(557, 60);
             rdoCash.TabIndex = 0;
             rdoCash.Text = "Thanh toán khi nhận hàng";
             // 
@@ -599,7 +611,7 @@
             uiRadioButton1.Location = new Point(3, 69);
             uiRadioButton1.MinimumSize = new Size(1, 1);
             uiRadioButton1.Name = "uiRadioButton1";
-            uiRadioButton1.Size = new Size(558, 60);
+            uiRadioButton1.Size = new Size(557, 60);
             uiRadioButton1.TabIndex = 1;
             uiRadioButton1.Text = "Thẻ ngân hàng / tín dụng";
             // 
@@ -612,7 +624,7 @@
             uiPanel3.Margin = new Padding(4, 5, 4, 5);
             uiPanel3.MinimumSize = new Size(1, 1);
             uiPanel3.Name = "uiPanel3";
-            uiPanel3.Size = new Size(564, 40);
+            uiPanel3.Size = new Size(563, 40);
             uiPanel3.TabIndex = 3;
             uiPanel3.Text = null;
             uiPanel3.TextAlignment = ContentAlignment.MiddleCenter;
@@ -621,11 +633,11 @@
             // 
             lblCard.BackColor = SystemColors.GradientInactiveCaption;
             lblCard.Dock = DockStyle.Fill;
-            lblCard.Font = new Font("Microsoft Sans Serif", 12F);
+            lblCard.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 163);
             lblCard.ForeColor = Color.FromArgb(48, 48, 48);
             lblCard.Location = new Point(0, 0);
             lblCard.Name = "lblCard";
-            lblCard.Size = new Size(564, 40);
+            lblCard.Size = new Size(563, 40);
             lblCard.TabIndex = 0;
             lblCard.Text = "Hình thức thanh toán";
             lblCard.TextAlign = ContentAlignment.MiddleCenter;
@@ -639,7 +651,7 @@
             uiPanel2.Margin = new Padding(4, 5, 4, 5);
             uiPanel2.MinimumSize = new Size(1, 1);
             uiPanel2.Name = "uiPanel2";
-            uiPanel2.Size = new Size(564, 55);
+            uiPanel2.Size = new Size(563, 55);
             uiPanel2.TabIndex = 2;
             uiPanel2.Text = null;
             uiPanel2.TextAlignment = ContentAlignment.MiddleCenter;
@@ -648,11 +660,11 @@
             // 
             lblBill.BackColor = Color.LightSkyBlue;
             lblBill.Dock = DockStyle.Fill;
-            lblBill.Font = new Font("Microsoft Sans Serif", 12F);
+            lblBill.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 163);
             lblBill.ForeColor = Color.FromArgb(48, 48, 48);
             lblBill.Location = new Point(0, 0);
             lblBill.Name = "lblBill";
-            lblBill.Size = new Size(564, 55);
+            lblBill.Size = new Size(563, 55);
             lblBill.TabIndex = 0;
             lblBill.Text = "Thông tin hóa đơn";
             lblBill.TextAlign = ContentAlignment.MiddleCenter;
@@ -677,9 +689,21 @@
             uiTableLayoutPanel6.RowStyles.Add(new RowStyle(SizeType.Percent, 25F));
             uiTableLayoutPanel6.RowStyles.Add(new RowStyle(SizeType.Percent, 25F));
             uiTableLayoutPanel6.RowStyles.Add(new RowStyle(SizeType.Percent, 25F));
-            uiTableLayoutPanel6.Size = new Size(564, 332);
+            uiTableLayoutPanel6.Size = new Size(563, 332);
             uiTableLayoutPanel6.TabIndex = 1;
             uiTableLayoutPanel6.TagString = null;
+            // 
+            // lblAddress
+            // 
+            lblAddress.Dock = DockStyle.Fill;
+            lblAddress.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblAddress.ForeColor = Color.FromArgb(48, 48, 48);
+            lblAddress.Location = new Point(3, 166);
+            lblAddress.Name = "lblAddress";
+            lblAddress.Size = new Size(144, 83);
+            lblAddress.TabIndex = 8;
+            lblAddress.Text = "Địa chỉ:";
+            lblAddress.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // lblNamaCustomer
             // 
@@ -715,7 +739,7 @@
             txtNameCustomer.Name = "txtNameCustomer";
             txtNameCustomer.Padding = new Padding(5);
             txtNameCustomer.ShowText = false;
-            txtNameCustomer.Size = new Size(330, 55);
+            txtNameCustomer.Size = new Size(329, 55);
             txtNameCustomer.TabIndex = 4;
             txtNameCustomer.TextAlignment = ContentAlignment.MiddleLeft;
             txtNameCustomer.Watermark = "";
@@ -730,7 +754,7 @@
             txtPhone.Name = "txtPhone";
             txtPhone.Padding = new Padding(5);
             txtPhone.ShowText = false;
-            txtPhone.Size = new Size(330, 55);
+            txtPhone.Size = new Size(329, 55);
             txtPhone.TabIndex = 5;
             txtPhone.TextAlignment = ContentAlignment.MiddleLeft;
             txtPhone.Watermark = "";
@@ -745,7 +769,7 @@
             txtAddress.Name = "txtAddress";
             txtAddress.Padding = new Padding(5);
             txtAddress.ShowText = false;
-            txtAddress.Size = new Size(330, 55);
+            txtAddress.Size = new Size(329, 55);
             txtAddress.TabIndex = 7;
             txtAddress.TextAlignment = ContentAlignment.MiddleLeft;
             txtAddress.Watermark = "";
@@ -761,42 +785,31 @@
             uiTableLayoutPanel5.Name = "uiTableLayoutPanel5";
             uiTableLayoutPanel5.RowCount = 1;
             uiTableLayoutPanel5.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-            uiTableLayoutPanel5.Size = new Size(564, 64);
+            uiTableLayoutPanel5.Size = new Size(563, 64);
             uiTableLayoutPanel5.TabIndex = 0;
             uiTableLayoutPanel5.TagString = null;
             // 
             // lblInfor
             // 
             lblInfor.Dock = DockStyle.Fill;
-            lblInfor.Font = new Font("Microsoft Sans Serif", 12F);
+            lblInfor.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 163);
             lblInfor.ForeColor = Color.FromArgb(48, 48, 48);
             lblInfor.Location = new Point(3, 0);
             lblInfor.Name = "lblInfor";
-            lblInfor.Size = new Size(558, 64);
+            lblInfor.Size = new Size(557, 64);
             lblInfor.TabIndex = 0;
             lblInfor.Text = "Thông tin khách hàng";
             lblInfor.TextAlign = ContentAlignment.MiddleCenter;
-            // 
-            // lblAddress
-            // 
-            lblAddress.Dock = DockStyle.Fill;
-            lblAddress.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblAddress.ForeColor = Color.FromArgb(48, 48, 48);
-            lblAddress.Location = new Point(3, 166);
-            lblAddress.Name = "lblAddress";
-            lblAddress.Size = new Size(144, 83);
-            lblAddress.TabIndex = 8;
-            lblAddress.Text = "Địa chỉ:";
-            lblAddress.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // FormSale
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1157, 756);
+            ClientSize = new Size(1153, 759);
             Controls.Add(uiSplitContainer1);
+            MinimumSize = new Size(1000, 800);
             Name = "FormSale";
-            Text = "FormSale";
+            Text = "Bán Hàng";
             Load += FormSale_Load;
             uiSplitContainer1.Panel1.ResumeLayout(false);
             uiSplitContainer1.Panel2.ResumeLayout(false);
@@ -861,6 +874,7 @@
         private Sunny.UI.UITableLayoutPanel uiTableLayoutPanel9;
         private Sunny.UI.UIButton btnAdd;
         private Sunny.UI.UIButton btnDelete;
+        private Sunny.UI.UILabel lblAddress;
         private DataGridViewCheckBoxColumn cChose;
         private DataGridViewTextBoxColumn cSTT;
         private DataGridViewTextBoxColumn cName;
@@ -868,6 +882,5 @@
         private DataGridViewTextBoxColumn cCount;
         private DataGridViewTextBoxColumn cLineTotal;
         private DataGridViewTextBoxColumn cProductID;
-        private Sunny.UI.UILabel lblAddress;
     }
 }
