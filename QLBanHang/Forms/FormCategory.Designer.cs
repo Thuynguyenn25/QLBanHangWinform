@@ -115,7 +115,7 @@
             tblCatSearch.Controls.Add(uiPanel7, 1, 0);
             tblCatSearch.Controls.Add(uiPanel6, 0, 0);
             tblCatSearch.Dock = DockStyle.Fill;
-            tblCatSearch.Location = new Point(0, 207);
+            tblCatSearch.Location = new Point(0, 195);
             tblCatSearch.Margin = new Padding(0);
             tblCatSearch.Name = "tblCatSearch";
             tblCatSearch.RowCount = 1;
@@ -161,7 +161,7 @@
             // btnSearchCate
             // 
             btnSearchCate.Anchor = AnchorStyles.None;
-            btnSearchCate.Font = new Font("Segoe UI", 9F);
+            btnSearchCate.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 163);
             btnSearchCate.Location = new Point(319, 8);
             btnSearchCate.MinimumSize = new Size(1, 1);
             btnSearchCate.Name = "btnSearchCate";
@@ -192,8 +192,8 @@
             // btnExport
             // 
             btnExport.Anchor = AnchorStyles.None;
-            btnExport.Font = new Font("Segoe UI", 9F);
-            btnExport.Location = new Point(192, 8);
+            btnExport.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 163);
+            btnExport.Location = new Point(227, 8);
             btnExport.MinimumSize = new Size(1, 1);
             btnExport.Name = "btnExport";
             btnExport.Size = new Size(108, 42);
@@ -206,7 +206,7 @@
             // 
             lblTitleCate.BackColor = SystemColors.GradientInactiveCaption;
             lblTitleCate.Dock = DockStyle.Fill;
-            lblTitleCate.Font = new Font("Segoe UI", 9F);
+            lblTitleCate.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 163);
             lblTitleCate.ForeColor = Color.FromArgb(48, 48, 48);
             lblTitleCate.Location = new Point(0, 0);
             lblTitleCate.Margin = new Padding(0);
@@ -229,7 +229,7 @@
             tblCatbuton.Controls.Add(uiPanel2, 1, 0);
             tblCatbuton.Controls.Add(uiPanel1, 0, 0);
             tblCatbuton.Dock = DockStyle.Fill;
-            tblCatbuton.Location = new Point(0, 147);
+            tblCatbuton.Location = new Point(0, 135);
             tblCatbuton.Margin = new Padding(0);
             tblCatbuton.Name = "tblCatbuton";
             tblCatbuton.RowCount = 1;
@@ -257,13 +257,13 @@
             // btnClearCate
             // 
             btnClearCate.Anchor = AnchorStyles.None;
-            btnClearCate.Font = new Font("Segoe UI", 9F);
+            btnClearCate.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 163);
             btnClearCate.Location = new Point(60, 8);
             btnClearCate.MinimumSize = new Size(1, 1);
             btnClearCate.Name = "btnClearCate";
             btnClearCate.Size = new Size(125, 44);
             btnClearCate.TabIndex = 2;
-            btnClearCate.Text = "Clear";
+            btnClearCate.Text = "Làm mới";
             btnClearCate.TipsFont = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 163);
             btnClearCate.Click += btnClearCate_Click;
             // 
@@ -286,7 +286,7 @@
             // btnUpdateCate
             // 
             btnUpdateCate.Anchor = AnchorStyles.None;
-            btnUpdateCate.Font = new Font("Segoe UI", 9F);
+            btnUpdateCate.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 163);
             btnUpdateCate.Location = new Point(59, 8);
             btnUpdateCate.MinimumSize = new Size(1, 1);
             btnUpdateCate.Name = "btnUpdateCate";
@@ -315,7 +315,7 @@
             // btnDeleteCate
             // 
             btnDeleteCate.Anchor = AnchorStyles.None;
-            btnDeleteCate.Font = new Font("Segoe UI", 9F);
+            btnDeleteCate.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 163);
             btnDeleteCate.Location = new Point(59, 8);
             btnDeleteCate.MinimumSize = new Size(1, 1);
             btnDeleteCate.Name = "btnDeleteCate";
@@ -344,7 +344,7 @@
             // btnAddCate
             // 
             btnAddCate.Anchor = AnchorStyles.None;
-            btnAddCate.Font = new Font("Segoe UI", 9F);
+            btnAddCate.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 163);
             btnAddCate.Location = new Point(62, 8);
             btnAddCate.MinimumSize = new Size(1, 1);
             btnAddCate.Name = "btnAddCate";
@@ -360,12 +360,12 @@
             uiPanel3.Dock = DockStyle.Fill;
             uiPanel3.FillColor = SystemColors.GradientInactiveCaption;
             uiPanel3.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 163);
-            uiPanel3.Location = new Point(0, 267);
+            uiPanel3.Location = new Point(0, 255);
             uiPanel3.Margin = new Padding(0);
             uiPanel3.MinimumSize = new Size(1, 1);
             uiPanel3.Name = "uiPanel3";
             uiPanel3.RectColor = SystemColors.GradientActiveCaption;
-            uiPanel3.Size = new Size(973, 286);
+            uiPanel3.Size = new Size(973, 263);
             uiPanel3.TabIndex = 3;
             uiPanel3.Text = null;
             uiPanel3.TextAlignment = ContentAlignment.MiddleCenter;
@@ -376,13 +376,14 @@
             dgvCategory.AllowUserToDeleteRows = false;
             dgvCategory.AllowUserToResizeRows = false;
             dataGridViewCellStyle1.BackColor = Color.FromArgb(235, 243, 255);
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 163);
             dgvCategory.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             dgvCategory.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvCategory.BackgroundColor = Color.White;
             dgvCategory.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle2.BackColor = Color.FromArgb(80, 160, 255);
-            dataGridViewCellStyle2.Font = new Font("Microsoft Sans Serif", 12F);
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 163);
             dataGridViewCellStyle2.ForeColor = Color.White;
             dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
             dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
@@ -394,7 +395,7 @@
             dgvCategory.ContextMenuStrip = cmsCategory;
             dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = SystemColors.Window;
-            dataGridViewCellStyle3.Font = new Font("Microsoft Sans Serif", 12F);
+            dataGridViewCellStyle3.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 163);
             dataGridViewCellStyle3.ForeColor = Color.FromArgb(48, 48, 48);
             dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
             dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
@@ -420,12 +421,13 @@
             dataGridViewCellStyle5.BackColor = Color.White;
             dataGridViewCellStyle5.Font = new Font("Microsoft Sans Serif", 12F);
             dgvCategory.RowsDefaultCellStyle = dataGridViewCellStyle5;
+            dgvCategory.RowTemplate.DefaultCellStyle.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 163);
             dgvCategory.ScrollBarRectColor = Color.White;
             dgvCategory.ScrollBars = ScrollBars.None;
             dgvCategory.ScrollBarStyleInherited = false;
             dgvCategory.SelectedIndex = -1;
             dgvCategory.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvCategory.Size = new Size(973, 286);
+            dgvCategory.Size = new Size(973, 263);
             dgvCategory.StripeOddColor = Color.FromArgb(235, 243, 255);
             dgvCategory.TabIndex = 0;
             dgvCategory.CellClick += dgvCategory_CellClick;
@@ -510,14 +512,14 @@
             tblCateMain.Controls.Add(tblCatSearch, 0, 2);
             tblCateMain.Controls.Add(tlpInput, 0, 0);
             tblCateMain.Dock = DockStyle.Fill;
-            tblCateMain.Location = new Point(0, 0);
+            tblCateMain.Location = new Point(0, 35);
             tblCateMain.Name = "tblCateMain";
             tblCateMain.RowCount = 4;
             tblCateMain.RowStyles.Add(new RowStyle(SizeType.Percent, 34F));
             tblCateMain.RowStyles.Add(new RowStyle(SizeType.Absolute, 60F));
             tblCateMain.RowStyles.Add(new RowStyle(SizeType.Absolute, 60F));
             tblCateMain.RowStyles.Add(new RowStyle(SizeType.Percent, 66F));
-            tblCateMain.Size = new Size(973, 553);
+            tblCateMain.Size = new Size(973, 518);
             tblCateMain.TabIndex = 0;
             tblCateMain.TagString = null;
             // 
@@ -544,7 +546,7 @@
             tlpInput.RowCount = 2;
             tlpInput.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
             tlpInput.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-            tlpInput.Size = new Size(973, 147);
+            tlpInput.Size = new Size(973, 135);
             tlpInput.TabIndex = 6;
             tlpInput.TagString = null;
             // 
@@ -552,13 +554,13 @@
             // 
             uiPanel15.Dock = DockStyle.Fill;
             uiPanel15.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 163);
-            uiPanel15.Location = new Point(563, 73);
+            uiPanel15.Location = new Point(563, 67);
             uiPanel15.Margin = new Padding(0);
             uiPanel15.MinimumSize = new Size(1, 1);
             uiPanel15.Name = "uiPanel15";
             uiPanel15.Radius = 1;
             uiPanel15.RectColor = Color.FromArgb(243, 249, 255);
-            uiPanel15.Size = new Size(410, 74);
+            uiPanel15.Size = new Size(410, 68);
             uiPanel15.TabIndex = 7;
             uiPanel15.Text = null;
             uiPanel15.TextAlignment = ContentAlignment.MiddleCenter;
@@ -567,13 +569,13 @@
             // 
             uiPanel14.Dock = DockStyle.Fill;
             uiPanel14.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 163);
-            uiPanel14.Location = new Point(400, 73);
+            uiPanel14.Location = new Point(400, 67);
             uiPanel14.Margin = new Padding(0);
             uiPanel14.MinimumSize = new Size(1, 1);
             uiPanel14.Name = "uiPanel14";
             uiPanel14.Radius = 1;
             uiPanel14.RectColor = Color.FromArgb(243, 249, 255);
-            uiPanel14.Size = new Size(163, 74);
+            uiPanel14.Size = new Size(163, 68);
             uiPanel14.TabIndex = 6;
             uiPanel14.Text = null;
             uiPanel14.TextAlignment = ContentAlignment.MiddleCenter;
@@ -583,13 +585,13 @@
             uiPanel13.Controls.Add(txtName);
             uiPanel13.Dock = DockStyle.Fill;
             uiPanel13.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 163);
-            uiPanel13.Location = new Point(175, 73);
+            uiPanel13.Location = new Point(175, 67);
             uiPanel13.Margin = new Padding(0);
             uiPanel13.MinimumSize = new Size(1, 1);
             uiPanel13.Name = "uiPanel13";
             uiPanel13.Radius = 1;
             uiPanel13.RectColor = Color.FromArgb(243, 249, 255);
-            uiPanel13.Size = new Size(225, 74);
+            uiPanel13.Size = new Size(225, 68);
             uiPanel13.TabIndex = 5;
             uiPanel13.Text = null;
             uiPanel13.TextAlignment = ContentAlignment.MiddleCenter;
@@ -597,15 +599,15 @@
             // txtName
             // 
             txtName.Anchor = AnchorStyles.Left | AnchorStyles.Right;
-            txtName.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 163);
-            txtName.Location = new Point(17, 15);
+            txtName.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 163);
+            txtName.Location = new Point(17, 19);
             txtName.Margin = new Padding(4, 5, 4, 5);
             txtName.MinimumSize = new Size(1, 16);
             txtName.Name = "txtName";
             txtName.Padding = new Padding(5);
             txtName.Radius = 1;
             txtName.ShowText = false;
-            txtName.Size = new Size(181, 53);
+            txtName.Size = new Size(181, 42);
             txtName.TabIndex = 0;
             txtName.TextAlignment = ContentAlignment.MiddleLeft;
             txtName.Watermark = "";
@@ -615,13 +617,13 @@
             uiPanel12.Controls.Add(lblName);
             uiPanel12.Dock = DockStyle.Fill;
             uiPanel12.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 163);
-            uiPanel12.Location = new Point(0, 73);
+            uiPanel12.Location = new Point(0, 67);
             uiPanel12.Margin = new Padding(0);
             uiPanel12.MinimumSize = new Size(1, 1);
             uiPanel12.Name = "uiPanel12";
             uiPanel12.Radius = 1;
             uiPanel12.RectColor = Color.FromArgb(243, 249, 255);
-            uiPanel12.Size = new Size(175, 74);
+            uiPanel12.Size = new Size(175, 68);
             uiPanel12.TabIndex = 4;
             uiPanel12.Text = null;
             uiPanel12.TextAlignment = ContentAlignment.MiddleCenter;
@@ -629,11 +631,11 @@
             // lblName
             // 
             lblName.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Right;
-            lblName.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 163);
+            lblName.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 163);
             lblName.ForeColor = Color.FromArgb(48, 48, 48);
             lblName.Location = new Point(24, 22);
             lblName.Name = "lblName";
-            lblName.Size = new Size(136, 40);
+            lblName.Size = new Size(136, 34);
             lblName.TabIndex = 0;
             lblName.Text = "Tên danh mục:";
             lblName.TextAlign = ContentAlignment.MiddleCenter;
@@ -649,7 +651,7 @@
             uiPanel11.Name = "uiPanel11";
             uiPanel11.Radius = 1;
             uiPanel11.RectColor = Color.FromArgb(243, 249, 255);
-            uiPanel11.Size = new Size(410, 73);
+            uiPanel11.Size = new Size(410, 67);
             uiPanel11.TabIndex = 3;
             uiPanel11.Text = null;
             uiPanel11.TextAlignment = ContentAlignment.MiddleCenter;
@@ -657,15 +659,15 @@
             // txtDescription
             // 
             txtDescription.Anchor = AnchorStyles.Left | AnchorStyles.Right;
-            txtDescription.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 163);
-            txtDescription.Location = new Point(7, 14);
+            txtDescription.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 163);
+            txtDescription.Location = new Point(7, 17);
             txtDescription.Margin = new Padding(4, 5, 4, 5);
             txtDescription.MinimumSize = new Size(1, 16);
             txtDescription.Name = "txtDescription";
             txtDescription.Padding = new Padding(5);
             txtDescription.Radius = 1;
             txtDescription.ShowText = false;
-            txtDescription.Size = new Size(305, 53);
+            txtDescription.Size = new Size(305, 42);
             txtDescription.TabIndex = 0;
             txtDescription.TextAlignment = ContentAlignment.MiddleLeft;
             txtDescription.Watermark = "";
@@ -681,7 +683,7 @@
             uiPanel10.Name = "uiPanel10";
             uiPanel10.Radius = 1;
             uiPanel10.RectColor = Color.FromArgb(243, 249, 255);
-            uiPanel10.Size = new Size(163, 73);
+            uiPanel10.Size = new Size(163, 67);
             uiPanel10.TabIndex = 2;
             uiPanel10.Text = null;
             uiPanel10.TextAlignment = ContentAlignment.MiddleCenter;
@@ -689,11 +691,11 @@
             // lblDescription
             // 
             lblDescription.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Right;
-            lblDescription.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 163);
+            lblDescription.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 163);
             lblDescription.ForeColor = Color.FromArgb(48, 48, 48);
             lblDescription.Location = new Point(41, 21);
             lblDescription.Name = "lblDescription";
-            lblDescription.Size = new Size(122, 39);
+            lblDescription.Size = new Size(122, 33);
             lblDescription.TabIndex = 0;
             lblDescription.Text = "Mô tả:";
             lblDescription.TextAlign = ContentAlignment.MiddleCenter;
@@ -709,7 +711,7 @@
             uiPanel9.Name = "uiPanel9";
             uiPanel9.Radius = 1;
             uiPanel9.RectColor = Color.FromArgb(243, 249, 255);
-            uiPanel9.Size = new Size(225, 73);
+            uiPanel9.Size = new Size(225, 67);
             uiPanel9.TabIndex = 1;
             uiPanel9.Text = null;
             uiPanel9.TextAlignment = ContentAlignment.MiddleCenter;
@@ -718,15 +720,15 @@
             // 
             txtIDCategory.Anchor = AnchorStyles.Left | AnchorStyles.Right;
             txtIDCategory.Enabled = false;
-            txtIDCategory.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 163);
-            txtIDCategory.Location = new Point(17, 14);
+            txtIDCategory.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 163);
+            txtIDCategory.Location = new Point(17, 17);
             txtIDCategory.Margin = new Padding(4, 5, 4, 5);
             txtIDCategory.MinimumSize = new Size(1, 16);
             txtIDCategory.Name = "txtIDCategory";
             txtIDCategory.Padding = new Padding(5);
             txtIDCategory.Radius = 1;
             txtIDCategory.ShowText = false;
-            txtIDCategory.Size = new Size(178, 53);
+            txtIDCategory.Size = new Size(178, 42);
             txtIDCategory.TabIndex = 0;
             txtIDCategory.TextAlignment = ContentAlignment.MiddleLeft;
             txtIDCategory.Watermark = "";
@@ -742,7 +744,7 @@
             uiPanel8.Name = "uiPanel8";
             uiPanel8.Radius = 1;
             uiPanel8.RectColor = Color.FromArgb(243, 249, 255);
-            uiPanel8.Size = new Size(175, 73);
+            uiPanel8.Size = new Size(175, 67);
             uiPanel8.TabIndex = 0;
             uiPanel8.Text = null;
             uiPanel8.TextAlignment = ContentAlignment.MiddleCenter;
@@ -750,11 +752,11 @@
             // lblIDCategory
             // 
             lblIDCategory.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Right;
-            lblIDCategory.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 163);
+            lblIDCategory.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 163);
             lblIDCategory.ForeColor = Color.FromArgb(48, 48, 48);
             lblIDCategory.Location = new Point(24, 23);
             lblIDCategory.Name = "lblIDCategory";
-            lblIDCategory.Size = new Size(148, 35);
+            lblIDCategory.Size = new Size(148, 29);
             lblIDCategory.TabIndex = 0;
             lblIDCategory.Text = "ID Danh mục SP:";
             lblIDCategory.TextAlign = ContentAlignment.MiddleCenter;
@@ -799,14 +801,14 @@
             // 
             // FormCategory
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
-            AutoScaleMode = AutoScaleMode.Font;
+            AutoScaleMode = AutoScaleMode.None;
             ClientSize = new Size(973, 553);
             Controls.Add(tblCateMain);
             MinimumSize = new Size(800, 500);
             Name = "FormCategory";
             StartPosition = FormStartPosition.CenterParent;
             Text = "Quản lí danh mục";
+            ZoomScaleRect = new Rectangle(19, 19, 973, 553);
             Load += FormCategory_Load;
             Shown += FormCategory_Shown;
             tblCatSearch.ResumeLayout(false);

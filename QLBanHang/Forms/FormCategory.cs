@@ -15,7 +15,7 @@ using System.IO;
 
 namespace QLBanHang
 {
-    public partial class FormCategory : Form
+    public partial class FormCategory : Sunny.UI.UIForm
     {
         public FormCategory()
         {

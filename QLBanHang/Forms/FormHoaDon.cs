@@ -8,7 +8,7 @@ using System.Windows.Forms;
 
 namespace QLBanHang.Forms
 {
-    public partial class FormHoaDon : Form
+    public partial class FormHoaDon : Sunny.UI.UIForm
     {
         private int _orderId;
 

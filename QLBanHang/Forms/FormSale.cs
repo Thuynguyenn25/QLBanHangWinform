@@ -11,7 +11,7 @@ using System.Windows.Forms;
 
 namespace QLBanHang
 {
-    public partial class FormSale : Form
+    public partial class FormSale : Sunny.UI.UIForm
     {
         public FormSale()
         {

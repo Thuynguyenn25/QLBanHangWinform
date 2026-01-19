@@ -40,6 +40,7 @@
             lblOrderDate = new Sunny.UI.UILabel();
             uiPanel9 = new Sunny.UI.UIPanel();
             uiPanel8 = new Sunny.UI.UIPanel();
+            uiLabel2 = new Sunny.UI.UILabel();
             uiPanel7 = new Sunny.UI.UIPanel();
             uiLabel1 = new Sunny.UI.UILabel();
             uiPanel6 = new Sunny.UI.UIPanel();
@@ -72,6 +73,7 @@
             uiPanel2.SuspendLayout();
             uiTableLayoutPanel2.SuspendLayout();
             uiPanel10.SuspendLayout();
+            uiPanel8.SuspendLayout();
             uiPanel7.SuspendLayout();
             uiPanel6.SuspendLayout();
             uiPanel5.SuspendLayout();
@@ -94,15 +96,15 @@
             tlpBill.Controls.Add(uiPanel13, 0, 2);
             tlpBill.Controls.Add(uiPanel14, 0, 3);
             tlpBill.Dock = DockStyle.Fill;
-            tlpBill.Location = new Point(0, 0);
+            tlpBill.Location = new Point(0, 35);
             tlpBill.Margin = new Padding(0);
             tlpBill.Name = "tlpBill";
             tlpBill.RowCount = 4;
-            tlpBill.RowStyles.Add(new RowStyle(SizeType.Percent, 13.4935808F));
-            tlpBill.RowStyles.Add(new RowStyle(SizeType.Percent, 35.9954643F));
-            tlpBill.RowStyles.Add(new RowStyle(SizeType.Percent, 40.480732F));
-            tlpBill.RowStyles.Add(new RowStyle(SizeType.Percent, 10.0302248F));
-            tlpBill.Size = new Size(990, 590);
+            tlpBill.RowStyles.Add(new RowStyle(SizeType.Percent, 9.906032F));
+            tlpBill.RowStyles.Add(new RowStyle(SizeType.Percent, 37.6429176F));
+            tlpBill.RowStyles.Add(new RowStyle(SizeType.Percent, 42.0355721F));
+            tlpBill.RowStyles.Add(new RowStyle(SizeType.Percent, 10.4154749F));
+            tlpBill.Size = new Size(990, 555);
             tlpBill.TabIndex = 0;
             tlpBill.TagString = null;
             // 
@@ -112,11 +114,11 @@
             uiPanel2.Controls.Add(uiTableLayoutPanel1);
             uiPanel2.Dock = DockStyle.Fill;
             uiPanel2.Font = new Font("Microsoft Sans Serif", 12F);
-            uiPanel2.Location = new Point(0, 79);
+            uiPanel2.Location = new Point(0, 54);
             uiPanel2.Margin = new Padding(0);
             uiPanel2.MinimumSize = new Size(1, 1);
             uiPanel2.Name = "uiPanel2";
-            uiPanel2.Size = new Size(990, 212);
+            uiPanel2.Size = new Size(990, 208);
             uiPanel2.TabIndex = 1;
             uiPanel2.Text = null;
             uiPanel2.TextAlignment = ContentAlignment.MiddleCenter;
@@ -136,7 +138,7 @@
             uiTableLayoutPanel2.Controls.Add(uiPanel4, 1, 0);
             uiTableLayoutPanel2.Controls.Add(uiPanel3, 0, 0);
             uiTableLayoutPanel2.Dock = DockStyle.Fill;
-            uiTableLayoutPanel2.Location = new Point(0, 52);
+            uiTableLayoutPanel2.Location = new Point(0, 49);
             uiTableLayoutPanel2.Margin = new Padding(0);
             uiTableLayoutPanel2.Name = "uiTableLayoutPanel2";
             uiTableLayoutPanel2.RowCount = 4;
@@ -144,7 +146,7 @@
             uiTableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 20F));
             uiTableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 20F));
             uiTableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 20F));
-            uiTableLayoutPanel2.Size = new Size(990, 160);
+            uiTableLayoutPanel2.Size = new Size(990, 159);
             uiTableLayoutPanel2.TabIndex = 1;
             uiTableLayoutPanel2.TagString = null;
             // 
@@ -153,73 +155,84 @@
             uiPanel10.Controls.Add(lblOrderDate);
             uiPanel10.Dock = DockStyle.Fill;
             uiPanel10.Font = new Font("Microsoft Sans Serif", 12F);
-            uiPanel10.Location = new Point(376, 120);
+            uiPanel10.Location = new Point(376, 117);
             uiPanel10.Margin = new Padding(0);
             uiPanel10.MinimumSize = new Size(1, 1);
             uiPanel10.Name = "uiPanel10";
             uiPanel10.RectColor = Color.Transparent;
-            uiPanel10.Size = new Size(614, 40);
+            uiPanel10.Size = new Size(614, 42);
             uiPanel10.TabIndex = 7;
             uiPanel10.Text = null;
             uiPanel10.TextAlignment = ContentAlignment.MiddleRight;
             // 
             // lblOrderDate
             // 
-            lblOrderDate.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 163);
+            lblOrderDate.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 163);
             lblOrderDate.ForeColor = Color.FromArgb(48, 48, 48);
-            lblOrderDate.Location = new Point(4, 0);
+            lblOrderDate.Location = new Point(294, 0);
             lblOrderDate.Name = "lblOrderDate";
             lblOrderDate.Size = new Size(320, 40);
             lblOrderDate.TabIndex = 0;
+            lblOrderDate.Text = "Ngày:";
             // 
             // uiPanel9
             // 
             uiPanel9.Dock = DockStyle.Fill;
             uiPanel9.Font = new Font("Microsoft Sans Serif", 12F);
-            uiPanel9.Location = new Point(0, 120);
+            uiPanel9.Location = new Point(0, 117);
             uiPanel9.Margin = new Padding(0);
             uiPanel9.MinimumSize = new Size(1, 1);
             uiPanel9.Name = "uiPanel9";
             uiPanel9.RectColor = Color.Transparent;
-            uiPanel9.Size = new Size(376, 40);
+            uiPanel9.Size = new Size(376, 42);
             uiPanel9.TabIndex = 6;
             uiPanel9.Text = null;
             uiPanel9.TextAlignment = ContentAlignment.MiddleRight;
             // 
             // uiPanel8
             // 
+            uiPanel8.Controls.Add(uiLabel2);
             uiPanel8.Dock = DockStyle.Fill;
-            uiPanel8.Font = new Font("Microsoft Sans Serif", 12F);
-            uiPanel8.Location = new Point(376, 80);
+            uiPanel8.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 163);
+            uiPanel8.Location = new Point(376, 78);
             uiPanel8.Margin = new Padding(0);
             uiPanel8.MinimumSize = new Size(1, 1);
             uiPanel8.Name = "uiPanel8";
             uiPanel8.RectColor = Color.Transparent;
-            uiPanel8.Size = new Size(614, 40);
+            uiPanel8.Size = new Size(614, 39);
             uiPanel8.TabIndex = 5;
             uiPanel8.Text = null;
             uiPanel8.TextAlignment = ContentAlignment.MiddleRight;
+            // 
+            // uiLabel2
+            // 
+            uiLabel2.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 163);
+            uiLabel2.ForeColor = Color.FromArgb(48, 48, 48);
+            uiLabel2.Location = new Point(0, 10);
+            uiLabel2.Name = "uiLabel2";
+            uiLabel2.Size = new Size(320, 40);
+            uiLabel2.TabIndex = 1;
             // 
             // uiPanel7
             // 
             uiPanel7.Controls.Add(uiLabel1);
             uiPanel7.Dock = DockStyle.Fill;
             uiPanel7.Font = new Font("Microsoft Sans Serif", 12F);
-            uiPanel7.Location = new Point(0, 80);
+            uiPanel7.Location = new Point(0, 78);
             uiPanel7.Margin = new Padding(0);
             uiPanel7.MinimumSize = new Size(1, 1);
             uiPanel7.Name = "uiPanel7";
             uiPanel7.RectColor = Color.Transparent;
-            uiPanel7.Size = new Size(376, 40);
+            uiPanel7.Size = new Size(376, 39);
             uiPanel7.TabIndex = 4;
             uiPanel7.Text = null;
             uiPanel7.TextAlignment = ContentAlignment.MiddleRight;
             // 
             // uiLabel1
             // 
-            uiLabel1.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 163);
+            uiLabel1.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 163);
             uiLabel1.ForeColor = Color.FromArgb(48, 48, 48);
-            uiLabel1.Location = new Point(173, 0);
+            uiLabel1.Location = new Point(193, 6);
             uiLabel1.Name = "uiLabel1";
             uiLabel1.Size = new Size(156, 38);
             uiLabel1.TabIndex = 1;
@@ -231,26 +244,26 @@
             uiPanel6.Controls.Add(txtPhone);
             uiPanel6.Dock = DockStyle.Fill;
             uiPanel6.Font = new Font("Microsoft Sans Serif", 12F);
-            uiPanel6.Location = new Point(376, 40);
+            uiPanel6.Location = new Point(376, 39);
             uiPanel6.Margin = new Padding(0);
             uiPanel6.MinimumSize = new Size(1, 1);
             uiPanel6.Name = "uiPanel6";
             uiPanel6.RectColor = Color.Transparent;
-            uiPanel6.Size = new Size(614, 40);
+            uiPanel6.Size = new Size(614, 39);
             uiPanel6.TabIndex = 3;
             uiPanel6.Text = null;
             uiPanel6.TextAlignment = ContentAlignment.MiddleRight;
             // 
             // txtPhone
             // 
-            txtPhone.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 163);
+            txtPhone.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 163);
             txtPhone.Location = new Point(4, 3);
             txtPhone.Margin = new Padding(4, 5, 4, 5);
             txtPhone.MinimumSize = new Size(1, 16);
             txtPhone.Name = "txtPhone";
             txtPhone.Padding = new Padding(5);
             txtPhone.ShowText = false;
-            txtPhone.Size = new Size(320, 35);
+            txtPhone.Size = new Size(320, 33);
             txtPhone.TabIndex = 2;
             txtPhone.TextAlignment = ContentAlignment.MiddleLeft;
             txtPhone.Watermark = "";
@@ -260,21 +273,21 @@
             uiPanel5.Controls.Add(lblPhone);
             uiPanel5.Dock = DockStyle.Fill;
             uiPanel5.Font = new Font("Microsoft Sans Serif", 12F);
-            uiPanel5.Location = new Point(0, 40);
+            uiPanel5.Location = new Point(0, 39);
             uiPanel5.Margin = new Padding(0);
             uiPanel5.MinimumSize = new Size(1, 1);
             uiPanel5.Name = "uiPanel5";
             uiPanel5.RectColor = Color.Transparent;
-            uiPanel5.Size = new Size(376, 40);
+            uiPanel5.Size = new Size(376, 39);
             uiPanel5.TabIndex = 2;
             uiPanel5.Text = null;
             uiPanel5.TextAlignment = ContentAlignment.MiddleRight;
             // 
             // lblPhone
             // 
-            lblPhone.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 163);
+            lblPhone.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 163);
             lblPhone.ForeColor = Color.FromArgb(48, 48, 48);
-            lblPhone.Location = new Point(173, 0);
+            lblPhone.Location = new Point(196, 4);
             lblPhone.Name = "lblPhone";
             lblPhone.Size = new Size(156, 38);
             lblPhone.TabIndex = 0;
@@ -291,21 +304,21 @@
             uiPanel4.MinimumSize = new Size(1, 1);
             uiPanel4.Name = "uiPanel4";
             uiPanel4.RectColor = Color.Transparent;
-            uiPanel4.Size = new Size(614, 40);
+            uiPanel4.Size = new Size(614, 39);
             uiPanel4.TabIndex = 1;
             uiPanel4.Text = null;
             uiPanel4.TextAlignment = ContentAlignment.MiddleRight;
             // 
             // txtNameCustomer
             // 
-            txtNameCustomer.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 163);
-            txtNameCustomer.Location = new Point(4, 4);
+            txtNameCustomer.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 163);
+            txtNameCustomer.Location = new Point(4, 3);
             txtNameCustomer.Margin = new Padding(4, 5, 4, 5);
             txtNameCustomer.MinimumSize = new Size(1, 16);
             txtNameCustomer.Name = "txtNameCustomer";
             txtNameCustomer.Padding = new Padding(5);
             txtNameCustomer.ShowText = false;
-            txtNameCustomer.Size = new Size(320, 35);
+            txtNameCustomer.Size = new Size(320, 33);
             txtNameCustomer.TabIndex = 1;
             txtNameCustomer.TextAlignment = ContentAlignment.MiddleLeft;
             txtNameCustomer.Watermark = "";
@@ -320,16 +333,16 @@
             uiPanel3.MinimumSize = new Size(1, 1);
             uiPanel3.Name = "uiPanel3";
             uiPanel3.RectColor = Color.Transparent;
-            uiPanel3.Size = new Size(376, 40);
+            uiPanel3.Size = new Size(376, 39);
             uiPanel3.TabIndex = 0;
             uiPanel3.Text = null;
             uiPanel3.TextAlignment = ContentAlignment.MiddleRight;
             // 
             // lblName
             // 
-            lblName.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 163);
+            lblName.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 163);
             lblName.ForeColor = Color.FromArgb(48, 48, 48);
-            lblName.Location = new Point(173, 2);
+            lblName.Location = new Point(196, 4);
             lblName.Name = "lblName";
             lblName.Size = new Size(156, 38);
             lblName.TabIndex = 0;
@@ -348,7 +361,7 @@
             uiTableLayoutPanel1.Name = "uiTableLayoutPanel1";
             uiTableLayoutPanel1.RowCount = 1;
             uiTableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-            uiTableLayoutPanel1.Size = new Size(990, 52);
+            uiTableLayoutPanel1.Size = new Size(990, 49);
             uiTableLayoutPanel1.TabIndex = 0;
             uiTableLayoutPanel1.TagString = null;
             // 
@@ -360,7 +373,7 @@
             lblBill.Location = new Point(0, 0);
             lblBill.Margin = new Padding(0);
             lblBill.Name = "lblBill";
-            lblBill.Size = new Size(990, 52);
+            lblBill.Size = new Size(990, 49);
             lblBill.TabIndex = 0;
             lblBill.Text = "ĐƠN ĐẶT HÀNG";
             lblBill.TextAlign = ContentAlignment.MiddleCenter;
@@ -374,7 +387,7 @@
             uiPanel1.Margin = new Padding(0);
             uiPanel1.MinimumSize = new Size(1, 1);
             uiPanel1.Name = "uiPanel1";
-            uiPanel1.Size = new Size(990, 79);
+            uiPanel1.Size = new Size(990, 54);
             uiPanel1.TabIndex = 3;
             uiPanel1.Text = null;
             uiPanel1.TextAlignment = ContentAlignment.MiddleCenter;
@@ -391,7 +404,7 @@
             uiTableLayoutPanel3.RowCount = 2;
             uiTableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
             uiTableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-            uiTableLayoutPanel3.Size = new Size(990, 79);
+            uiTableLayoutPanel3.Size = new Size(990, 54);
             uiTableLayoutPanel3.TabIndex = 0;
             uiTableLayoutPanel3.TagString = null;
             // 
@@ -404,19 +417,19 @@
             uiLabel17.Location = new Point(0, 0);
             uiLabel17.Margin = new Padding(0);
             uiLabel17.Name = "uiLabel17";
-            uiLabel17.Size = new Size(990, 39);
+            uiLabel17.Size = new Size(990, 27);
             uiLabel17.TabIndex = 0;
             // 
             // uiLabel18
             // 
             uiLabel18.BackColor = Color.GhostWhite;
             uiLabel18.Dock = DockStyle.Fill;
-            uiLabel18.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 163);
+            uiLabel18.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 163);
             uiLabel18.ForeColor = Color.FromArgb(48, 48, 48);
-            uiLabel18.Location = new Point(0, 39);
+            uiLabel18.Location = new Point(0, 27);
             uiLabel18.Margin = new Padding(0);
             uiLabel18.Name = "uiLabel18";
-            uiLabel18.Size = new Size(990, 40);
+            uiLabel18.Size = new Size(990, 27);
             uiLabel18.TabIndex = 1;
             uiLabel18.Text = " Địa chỉ: ";
             // 
@@ -425,11 +438,11 @@
             uiPanel13.Controls.Add(dgvBill);
             uiPanel13.Dock = DockStyle.Fill;
             uiPanel13.Font = new Font("Microsoft Sans Serif", 12F);
-            uiPanel13.Location = new Point(0, 291);
+            uiPanel13.Location = new Point(0, 262);
             uiPanel13.Margin = new Padding(0);
             uiPanel13.MinimumSize = new Size(1, 1);
             uiPanel13.Name = "uiPanel13";
-            uiPanel13.Size = new Size(990, 238);
+            uiPanel13.Size = new Size(990, 233);
             uiPanel13.TabIndex = 4;
             uiPanel13.Text = null;
             uiPanel13.TextAlignment = ContentAlignment.MiddleCenter;
@@ -442,13 +455,14 @@
             dgvBill.AllowUserToResizeColumns = false;
             dgvBill.AllowUserToResizeRows = false;
             dataGridViewCellStyle1.BackColor = Color.FromArgb(235, 243, 255);
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 163);
             dgvBill.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             dgvBill.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvBill.BackgroundColor = Color.White;
             dgvBill.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle2.BackColor = Color.FromArgb(80, 160, 255);
-            dataGridViewCellStyle2.Font = new Font("Microsoft Sans Serif", 12F);
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 163);
             dataGridViewCellStyle2.ForeColor = Color.White;
             dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
             dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
@@ -459,7 +473,7 @@
             dgvBill.Columns.AddRange(new DataGridViewColumn[] { cChose, cSTT, cIDProduct, cNameProduct, cCount, cPrice, cLineTotal });
             dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = SystemColors.Window;
-            dataGridViewCellStyle3.Font = new Font("Microsoft Sans Serif", 12F);
+            dataGridViewCellStyle3.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 163);
             dataGridViewCellStyle3.ForeColor = Color.FromArgb(48, 48, 48);
             dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
             dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
@@ -485,8 +499,9 @@
             dataGridViewCellStyle5.BackColor = Color.White;
             dataGridViewCellStyle5.Font = new Font("Microsoft Sans Serif", 12F);
             dgvBill.RowsDefaultCellStyle = dataGridViewCellStyle5;
+            dgvBill.RowTemplate.DefaultCellStyle.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 163);
             dgvBill.SelectedIndex = -1;
-            dgvBill.Size = new Size(990, 238);
+            dgvBill.Size = new Size(990, 233);
             dgvBill.StripeOddColor = Color.FromArgb(235, 243, 255);
             dgvBill.TabIndex = 0;
             // 
@@ -555,11 +570,11 @@
             uiPanel14.Controls.Add(lblTotalAmount);
             uiPanel14.Dock = DockStyle.Fill;
             uiPanel14.Font = new Font("Microsoft Sans Serif", 12F);
-            uiPanel14.Location = new Point(0, 529);
+            uiPanel14.Location = new Point(0, 495);
             uiPanel14.Margin = new Padding(0);
             uiPanel14.MinimumSize = new Size(1, 1);
             uiPanel14.Name = "uiPanel14";
-            uiPanel14.Size = new Size(990, 61);
+            uiPanel14.Size = new Size(990, 60);
             uiPanel14.TabIndex = 5;
             uiPanel14.Text = null;
             uiPanel14.TextAlignment = ContentAlignment.MiddleCenter;
@@ -586,26 +601,27 @@
             lblTotalAmount.ForeColor = Color.FromArgb(48, 48, 48);
             lblTotalAmount.Location = new Point(0, 0);
             lblTotalAmount.Name = "lblTotalAmount";
-            lblTotalAmount.Size = new Size(491, 61);
+            lblTotalAmount.Size = new Size(491, 60);
             lblTotalAmount.TabIndex = 5;
             lblTotalAmount.Text = "Tổng tiền: ";
             lblTotalAmount.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // FormHoaDon
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
-            AutoScaleMode = AutoScaleMode.Font;
+            AutoScaleMode = AutoScaleMode.None;
             ClientSize = new Size(990, 590);
             Controls.Add(tlpBill);
             MinimumSize = new Size(800, 500);
             Name = "FormHoaDon";
             StartPosition = FormStartPosition.CenterParent;
             Text = "Hóa Đơn";
+            ZoomScaleRect = new Rectangle(19, 19, 990, 590);
             Load += FormHoaDon_Load;
             tlpBill.ResumeLayout(false);
             uiPanel2.ResumeLayout(false);
             uiTableLayoutPanel2.ResumeLayout(false);
             uiPanel10.ResumeLayout(false);
+            uiPanel8.ResumeLayout(false);
             uiPanel7.ResumeLayout(false);
             uiPanel6.ResumeLayout(false);
             uiPanel5.ResumeLayout(false);
@@ -660,5 +676,6 @@
         private DataGridViewTextBoxColumn cPrice;
         private DataGridViewTextBoxColumn cLineTotal;
         private Sunny.UI.UIButton btnExport;
+        private Sunny.UI.UILabel uiLabel2;
     }
 }
