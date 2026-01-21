@@ -48,7 +48,6 @@
             cNgay = new DataGridViewTextBoxColumn();
             cSoDon = new DataGridViewTextBoxColumn();
             cDoanhThu = new DataGridViewTextBoxColumn();
-            tabPage2 = new TabPage();
             uiTableLayoutPanel1 = new Sunny.UI.UITableLayoutPanel();
             uiPanel3 = new Sunny.UI.UIPanel();
             btnViewReport = new Sunny.UI.UIButton();
@@ -121,7 +120,6 @@
             // uiTabControl1
             // 
             uiTabControl1.Controls.Add(tabPage1);
-            uiTabControl1.Controls.Add(tabPage2);
             uiTabControl1.Dock = DockStyle.Fill;
             uiTabControl1.DrawMode = TabDrawMode.OwnerDrawFixed;
             uiTabControl1.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 163);
@@ -298,15 +296,6 @@
             cDoanhThu.MinimumWidth = 6;
             cDoanhThu.Name = "cDoanhThu";
             cDoanhThu.ReadOnly = true;
-            // 
-            // tabPage2
-            // 
-            tabPage2.Location = new Point(0, 40);
-            tabPage2.Name = "tabPage2";
-            tabPage2.Size = new Size(1094, 309);
-            tabPage2.TabIndex = 1;
-            tabPage2.Text = "tabPage2";
-            tabPage2.UseVisualStyleBackColor = true;
             // 
             // uiTableLayoutPanel1
             // 
@@ -491,7 +480,6 @@
         private Sunny.UI.UIDatetimePicker dtpToDate;
         private Sunny.UI.UITabControl uiTabControl1;
         private TabPage tabPage1;
-        private TabPage tabPage2;
         private Sunny.UI.UITableLayoutPanel uiTableLayoutPanel2;
         private Sunny.UI.UIPanel uiPanel4;
         private Sunny.UI.UILabel lblOrderCount;

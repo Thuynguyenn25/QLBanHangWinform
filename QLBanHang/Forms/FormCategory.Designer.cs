@@ -261,7 +261,7 @@
             btnClearCate.Location = new Point(60, 8);
             btnClearCate.MinimumSize = new Size(1, 1);
             btnClearCate.Name = "btnClearCate";
-            btnClearCate.Size = new Size(125, 44);
+            btnClearCate.Size = new Size(125, 42);
             btnClearCate.TabIndex = 2;
             btnClearCate.Text = "Làm mới";
             btnClearCate.TipsFont = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 163);
@@ -290,7 +290,7 @@
             btnUpdateCate.Location = new Point(59, 8);
             btnUpdateCate.MinimumSize = new Size(1, 1);
             btnUpdateCate.Name = "btnUpdateCate";
-            btnUpdateCate.Size = new Size(125, 44);
+            btnUpdateCate.Size = new Size(125, 42);
             btnUpdateCate.TabIndex = 2;
             btnUpdateCate.Text = "Sửa";
             btnUpdateCate.TipsFont = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 163);
@@ -319,7 +319,7 @@
             btnDeleteCate.Location = new Point(59, 8);
             btnDeleteCate.MinimumSize = new Size(1, 1);
             btnDeleteCate.Name = "btnDeleteCate";
-            btnDeleteCate.Size = new Size(125, 44);
+            btnDeleteCate.Size = new Size(125, 42);
             btnDeleteCate.TabIndex = 2;
             btnDeleteCate.Text = "Xóa";
             btnDeleteCate.TipsFont = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 163);
@@ -348,7 +348,7 @@
             btnAddCate.Location = new Point(62, 8);
             btnAddCate.MinimumSize = new Size(1, 1);
             btnAddCate.Name = "btnAddCate";
-            btnAddCate.Size = new Size(125, 44);
+            btnAddCate.Size = new Size(125, 42);
             btnAddCate.TabIndex = 1;
             btnAddCate.Text = "Thêm";
             btnAddCate.TipsFont = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 163);

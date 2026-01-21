@@ -324,10 +324,10 @@
             // 
             btnAdd.Anchor = AnchorStyles.None;
             btnAdd.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 163);
-            btnAdd.Location = new Point(82, 8);
+            btnAdd.Location = new Point(82, 6);
             btnAdd.MinimumSize = new Size(1, 1);
             btnAdd.Name = "btnAdd";
-            btnAdd.Size = new Size(125, 34);
+            btnAdd.Size = new Size(125, 38);
             btnAdd.TabIndex = 0;
             btnAdd.Text = "Thêm";
             btnAdd.TipsFont = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 163);
@@ -337,10 +337,10 @@
             // 
             btnDelete.Anchor = AnchorStyles.None;
             btnDelete.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 163);
-            btnDelete.Location = new Point(371, 8);
+            btnDelete.Location = new Point(371, 6);
             btnDelete.MinimumSize = new Size(1, 1);
             btnDelete.Name = "btnDelete";
-            btnDelete.Size = new Size(125, 34);
+            btnDelete.Size = new Size(125, 38);
             btnDelete.TabIndex = 1;
             btnDelete.Text = "Xóa";
             btnDelete.TipsFont = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 163);
@@ -541,11 +541,11 @@
             // 
             btnConfirm.Anchor = AnchorStyles.None;
             btnConfirm.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 163);
-            btnConfirm.Location = new Point(33, 15);
+            btnConfirm.Location = new Point(33, 17);
             btnConfirm.MinimumSize = new Size(1, 1);
             btnConfirm.Name = "btnConfirm";
             btnConfirm.Radius = 1;
-            btnConfirm.Size = new Size(121, 44);
+            btnConfirm.Size = new Size(121, 40);
             btnConfirm.TabIndex = 0;
             btnConfirm.Text = "Đặt hàng";
             btnConfirm.TipsFont = new Font("Microsoft Sans Serif", 9F);
@@ -555,11 +555,11 @@
             // 
             btnExit.Anchor = AnchorStyles.None;
             btnExit.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 163);
-            btnExit.Location = new Point(220, 16);
+            btnExit.Location = new Point(220, 17);
             btnExit.MinimumSize = new Size(1, 1);
             btnExit.Name = "btnExit";
             btnExit.Radius = 1;
-            btnExit.Size = new Size(121, 41);
+            btnExit.Size = new Size(121, 40);
             btnExit.TabIndex = 1;
             btnExit.Text = "Thoát";
             btnExit.TipsFont = new Font("Microsoft Sans Serif", 9F);
@@ -604,7 +604,7 @@
             rdoCash.Name = "rdoCash";
             rdoCash.Size = new Size(557, 60);
             rdoCash.TabIndex = 0;
-            rdoCash.Text = "Thanh toán khi nhận hàng";
+            rdoCash.Text = "Thanh toán bằng tiên mặt";
             // 
             // uiRadioButton1
             // 

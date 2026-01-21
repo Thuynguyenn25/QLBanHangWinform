@@ -62,6 +62,13 @@
             uiTableLayoutPanel1 = new Sunny.UI.UITableLayoutPanel();
             uiPanel4 = new Sunny.UI.UIPanel();
             dgvProduct = new Sunny.UI.UIDataGridView();
+            cChose = new DataGridViewCheckBoxColumn();
+            cIDProduct = new DataGridViewTextBoxColumn();
+            cName = new DataGridViewTextBoxColumn();
+            cPrice = new DataGridViewTextBoxColumn();
+            cStock = new DataGridViewTextBoxColumn();
+            cIsActive = new DataGridViewTextBoxColumn();
+            cCategoryID = new DataGridViewTextBoxColumn();
             cmsProduct = new Sunny.UI.UIContextMenuStrip();
             tsmiSelectItem = new ToolStripMenuItem();
             tsmiSelectAll = new ToolStripMenuItem();
@@ -70,13 +77,6 @@
             uiPanel3 = new Sunny.UI.UIPanel();
             txtSearch = new Sunny.UI.UITextBox();
             btnSearch = new Sunny.UI.UIButton();
-            cChose = new DataGridViewCheckBoxColumn();
-            cIDProduct = new DataGridViewTextBoxColumn();
-            cName = new DataGridViewTextBoxColumn();
-            cPrice = new DataGridViewTextBoxColumn();
-            cStock = new DataGridViewTextBoxColumn();
-            cIsActive = new DataGridViewTextBoxColumn();
-            cCategoryID = new DataGridViewTextBoxColumn();
             (uiSplitContainer1).BeginInit();
             uiSplitContainer1.Panel1.SuspendLayout();
             uiSplitContainer1.Panel2.SuspendLayout();
@@ -463,7 +463,7 @@
             lblTotalActive.ForeColor = Color.FromArgb(48, 48, 48);
             lblTotalActive.Location = new Point(23, 59);
             lblTotalActive.Name = "lblTotalActive";
-            lblTotalActive.Size = new Size(199, 36);
+            lblTotalActive.Size = new Size(270, 36);
             lblTotalActive.TabIndex = 17;
             lblTotalActive.Text = "Tổng sản phẩm đang bán: ";
             // 
@@ -598,6 +598,63 @@
             dgvProduct.RowPrePaint += dgvProduct_RowPrePaint;
             dgvProduct.MouseDown += dgvProduct_MouseDown;
             // 
+            // cChose
+            // 
+            cChose.HeaderText = "";
+            cChose.MinimumWidth = 6;
+            cChose.Name = "cChose";
+            cChose.Resizable = DataGridViewTriState.True;
+            cChose.SortMode = DataGridViewColumnSortMode.Automatic;
+            cChose.Width = 60;
+            // 
+            // cIDProduct
+            // 
+            cIDProduct.HeaderText = "Mã sản phẩm";
+            cIDProduct.MinimumWidth = 6;
+            cIDProduct.Name = "cIDProduct";
+            cIDProduct.ReadOnly = true;
+            cIDProduct.Width = 125;
+            // 
+            // cName
+            // 
+            cName.HeaderText = "Tên sản phẩm";
+            cName.MinimumWidth = 6;
+            cName.Name = "cName";
+            cName.ReadOnly = true;
+            cName.Width = 140;
+            // 
+            // cPrice
+            // 
+            cPrice.HeaderText = "Giá";
+            cPrice.MinimumWidth = 6;
+            cPrice.Name = "cPrice";
+            cPrice.ReadOnly = true;
+            cPrice.Width = 125;
+            // 
+            // cStock
+            // 
+            cStock.HeaderText = "SL tồn kho";
+            cStock.MinimumWidth = 100;
+            cStock.Name = "cStock";
+            cStock.ReadOnly = true;
+            cStock.Width = 125;
+            // 
+            // cIsActive
+            // 
+            cIsActive.HeaderText = "IsActive";
+            cIsActive.MinimumWidth = 6;
+            cIsActive.Name = "cIsActive";
+            cIsActive.ReadOnly = true;
+            cIsActive.Width = 125;
+            // 
+            // cCategoryID
+            // 
+            cCategoryID.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            cCategoryID.HeaderText = "Danh mục";
+            cCategoryID.MinimumWidth = 6;
+            cCategoryID.Name = "cCategoryID";
+            cCategoryID.ReadOnly = true;
+            // 
             // cmsProduct
             // 
             cmsProduct.BackColor = Color.FromArgb(243, 249, 255);
@@ -678,62 +735,6 @@
             btnSearch.Text = "Tìm kiếm";
             btnSearch.TipsFont = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 163);
             btnSearch.Click += btnSearch_Click;
-            // 
-            // cChose
-            // 
-            cChose.HeaderText = "";
-            cChose.MinimumWidth = 6;
-            cChose.Name = "cChose";
-            cChose.Resizable = DataGridViewTriState.True;
-            cChose.SortMode = DataGridViewColumnSortMode.Automatic;
-            cChose.Width = 60;
-            // 
-            // cIDProduct
-            // 
-            cIDProduct.HeaderText = "Mã sản phẩm";
-            cIDProduct.MinimumWidth = 6;
-            cIDProduct.Name = "cIDProduct";
-            cIDProduct.ReadOnly = true;
-            cIDProduct.Width = 125;
-            // 
-            // cName
-            // 
-            cName.HeaderText = "Tên sản phẩm";
-            cName.MinimumWidth = 6;
-            cName.Name = "cName";
-            cName.ReadOnly = true;
-            cName.Width = 140;
-            // 
-            // cPrice
-            // 
-            cPrice.HeaderText = "Giá";
-            cPrice.MinimumWidth = 6;
-            cPrice.Name = "cPrice";
-            cPrice.ReadOnly = true;
-            // 
-            // cStock
-            // 
-            cStock.HeaderText = "SL tồn kho";
-            cStock.MinimumWidth = 100;
-            cStock.Name = "cStock";
-            cStock.ReadOnly = true;
-            cStock.Width = 125;
-            // 
-            // cIsActive
-            // 
-            cIsActive.HeaderText = "IsActive";
-            cIsActive.MinimumWidth = 6;
-            cIsActive.Name = "cIsActive";
-            cIsActive.ReadOnly = true;
-            cIsActive.Width = 125;
-            // 
-            // cCategoryID
-            // 
-            cCategoryID.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            cCategoryID.HeaderText = "Danh mục";
-            cCategoryID.MinimumWidth = 6;
-            cCategoryID.Name = "cCategoryID";
-            cCategoryID.ReadOnly = true;
             // 
             // FormProduct
             // 

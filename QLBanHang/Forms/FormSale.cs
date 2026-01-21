@@ -386,6 +386,6 @@ namespace QLBanHang
             txtPhone.AutoCompleteCustomSource = srcPhone;
         }
 
-
+        
     }
 }
