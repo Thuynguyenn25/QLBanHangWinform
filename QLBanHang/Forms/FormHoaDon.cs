@@ -1,20 +1,9 @@
-<<<<<<< Updated upstream
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-=======
 using QLBanHang.BLL;
 using QLBanHang.DTO;
 using QLBanHang.Helpers;
 using System;
 using System.IO;
 using System.Text;
->>>>>>> Stashed changes
 using System.Windows.Forms;
 using QLBanHang.Forms;
 
@@ -22,25 +11,22 @@ namespace QLBanHang.Forms
 {
     public partial class FormHoaDon : Form
     {
-<<<<<<< Updated upstream
-        public FormHoaDon()
-=======
         private int _orderId;
         private readonly OrderBLL _orderBLL = new OrderBLL();
 
         public FormHoaDon(int orderId)
->>>>>>> Stashed changes
         {
             InitializeComponent();
+            this._orderId = orderId;
         }
 
         private void FormHoaDon_Load(object sender, EventArgs e)
         {
+            uiDataGridView1.Columns[5].DefaultCellStyle.Format = "#,##0";
+            uiDataGridView1.Columns[6].DefaultCellStyle.Format = "#,##0";
 
-<<<<<<< Updated upstream
-=======
-            dgvBill.Columns[5].DefaultCellStyle.Format = "#,##0";
-            dgvBill.Columns[6].DefaultCellStyle.Format = "#,##0";
+            LoadOrderHeader(_orderId);
+            LoadOrderDetails(_orderId);
         }
 
         private void LoadOrderHeader(int orderId)
@@ -53,23 +39,27 @@ namespace QLBanHang.Forms
                 return;
             }
 
-            txtNameCustomer.Text = order.CustomerName;
-            txtPhone.Text = order.Phone;
-            lblOrderDate.Text = "Ngày: " + order.OrderDate;
-            lblTotalAmount.Text = "Tổng tiền: " + order.TotalAmount.ToString("#,##0");
+            lblName.Text = "Khách hàng: " + order.CustomerName;
+            lblPhone.Text = "Số điện thoại: " + order.Phone;
+            // Use uiLabel18 for date
+            uiLabel18.Text = "Ngày đặt: " + order.OrderDate;
+
+            // Use lblBill for the title but include total
+            lblBill.Text = "HÓA ĐƠN #" + orderId + " - Tổng: " + order.TotalAmount.ToString("N0") + " VNĐ";
         }
+
 
         private void LoadOrderDetails(int orderId)
         {
-            dgvBill.Rows.Clear();
+            uiDataGridView1.Rows.Clear();
 
             var details = _orderBLL.GetOrderDetails(orderId);
 
             foreach (var d in details)
             {
-                dgvBill.Rows.Add(
+                uiDataGridView1.Rows.Add(
                     false,
-                    dgvBill.Rows.Count + 1,
+                    uiDataGridView1.Rows.Count + 1,
                     d.ProductId,
                     d.ProductName,
                     d.Quantity,
@@ -79,8 +69,9 @@ namespace QLBanHang.Forms
             }
         }
 
-        private void btnExport_Click(object sender, EventArgs e)
+        private void btnImport_Click(object sender, EventArgs e)
         {
+            // The designer has btnImport instead of btnExport
             try
             {
                 using (SaveFileDialog sfd = new SaveFileDialog())
@@ -97,15 +88,15 @@ namespace QLBanHang.Forms
                         sw.WriteLine();
                         sw.WriteLine("========== HÓA ĐƠN BÁN HÀNG ==========");
                         sw.WriteLine($"Mã hóa đơn   : {_orderId}");
-                        sw.WriteLine($"Ngày         : {lblOrderDate.Text}");
-                        sw.WriteLine($"Khách hàng   : {txtNameCustomer.Text}");
-                        sw.WriteLine($"Số điện thoại: {txtPhone.Text}");
+                        sw.WriteLine($"Thông tin    : {lblBill.Text}");
+                        sw.WriteLine($"Khách hàng   : {lblName.Text}");
+                        sw.WriteLine($"Liên hệ      : {lblPhone.Text}");
                         sw.WriteLine("--------------------------------------");
 
                         sw.WriteLine("STT | Tên hàng | SL | Đơn giá | Thành tiền");
                         sw.WriteLine("--------------------------------------");
 
-                        foreach (DataGridViewRow row in dgvBill.Rows)
+                        foreach (DataGridViewRow row in uiDataGridView1.Rows)
                         {
                             if (row.IsNewRow) continue;
 
@@ -120,7 +111,6 @@ namespace QLBanHang.Forms
                         }
 
                         sw.WriteLine("--------------------------------------");
-                        sw.WriteLine($"TỔNG TIỀN: {lblTotalAmount.Text} VNĐ");
                         sw.WriteLine("======================================");
                     }
                 }
@@ -132,7 +122,6 @@ namespace QLBanHang.Forms
                 MessageBox.Show(ex.Message);
                 Utils.Log("Export txt Hoa Don: ", ex);
             }
->>>>>>> Stashed changes
         }
     }
 }

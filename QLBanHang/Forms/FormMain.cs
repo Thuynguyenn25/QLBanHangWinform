@@ -1,6 +1,3 @@
-<<<<<<< Updated upstream
-﻿using QLBanHang.Data;
-=======
 using QLBanHang.BLL;
 using QLBanHang.DTO;
 using QLBanHang.Forms;
@@ -8,7 +5,6 @@ using System;
 using System.Data;
 using System.Windows.Forms;
 using Sunny.UI;
->>>>>>> Stashed changes
 
 namespace QLBanHang
 {
@@ -26,47 +22,36 @@ namespace QLBanHang
                 item.MouseEnter += TopMenu_MouseEnter;
             }
         }
-<<<<<<< Updated upstream
-        private void TopMenu_MouseEnter(object? sender, EventArgs e) //để hover xổ menu luôn 
-        {
-            if (sender is ToolStripMenuItem menuItem)
-            {
-                if (menuItem.HasDropDownItems)
-                {
-                    menuItem.ShowDropDown();
-                }
-            }
-        }
-=======
 
         private void FrmMain_Load_1(object sender, EventArgs e)
         {
             LoadDashboardKpi();
-            LoadWeeklyRevenueBarChart(4);
+            // LoadWeeklyRevenueBarChart(4);
         }
 
         private void LoadDashboardKpi()
         {
-            int threshold = 5;
-            var kpi = _orderBLL.GetDashboardKpi(threshold);
+            // int threshold = 5;
+            // var kpi = _orderBLL.GetDashboardKpi(threshold);
 
-            lblRevenueToday.Text = $"{kpi.DoanhThuToday:#,##0} đ";
-            lblOrderCount.Text = $"{kpi.SoDonToday}";
-            lblProductEx.Text = $"{kpi.LowStockCount} SP (<= {threshold})";
+            // lblRevenueToday.Text = $"{kpi.DoanhThuToday:#,##0} đ";
+            // lblOrderCount.Text = $"{kpi.SoDonToday}";
+            // lblProductEx.Text = $"{kpi.LowStockCount} SP (<= {threshold})";
 
-            if (kpi.DoanhThuYesterday <= 0)
-            {
-                lblSub.Text = (kpi.DoanhThuToday > 0)
-                    ? "So với hôm qua: ↑ mới phát sinh"
-                    : "So với hôm qua: —";
-            }
-            else
-            {
-                decimal pct = (kpi.DoanhThuToday - kpi.DoanhThuYesterday) / kpi.DoanhThuYesterday * 100m;
-                string arrow = pct >= 0 ? "↑" : "↓";
-                lblSub.Text = $"So với hôm qua: {arrow} {pct:0.##}%";
-            }
+            // if (kpi.DoanhThuYesterday <= 0)
+            // {
+            //     lblSub.Text = (kpi.DoanhThuToday > 0)
+            //         ? "So với hôm qua: ↑ mới phát sinh"
+            //         : "So với hôm qua: —";
+            // }
+            // else
+            // {
+            //     decimal pct = (kpi.DoanhThuToday - kpi.DoanhThuYesterday) / kpi.DoanhThuYesterday * 100m;
+            //     string arrow = pct >= 0 ? "↑" : "↓";
+            //     lblSub.Text = $"So với hôm qua: {arrow} {pct:0.##}%";
+            // }
         }
+
 
         private void TopMenu_MouseEnter(object? sender, EventArgs e)
         {
@@ -74,7 +59,6 @@ namespace QLBanHang
                 menuItem.ShowDropDown();
         }
 
->>>>>>> Stashed changes
         private void tmrTimeFt_Tick(object sender, EventArgs e)
         {
             statusTime.Text = DateTime.Now.ToString("dd/MM/yyyy HH:mm");
@@ -99,23 +83,20 @@ namespace QLBanHang
         {
             var f = new FormSale();
             f.StartPosition = FormStartPosition.CenterScreen;
-<<<<<<< Updated upstream
-            f.Show();
-        }
-=======
             f.FormClosed += (s, args) =>
             {
                 LoadDashboardKpi();
-                LoadWeeklyRevenueBarChart(4);
+                // LoadWeeklyRevenueBarChart(4);
             };
             f.Show();
         }
 
         private void tsmiReport_Click(object sender, EventArgs e)
         {
-            var f = new FormReport();
-            f.StartPosition = FormStartPosition.CenterScreen;
-            f.Show();
+            // var f = new FormReport();
+            // f.StartPosition = FormStartPosition.CenterScreen;
+            // f.Show();
+            MessageBox.Show("Tính năng báo cáo đang được cập nhật!");
         }
 
         private void LoadWeeklyRevenueBarChart(int weeks = 4)
@@ -137,13 +118,13 @@ namespace QLBanHang
             }
 
             option.Series.Add(s1);
-            uiBarChartWeek.SetOption(option);
+            // uiBarChartWeek.SetOption(option);
         }
 
         private void tsmiExit_Click(object sender, EventArgs e)
         {
             Close();
         }
->>>>>>> Stashed changes
     }
 }
+

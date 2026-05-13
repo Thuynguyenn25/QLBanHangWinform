@@ -1,4 +1,4 @@
-﻿namespace QLBanHang
+namespace QLBanHang
 {
     partial class FormCategory
     {
@@ -840,9 +840,6 @@
         private Sunny.UI.UIButton btnAddCate;
         private Sunny.UI.UIPanel uiPanel3;
         private Sunny.UI.UITableLayoutPanel tblCateMain;
-        private Sunny.UI.UIPanel uiPanel17;
-        private Sunny.UI.UIPanel uiPanel19;
-        private Sunny.UI.UILabel uiLabel6;
         private Sunny.UI.UITextBox txtDescription;
         private Sunny.UI.UITextBox txtIDCategory;
         private Sunny.UI.UITextBox txtName;
@@ -877,4 +874,4 @@
         private DataGridViewTextBoxColumn cDescription;
         private Sunny.UI.UIButton btnExport;
     }
-}
+}

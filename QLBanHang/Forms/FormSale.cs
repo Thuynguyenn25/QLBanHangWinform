@@ -1,22 +1,13 @@
-<<<<<<< Updated upstream
-﻿using System;
-=======
 using QLBanHang.BLL;
 using QLBanHang.DTO;
 using QLBanHang.Forms;
 using QLBanHang.Helpers;
 using System;
->>>>>>> Stashed changes
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
-<<<<<<< Updated upstream
-using System.Text;
-using System.Threading.Tasks;
-=======
->>>>>>> Stashed changes
 using System.Windows.Forms;
 
 namespace QLBanHang
@@ -35,17 +26,14 @@ namespace QLBanHang
             InitializeComponent();
         }
 
-<<<<<<< Updated upstream
-        
-=======
         private void FormSale_Load(object sender, EventArgs e)
         {
             LoadCategory();
             LoadProduct(0);
             LoadCustomerAutoComplete();
 
-            dgvCart.Columns[3].DefaultCellStyle.Format = "#,##0";
-            dgvCart.Columns[5].DefaultCellStyle.Format = "#,##0";
+            uiDataGridView2.Columns[3].DefaultCellStyle.Format = "#,##0";
+            uiDataGridView2.Columns[5].DefaultCellStyle.Format = "#,##0";
 
             _loaded = true;
         }
@@ -53,20 +41,20 @@ namespace QLBanHang
         private void LoadCategory()
         {
             DataTable dt = _categoryBLL.GetAllForSaleComboBox();
-            cboCategory.DataSource = dt;
-            cboCategory.DisplayMember = "Name";
-            cboCategory.ValueMember = "CategoryID";
-            cboCategory.SelectedIndex = 0;
+            cmbCategory.DataSource = dt;
+            cmbCategory.DisplayMember = "Name";
+            cmbCategory.ValueMember = "CategoryID";
+            cmbCategory.SelectedIndex = 0;
         }
 
         private void LoadProduct(int categoryId = 0)
         {
             DataTable dt = _productBLL.GetActiveProducts(categoryId);
 
-            cboProduct1.DataSource = dt;
-            cboProduct1.DisplayMember = "Name";
-            cboProduct1.ValueMember = "ProductId";
-            cboProduct1.SelectedIndex = dt.Rows.Count > 0 ? 0 : -1;
+            cmbProduct1.DataSource = dt;
+            cmbProduct1.DisplayMember = "Name";
+            cmbProduct1.ValueMember = "ProductId";
+            cmbProduct1.SelectedIndex = dt.Rows.Count > 0 ? 0 : -1;
 
             if (dt.Rows.Count > 0)
             {
@@ -75,23 +63,23 @@ namespace QLBanHang
             }
             else
             {
-                txtUnitPrice.Text = "";
+                txtPrice.Text = "";
             }
         }
 
-        private void cboCategory_SelectedIndexChanged(object sender, EventArgs e)
+        private void cmbCategory_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (!_loaded) return;
-            if (cboCategory.SelectedValue == null) return;
-            int categoryId = Convert.ToInt32(cboCategory.SelectedValue);
+            if (cmbCategory.SelectedValue == null) return;
+            int categoryId = Convert.ToInt32(cmbCategory.SelectedValue);
             LoadProduct(categoryId);
         }
 
-        private void cboProduct1_SelectedIndexChanged(object sender, EventArgs e)
+        private void cmbProduct1_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (!_loaded) return;
-            if (cboProduct1.SelectedValue == null) return;
-            string productId = cboProduct1.SelectedValue.ToString();
+            if (cmbProduct1.SelectedValue == null) return;
+            string productId = cmbProduct1.SelectedValue.ToString();
             LoadPrice(productId);
         }
 
@@ -100,10 +88,10 @@ namespace QLBanHang
             var info = _productBLL.GetActiveProductInfo(productId);
             if (info == null)
             {
-                txtUnitPrice.Text = "";
+                txtPrice.Text = "";
                 return;
             }
-            txtUnitPrice.Text = info.Price.ToString("#,##0");
+            txtPrice.Text = info.Price.ToString("#,##0");
         }
 
         private bool CheckInput(out int count, out decimal unitPrice)
@@ -111,18 +99,18 @@ namespace QLBanHang
             count = 0;
             unitPrice = 0;
 
-            if (!int.TryParse(txtCount.Text, out count) || count <= 0)
+            if (!int.TryParse(txtInventory.Text, out count) || count <= 0)
             {
                 MessageBox.Show("Số lượng phải là số nguyên dương!");
-                txtCount.Focus();
+                txtInventory.Focus();
                 return false;
             }
 
-            string priceText = txtUnitPrice.Text.Replace(",", "").Trim();
+            string priceText = txtPrice.Text.Replace(",", "").Trim();
             if (!decimal.TryParse(priceText, out unitPrice) || unitPrice < 0)
             {
                 MessageBox.Show("Đơn giá không hợp lệ!");
-                txtUnitPrice.Focus();
+                txtPrice.Focus();
                 return false;
             }
 
@@ -131,17 +119,17 @@ namespace QLBanHang
 
         private void ReloadCartGrid()
         {
-            dgvCart.Rows.Clear();
+            uiDataGridView2.Rows.Clear();
             int stt = 1;
 
             foreach (var item in _cart)
             {
-                dgvCart.Rows.Add(
+                uiDataGridView2.Rows.Add(
                     false, stt++, item.ProductName, item.UnitPrice,
                     item.Quantity, item.LineTotal, item.ProductId);
             }
 
-            lblTotalAmount.Text = "Tổng tiền: " + _cart.Sum(x => x.LineTotal).ToString("#,##0");
+            lblTotal.Text = "Tổng tiền: " + _cart.Sum(x => x.LineTotal).ToString("#,##0");
         }
 
         private bool CartHasItems() => _cart.Count > 0;
@@ -150,14 +138,14 @@ namespace QLBanHang
         {
             try
             {
-                if (cboProduct1.SelectedValue == null)
+                if (cmbProduct1.SelectedValue == null)
                 {
                     MessageBox.Show("Vui lòng chọn sản phẩm!");
                     return;
                 }
 
-                string productId = cboProduct1.SelectedValue.ToString();
-                string productName = cboProduct1.Text;
+                string productId = cmbProduct1.SelectedValue.ToString();
+                string productName = cmbProduct1.Text;
 
                 if (!CheckInput(out int addQty, out decimal unitPrice))
                     return;
@@ -204,13 +192,13 @@ namespace QLBanHang
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            if (dgvCart.Rows.Count == 0) return;
+            if (uiDataGridView2.Rows.Count == 0) return;
 
             bool hasChecked = false;
 
-            for (int i = dgvCart.Rows.Count - 1; i >= 0; i--)
+            for (int i = uiDataGridView2.Rows.Count - 1; i >= 0; i--)
             {
-                var row = dgvCart.Rows[i];
+                var row = uiDataGridView2.Rows[i];
                 if (row.IsNewRow) continue;
 
                 bool isChecked = row.Cells[0].Value != null && Convert.ToBoolean(row.Cells[0].Value);
@@ -239,7 +227,7 @@ namespace QLBanHang
             }
 
             string nameCustomer = txtNameCustomer.Text.Trim();
-            string phone = txtPhone.Text.Trim();
+            string phone = uiTextBox5.Text.Trim(); // Phone is uiTextBox5 in designer
 
             if (string.IsNullOrWhiteSpace(nameCustomer))
             {
@@ -265,7 +253,7 @@ namespace QLBanHang
 
                 _cart.Clear();
                 ReloadCartGrid();
-                txtCount.Text = "";
+                txtInventory.Text = "";
             }
             catch (Exception ex)
             {
@@ -290,10 +278,9 @@ namespace QLBanHang
             var phones = _orderBLL.GetDistinctPhones();
             var srcPhone = new AutoCompleteStringCollection();
             foreach (var p in phones) srcPhone.Add(p);
-            txtPhone.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
-            txtPhone.AutoCompleteSource = AutoCompleteSource.CustomSource;
-            txtPhone.AutoCompleteCustomSource = srcPhone;
+            uiTextBox5.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            uiTextBox5.AutoCompleteSource = AutoCompleteSource.CustomSource;
+            uiTextBox5.AutoCompleteCustomSource = srcPhone;
         }
->>>>>>> Stashed changes
     }
 }

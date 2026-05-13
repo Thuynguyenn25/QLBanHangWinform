@@ -4,16 +4,8 @@ using QLBanHang.Helpers;
 using System;
 using System.Collections.Generic;
 using System.Data;
-<<<<<<< Updated upstream
-using System.Data.SQLite;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-=======
 using System.IO;
 using System.Text;
->>>>>>> Stashed changes
 using System.Windows.Forms;
 
 namespace QLBanHang
@@ -26,10 +18,6 @@ namespace QLBanHang
         {
             InitializeComponent();
             this.Shown += FormCategory_Shown;
-<<<<<<< Updated upstream
-                
-=======
->>>>>>> Stashed changes
         }
 
         private void FormCategory_Shown(object sender, EventArgs e)
@@ -43,10 +31,6 @@ namespace QLBanHang
             btnAddCate.Enabled = !isEditing;
             btnUpdateCate.Enabled = isEditing;
             btnDeleteCate.Enabled = isEditing;
-<<<<<<< Updated upstream
-          
-=======
->>>>>>> Stashed changes
         }
 
         public void Clear()
@@ -83,10 +67,6 @@ namespace QLBanHang
             LoadCategory();
             SetButtonState(false);
         }
-<<<<<<< Updated upstream
-       
-=======
->>>>>>> Stashed changes
 
         private bool ValidateInput()
         {
@@ -146,6 +126,7 @@ namespace QLBanHang
                 txtIDCategory.Text = row.Cells["cIDCategory"].Value.ToString();
                 txtName.Text = row.Cells["cName"].Value.ToString();
                 txtDescription.Text = row.Cells["cDescription"].Value.ToString();
+                SetButtonState(true);
             }
         }
 
@@ -206,21 +187,10 @@ namespace QLBanHang
 
         private void btnDeleteCate_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrEmpty(txtIDCategory.Text)) return;
             int idCategory = int.Parse(txtIDCategory.Text);
 
             DialogResult result = MessageBox.Show(
-<<<<<<< Updated upstream
-             $"Bạn có chắc chắn muốn xóa danh mục số {idCategory} không?",
-            "Xác nhận xóa",
-            MessageBoxButtons.YesNo,
-            MessageBoxIcon.Warning
-            );
-            if (result != DialogResult.Yes) return;
-
-            SQLiteUtils sQL = new SQLiteUtils();
-            string query = $"DELETE FROM Products WHERE ProductID = {idCategory}";
-            sQL.ExecuteQuery(query);
-=======
                 $"Bạn có chắc chắn muốn xóa danh mục số {idCategory} không?",
                 "Xác nhận xóa", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
             if (result != DialogResult.Yes) return;
@@ -231,15 +201,11 @@ namespace QLBanHang
                 MessageBox.Show(message);
                 return;
             }
->>>>>>> Stashed changes
 
             LoadCategory();
+            Clear();
         }
 
-<<<<<<< Updated upstream
-        //--------------
-=======
->>>>>>> Stashed changes
         private void dgvCategory_MouseDown(object sender, MouseEventArgs e)
         {
             var hit = dgvCategory.HitTest(e.X, e.Y);
@@ -296,27 +262,6 @@ namespace QLBanHang
 
             DialogResult result = MessageBox.Show(
                 $"Bạn có chắc chắn muốn xóa {countChecked} danh mục đã chọn không?",
-<<<<<<< Updated upstream
-                "Xác nhận xóa",
-                MessageBoxButtons.YesNo,
-                MessageBoxIcon.Warning
-            );
-
-            if (result != DialogResult.Yes) return;
-
-            SQLiteUtils sql = new SQLiteUtils();
-
-            foreach (DataGridViewRow row in dgvCategory.Rows)
-            {
-                bool isChecked = row.Cells["cChose"].Value != null &&
-                                 Convert.ToBoolean(row.Cells["cChose"].Value);
-                if (isChecked)
-                {
-                    int idCategory = Convert.ToInt32(row.Cells["cIDCategory"].Value);
-                    string query = $"DELETE FROM Categories WHERE CategoryID = {idCategory}";
-                    sql.ExecuteQuery(query);
-                }
-=======
                 "Xác nhận xóa", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
             if (result != DialogResult.Yes) return;
 
@@ -335,14 +280,11 @@ namespace QLBanHang
                 }
 
                 _categoryBLL.Delete(idCategory);
->>>>>>> Stashed changes
             }
 
             LoadCategory();
         }
 
-<<<<<<< Updated upstream
-=======
         private void btnExport_Click(object sender, EventArgs e)
         {
             if (dgvCategory.Rows.Count == 0)
@@ -350,37 +292,45 @@ namespace QLBanHang
                 MessageBox.Show("Không có dữ liệu để xuất!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
->>>>>>> Stashed changes
 
-
-
-
-<<<<<<< Updated upstream
-
-=======
-            string[] columnNames = new string[dgv.Columns.Count];
-            for (int i = 0; i < dgv.Columns.Count; i++)
-                columnNames[i] = dgv.Columns[i].HeaderText;
-            sb.AppendLine(string.Join(",", columnNames));
-
-            foreach (DataGridViewRow row in dgv.Rows)
+            using (SaveFileDialog sfd = new SaveFileDialog())
             {
-                if (!row.IsNewRow)
+                sfd.Filter = "CSV file (*.csv)|*.csv";
+                sfd.FileName = "Categories.csv";
+                if (sfd.ShowDialog() != DialogResult.OK) return;
+
+                try
                 {
-                    string[] cells = new string[dgv.Columns.Count];
-                    for (int i = 0; i < dgv.Columns.Count; i++)
+                    StringBuilder sb = new StringBuilder();
+                    string[] columnNames = new string[dgvCategory.Columns.Count];
+                    for (int i = 0; i < dgvCategory.Columns.Count; i++)
+                        columnNames[i] = dgvCategory.Columns[i].HeaderText;
+                    sb.AppendLine(string.Join(",", columnNames));
+
+                    foreach (DataGridViewRow row in dgvCategory.Rows)
                     {
-                        var value = row.Cells[i].Value;
-                        string cellText = value != null ? value.ToString() : "";
-                        if (cellText.Contains(","))
-                            cellText = "\"" + cellText + "\"";
-                        cells[i] = cellText;
+                        if (!row.IsNewRow)
+                        {
+                            string[] cells = new string[dgvCategory.Columns.Count];
+                            for (int i = 0; i < dgvCategory.Columns.Count; i++)
+                            {
+                                var value = row.Cells[i].Value;
+                                string cellText = value != null ? value.ToString() : "";
+                                if (cellText.Contains(","))
+                                    cellText = "\"" + cellText + "\"";
+                                cells[i] = cellText;
+                            }
+                            sb.AppendLine(string.Join(",", cells));
+                        }
                     }
-                    sb.AppendLine(string.Join(",", cells));
+                    File.WriteAllText(sfd.FileName, sb.ToString(), Encoding.UTF8);
+                    MessageBox.Show("Xuất dữ liệu thành công!");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Xuất dữ liệu thất bại: " + ex.Message);
                 }
             }
-            File.WriteAllText(filePath, sb.ToString(), Encoding.UTF8);
         }
->>>>>>> Stashed changes
     }
 }

@@ -3,16 +3,10 @@ using QLBanHang.DTO;
 using QLBanHang.Helpers;
 using System;
 using System.Collections.Generic;
-<<<<<<< Updated upstream
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-=======
 using System.Data;
 using System.Drawing;
 using System.IO;
->>>>>>> Stashed changes
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -21,15 +15,12 @@ namespace QLBanHang
 {
     public partial class FormProduct : Form
     {
-<<<<<<< Updated upstream
-=======
         private bool _isAddMode = true;
         private bool _suppressCategoryChanged = false;
 
         private readonly ProductBLL _productBLL = new ProductBLL();
         private readonly CategoryBLL _categoryBLL = new CategoryBLL();
 
->>>>>>> Stashed changes
         public FormProduct()
         {
             InitializeComponent();
@@ -50,20 +41,6 @@ namespace QLBanHang
 
             foreach (var p in products)
             {
-<<<<<<< Updated upstream
-                int isActiveValue = Convert.ToInt32(dr["IsActive"]);
-                string isActiveText = isActiveValue == 1 ? "Đang bán" : "Ngừng bán";
-
-                dgvProduct.Rows.Add(
-                    false,
-                    dr["ProductID"],
-                    dr["Name"],
-                    dr["Price"],
-                    dr["Stock"],
-                    isActiveText,
-                    dr["CategoryID"]
-                    );
-=======
                 string isActiveText = p.IsActive == 1 ? "Đang bán" : "Ngừng bán";
                 string priceText = p.Price.ToString("#,##0");
 
@@ -76,49 +53,32 @@ namespace QLBanHang
                     isActiveText,
                     p.CategoryID
                 );
->>>>>>> Stashed changes
             }
             SetButtonState(false);
-<<<<<<< Updated upstream
-=======
-            lblTotalActive.Text = $"Đang bán: {_productBLL.CountActive()}";
+            // lblTotalActive.Text = $"Đang bán: {_productBLL.CountActive()}";
         }
->>>>>>> Stashed changes
 
-        }
+
         public void LoadCategories()
         {
             DataTable dt = _categoryBLL.GetAllForComboBox();
 
-<<<<<<< Updated upstream
-            cboCategory.DataSource = dt;
-            cboCategory.DisplayMember = "Name";
-            cboCategory.ValueMember = "CategoryID";
-            cboCategory.SelectedIndex = -1;
-=======
             _suppressCategoryChanged = true;
             cboCategory.DataSource = dt;
             cboCategory.DisplayMember = "Name";
             cboCategory.ValueMember = "CategoryID";
             cboCategory.SelectedIndex = 0;
             _suppressCategoryChanged = false;
->>>>>>> Stashed changes
         }
 
 
         private void FormProduct_Load(object sender, EventArgs e)
         {
             LoadProduct();
-<<<<<<< Updated upstream
             LoadCategories();
-            SetButtonState(false);
-
-        }
-=======
             EnterAddMode();
         }
 
->>>>>>> Stashed changes
         public bool ValidateInput()
         {
             if (string.IsNullOrWhiteSpace(txtIDProduct.Text))
@@ -129,13 +89,8 @@ namespace QLBanHang
 
             if (!int.TryParse(txtIDProduct.Text.Trim(), out _))
             {
-<<<<<<< Updated upstream
-                MessageBox.Show("Mã hàng phải là số!");
-                return false;
-=======
                 int categoryId = Convert.ToInt32(cboCategory.SelectedValue);
                 txtIDProduct.Text = _productBLL.GenerateProductID(categoryId);
->>>>>>> Stashed changes
             }
 
             if (string.IsNullOrWhiteSpace(txtName.Text))
@@ -164,10 +119,7 @@ namespace QLBanHang
 
             return true;
         }
-<<<<<<< Updated upstream
-=======
 
->>>>>>> Stashed changes
         private void SetButtonState(bool isEditing)
         {
             btnAdd.Enabled = !isEditing;
@@ -175,8 +127,6 @@ namespace QLBanHang
             btnDelete.Enabled = isEditing;
             txtIDProduct.Enabled = !isEditing;
         }
-<<<<<<< Updated upstream
-=======
 
         private void EnterAddMode()
         {
@@ -195,55 +145,32 @@ namespace QLBanHang
             SetButtonState(true);
         }
 
->>>>>>> Stashed changes
         public void Clear()
         {
             txtIDProduct.Clear();
             txtName.Clear();
             txtPrice.Clear();
             txtStock.Clear();
-            chkIsActive.Checked = !chkIsActive.Checked;
+            chkIsActive.Checked = true;
             SetButtonState(false);
 
             dgvProduct.ClearSelection();
             dgvProduct.CurrentCell = null;
         }
-<<<<<<< Updated upstream
-=======
 
->>>>>>> Stashed changes
         private void btnClear_Click(object sender, EventArgs e)
         {
             Clear();
+            EnterAddMode();
         }
         private void btnAdd_Click(object sender, EventArgs e)
         {
             try
             {
-<<<<<<< Updated upstream
-=======
                 _isAddMode = true;
->>>>>>> Stashed changes
                 if (!ValidateInput()) return;
 
-                int productID = int.Parse(txtIDProduct.Text.Trim());
-                string name = txtName.Text.Trim();
-                decimal price = decimal.Parse(txtPrice.Text.Trim());
-                int stock = int.Parse(txtStock.Text.Trim());
-
                 int categoryID = Convert.ToInt32(cboCategory.SelectedValue);
-<<<<<<< Updated upstream
-
-                int isActive = chkIsActive.Checked ? 1 : 0;
-
-                string query = $"INSERT INTO Products(ProductID, Name, CategoryID, Price, Stock, IsActive) " +
-                    $"VALUES('{productID}', '{name}', '{categoryID}', '{price}', '{stock}', '{isActive}')";
-                SQLiteUtils sQL = new SQLiteUtils();
-
-                sQL.ExecuteQuery(query);
-                MessageBox.Show("Đã thêm sản phẩm thành công");
-
-=======
                 string productID = _productBLL.GenerateProductID(categoryID);
                 txtIDProduct.Text = productID;
 
@@ -265,7 +192,6 @@ namespace QLBanHang
                     txtIDProduct.Text = _productBLL.GenerateProductID(categoryID);
                     return;
                 }
->>>>>>> Stashed changes
             }
             catch (Exception ex)
             {
@@ -274,6 +200,7 @@ namespace QLBanHang
             }
             LoadProduct();
             Clear();
+            EnterAddMode();
         }
 
 
@@ -281,12 +208,8 @@ namespace QLBanHang
         {
             if (e.RowIndex >= 0)
             {
-
-<<<<<<< Updated upstream
+                EnterEditMode();
                 DataGridViewRow row = dgvProduct.Rows[e.RowIndex];
-=======
-            EnterEditMode();
->>>>>>> Stashed changes
 
                 txtIDProduct.Text = row.Cells["cIDProduct"].Value?.ToString() ?? "";
                 txtName.Text = row.Cells["cName"].Value?.ToString() ?? "";
@@ -300,33 +223,12 @@ namespace QLBanHang
 
                 int isActive = (row.Cells["cIsActive"].Value?.ToString() == "Đang bán") ? 1 : 0;
                 chkIsActive.Checked = (isActive == 1);
-
-                SetButtonState(true);
-
             }
-
         }
         private void btnEdit_Click(object sender, EventArgs e)
         {
             try
             {
-<<<<<<< Updated upstream
-                if (!ValidateInput()) return;
-
-                int productID = int.Parse(txtIDProduct.Text);
-
-                string name = txtName.Text;
-                decimal price = decimal.Parse(txtPrice.Text);
-                int stock = int.Parse(txtStock.Text);
-                int categoryID = Convert.ToInt32(cboCategory.SelectedValue);
-                int isActive = chkIsActive.Checked ? 1 : 0;
-
-                string query = $"UPDATE Products SET Name='{name}', CategoryID ='{categoryID}', Price = '{price}',Stock ='{stock}', IsActive = '{isActive}' WHERE ProductID ='{productID}' ";
-                SQLiteUtils sQL = new SQLiteUtils();
-                sQL.ExecuteQuery(query);
-
-                MessageBox.Show("Đã sửa thành công");
-=======
                 _isAddMode = false;
                 if (!ValidateInput()) return;
 
@@ -344,7 +246,7 @@ namespace QLBanHang
                 MessageBox.Show(message);
                 LoadProduct();
                 Clear();
->>>>>>> Stashed changes
+                EnterAddMode();
             }
             catch (Exception ex)
             {
@@ -353,35 +255,14 @@ namespace QLBanHang
             }
             LoadProduct();
             Clear();
+            EnterAddMode();
         }
 
-<<<<<<< Updated upstream
-        //----------------
-=======
->>>>>>> Stashed changes
         public void SearchProduct()
         {
             string keyword = txtSearch.Text.Trim();
             dgvProduct.Rows.Clear();
 
-<<<<<<< Updated upstream
-            string query = $@"SELECT * FROM Products
-                                WHERE name LIKE '{kw}'";
-            SQLiteUtils sQL = new SQLiteUtils();
-            DataTable dt = sQL.ExecuteQuery(query);
-            foreach (DataRow dr in dt.Rows)
-            {
-                dgvProduct.Rows.Add(
-                    false,
-                    dr["ProductID"],
-                    dr["Name"],
-                    dr["Price"],
-                    dr["Stock"],
-                    dr["IsActive"],
-                    dr["CategoryID"]
-                    );
-
-=======
             var products = _productBLL.Search(keyword);
 
             foreach (var p in products)
@@ -395,7 +276,6 @@ namespace QLBanHang
                     p.IsActive,
                     p.CategoryID
                 );
->>>>>>> Stashed changes
             }
 
         }
@@ -462,10 +342,7 @@ namespace QLBanHang
             foreach (DataGridViewRow row in dgvProduct.Rows)
             {
                 row.Cells[0].Value = false;
-<<<<<<< Updated upstream
             }
-=======
->>>>>>> Stashed changes
         }
 
         private void tsmiDeleteItem_Click(object sender, EventArgs e)
@@ -473,11 +350,6 @@ namespace QLBanHang
             var checkedIds = new List<string>();
             foreach (DataGridViewRow row in dgvProduct.Rows)
             {
-<<<<<<< Updated upstream
-                bool isCheck = row.Cells[0].Value != null &&
-                    Convert.ToBoolean(row.Cells[0].Value);
-                if (isCheck) countChecked++;
-=======
                 bool isCheck = row.Cells[0].Value != null && Convert.ToBoolean(row.Cells[0].Value);
                 if (isCheck)
                 {
@@ -485,7 +357,6 @@ namespace QLBanHang
                     if (!string.IsNullOrWhiteSpace(id))
                         checkedIds.Add(id);
                 }
->>>>>>> Stashed changes
             }
 
             if (checkedIds.Count == 0)
@@ -494,34 +365,12 @@ namespace QLBanHang
                 return;
             }
             DialogResult result = MessageBox.Show(
-<<<<<<< Updated upstream
-                 $"Bạn có chắc chắn muốn xóa {countChecked} sản phẩm đã chọn không?",
-                "Xác nhận xóa",
-                MessageBoxButtons.YesNo,
-                MessageBoxIcon.Warning
-                );
-            if (result != DialogResult.Yes) return;
-            SQLiteUtils sQL = new SQLiteUtils();
-
-            foreach (DataGridViewRow row in dgvProduct.Rows)
-            {
-                bool isChecked = row.Cells[0].Value != null &&
-                                Convert.ToBoolean(row.Cells[0].Value);
-                if (isChecked)
-                {
-                    int idProduct = Convert.ToInt32(row.Cells["cIDProduct"].Value);
-                    string query = $"DELETE FROM Products WHERE ProductID = {idProduct}";
-                    sQL.ExecuteQuery(query);
-                }
-            }
-=======
                 $"Bạn có chắc chắn muốn xóa {checkedIds.Count} sản phẩm đã chọn không?",
                 "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
             if (result != DialogResult.Yes) return;
 
             var (deleted, disabled) = _productBLL.DeleteMultiple(checkedIds);
             MessageBox.Show($"Xong!\nĐã xóa: {deleted}\nĐã chuyển Ngừng bán: {disabled}");
->>>>>>> Stashed changes
             LoadProduct();
 
         }
@@ -530,35 +379,19 @@ namespace QLBanHang
         {
             if (btnDelete.Enabled)
             {
-                int idProduct = int.Parse(txtIDProduct.Text);
+                string idProduct = txtIDProduct.Text;
 
-<<<<<<< Updated upstream
                 DialogResult result = MessageBox.Show(
-                 $"Bạn có chắc chắn muốn xóa sản phẩm số {idProduct} không?",
-                "Xác nhận xóa",
-                MessageBoxButtons.YesNo,
-                MessageBoxIcon.Warning
-                );
+                    $"Bạn có chắc chắn muốn xóa sản phẩm số {idProduct} không?",
+                    "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                 if (result != DialogResult.Yes) return;
 
-                SQLiteUtils sQL = new SQLiteUtils();
-                string query = $"DELETE FROM Products WHERE ProductID = {idProduct}";
-                sQL.ExecuteQuery(query);
-
+                var (success, message) = _productBLL.Delete(idProduct);
+                MessageBox.Show(message);
                 LoadProduct();
+                Clear();
+                EnterAddMode();
             }
-
-=======
-            DialogResult result = MessageBox.Show(
-                $"Bạn có chắc chắn muốn xóa sản phẩm số {idProduct} không?",
-                "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-            if (result != DialogResult.Yes) return;
-
-            var (success, message) = _productBLL.Delete(idProduct);
-            MessageBox.Show(message);
-            LoadProduct();
-            Clear();
->>>>>>> Stashed changes
         }
         //----------------------
 
@@ -584,12 +417,6 @@ namespace QLBanHang
         }
         //--------------------
 
-
-
-<<<<<<< Updated upstream
-      
-
-=======
         private void btnImport_Click(object sender, EventArgs e)
         {
             using (OpenFileDialog ofd = new OpenFileDialog())
@@ -672,6 +499,5 @@ namespace QLBanHang
             int categoryId = Convert.ToInt32(drv["CategoryID"]);
             txtIDProduct.Text = _productBLL.GenerateProductID(categoryId);
         }
->>>>>>> Stashed changes
     }
 }

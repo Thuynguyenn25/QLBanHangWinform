@@ -1,4 +1,4 @@
-﻿namespace QLBanHang
+namespace QLBanHang
 {
     partial class FormProduct
     {
@@ -28,7 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             uiSplitContainer1 = new Sunny.UI.UISplitContainer();
+
             uiTableLayoutPanel2 = new Sunny.UI.UITableLayoutPanel();
             uiPanel1 = new Sunny.UI.UIPanel();
             uiTableLayoutPanel4 = new Sunny.UI.UITableLayoutPanel();
@@ -757,9 +763,6 @@
         }
 
         #endregion
-        private Sunny.UI.UIButton btnAddCate;
-        private Sunny.UI.UITextBox txtSearchCate;
-        private Sunny.UI.UIButton btnSearchCate;
         private Sunny.UI.UISplitContainer uiSplitContainer1;
         private Sunny.UI.UITableLayoutPanel uiTableLayoutPanel2;
         private Sunny.UI.UITextBox txtIDProduct;
@@ -780,9 +783,6 @@
         private Sunny.UI.UIButton btnDelete;
         private Sunny.UI.UIButton btnEdit;
         private Sunny.UI.UIButton btnAdd;
-        private Sunny.UI.UITextBox uiTextBox3;
-        private Sunny.UI.UILabel uiLabel4;
-        private Sunny.UI.UILabel uiLabel5;
         private Sunny.UI.UITableLayoutPanel uiTableLayoutPanel1;
         private Sunny.UI.UIPanel uiPanel4;
         private Sunny.UI.UIPanel uiPanel3;
@@ -808,4 +808,4 @@
         private Sunny.UI.UIPanel uiPanel5;
         private Sunny.UI.UILabel uiLabel1;
     }
-}
+}
